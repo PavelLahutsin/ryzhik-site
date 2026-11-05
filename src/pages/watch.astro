@@ -28,23 +28,18 @@ const cards = videos.map((video) => ({
 
   <section class="section section-tight">
     <div class="container">
-      <div class="chips" role="navigation" aria-label="Фильтр роликов">
-        <a class="chip" href="/watch" data-filter-group="all">Все</a>
-        <a class="chip" href="/watch?group=family" data-filter-group="family">Семья</a>
-        <a class="chip" href="/watch?group=friends" data-filter-group="friends">Друзья</a>
-      </div>
-
-      <div class="chips" role="navigation" aria-label="Плейлисты VK">
+      <div class="playlist-filters" role="navigation" aria-label="Плейлисты">
         {
           playlists.map((item) => (
-            <span class="chip-pair">
+            <div class="playlist-filter">
               <a class="chip" href={`/watch?playlist=${item.id}`} data-filter-playlist={item.id}>
                 {item.title}
               </a>
-              <a class="chip chip-ext" href={item.url} target="_blank" rel="noopener noreferrer">
-                VK
-              </a>
-            </span>
+              <span class="playlist-filter-links">
+                <a href={item.vkUrl} target="_blank" rel="noopener noreferrer">Плейлист в VK</a>
+                <a href={item.youtubeUrl} target="_blank" rel="noopener noreferrer">Плейлист на YouTube</a>
+              </span>
+            </div>
           ))
         }
       </div>
@@ -78,7 +73,6 @@ const cards = videos.map((video) => ({
               durationSeconds={video.durationSeconds}
               uploadDate={video.uploadDate}
               href={video.watchUrl}
-              groups={video.groups}
               playlists={video.playlists}
               occasions={tags}
               vk={video.vk}
@@ -147,16 +141,13 @@ const cards = videos.map((video) => ({
 
       function applyFilters() {
         var query = params();
-        var group = query.get("group") || "";
         var playlist = query.get("playlist") || "";
         var occasion = query.get("occasion") || "";
         var shown = 0;
         document.querySelectorAll("[data-video-id]").forEach(function (card) {
-          var groups = (card.getAttribute("data-groups") || "").split(",").filter(Boolean);
           var lists = (card.getAttribute("data-playlists") || "").split(",").filter(Boolean);
           var occasions = (card.getAttribute("data-occasions") || "").split(",").filter(Boolean);
           var ok =
-            (!group || groups.indexOf(group) !== -1) &&
             (!playlist || lists.indexOf(playlist) !== -1) &&
             (!occasion || occasions.indexOf(occasion) !== -1);
           card.hidden = !ok;
@@ -169,12 +160,6 @@ const cards = videos.map((video) => ({
         });
         document.querySelectorAll("[data-playlist-banner]").forEach(function (banner) {
           banner.hidden = banner.getAttribute("data-playlist-banner") !== playlist;
-        });
-        document.querySelectorAll("[data-filter-group]").forEach(function (chip) {
-          var value = chip.getAttribute("data-filter-group");
-          var active = value === "all" ? !group && !playlist && !occasion : value === group && !playlist && !occasion;
-          if (active) chip.setAttribute("aria-current", "true");
-          else chip.removeAttribute("aria-current");
         });
         document.querySelectorAll("[data-filter-playlist]").forEach(function (chip) {
           if (chip.getAttribute("data-filter-playlist") === playlist) chip.setAttribute("aria-current", "true");

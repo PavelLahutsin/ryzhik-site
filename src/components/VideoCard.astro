@@ -9,7 +9,6 @@ interface Props {
   durationSeconds: number | null;
   uploadDate: string | null;
   href: string;
-  groups?: string[];
   playlists?: string[];
   occasions?: string[];
   external?: boolean;
@@ -24,7 +23,6 @@ const {
   durationSeconds,
   uploadDate,
   href,
-  groups = [],
   playlists = [],
   occasions = [],
   external = false,
@@ -41,7 +39,6 @@ const date = formatDate(uploadDate);
   href={href}
   data-video-id={id}
   data-video-title={title}
-  data-groups={groups.join(",")}
   data-playlists={playlists.join(",")}
   data-occasions={occasions.join(",")}
   data-vk-oid={vk ? String(vk.oid) : undefined}

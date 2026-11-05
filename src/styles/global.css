@@ -1509,6 +1509,41 @@
   color: var(--color-emerald-deep);
 }
 
+.playlist-filters {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.playlist-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.playlist-filter .chip {
+  white-space: normal;
+}
+
+.playlist-filter-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.playlist-filter-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 800;
+  color: var(--color-orange-deep);
+}
+
+.playlist-filter-links a:hover {
+  color: var(--color-orange);
+}
+
 .chip-pair {
   display: inline-flex;
   align-items: stretch;

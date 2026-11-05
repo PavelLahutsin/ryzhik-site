@@ -1,0 +1,23 @@
+{
+  "vkOwnerId": -235612264,
+  "playlists": [
+    {
+      "id": "1",
+      "title": "Все песенки с Рыжиком",
+      "vkUrl": "https://vkvideo.ru/playlist/-235612264_1",
+      "youtubeUrl": "https://www.youtube.com/playlist?list=PLwhPqTuE9SCT5ExtEalyneZFme9gBrpei"
+    },
+    {
+      "id": "2",
+      "title": "Колыбельные для малышей",
+      "vkUrl": "https://vkvideo.ru/playlist/-235612264_2",
+      "youtubeUrl": "https://www.youtube.com/playlist?list=PLwhPqTuE9SCSppQE3qQE6yTvEFfe55NAu"
+    },
+    {
+      "id": "3",
+      "title": "Сонные истории",
+      "vkUrl": "https://vkvideo.ru/playlist/-235612264_3",
+      "youtubeUrl": "https://www.youtube.com/playlist?list=PLwhPqTuE9SCQ4_FjDqC7u28rdJFkxG7oW"
+    }
+  ]
+}
