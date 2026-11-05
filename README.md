@@ -15,6 +15,8 @@ npm run dev
 
 Сайт откроется на `http://localhost:4321`.
 
+Начиная с npm 11.19 установочные скрипты зависимостей не запускаются, пока пакет не указан в поле `allowScripts` файла `package.json`. Для `esbuild` и `sharp` разрешение уже записано там, с теми версиями, что стоят в lock-файле (`esbuild@0.27.7`, `esbuild@0.25.12`, `sharp@0.34.5`). После `git pull` достаточно `npm install`: он не меняет `package.json`. Команду `npm install-scripts approve` запускать не нужно — именно она дописывает `allowScripts` и мешает следующему `git pull`. Если эта команда уже поправила файл локально, верните его из репозитория (`git checkout -- package.json`) и снова сделайте `git pull`.
+
 ### Эта ветка на Windows
 
 Если репозиторий уже склонирован и `npm run dev` запускается:
@@ -26,6 +28,8 @@ git pull
 npm install
 npm run dev
 ```
+
+`npm install` не должен менять `package.json`: разрешения для скриптов `esbuild` и `sharp` уже лежат в `allowScripts`. Не запускайте `npm install-scripts approve`.
 
 Откройте `http://localhost:4321`. Если Git пишет, что есть локальные правки, их можно отложить командой `git stash` и после просмотра вернуть `git stash pop`.
 
