@@ -4,14 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 import { loadEnv } from "vite";
 
 const env = loadEnv(process.env.NODE_ENV ?? "", process.cwd(), "");
-const site = process.env.SITE || env.SITE || "https://pavellahutsin.github.io";
+const site = process.env.SITE || env.SITE || "https://ryzhik-site.pages.dev";
 
-// Published on GitHub Pages: https://pavellahutsin.github.io/ryzhik-site/
+// Temporary test host: Cloudflare Pages project "ryzhik-site".
+// The site is served from the domain root, so base stays "/".
 // Russian pages live at the site root (prefixDefaultLocale: false).
 // English is reserved: add src/pages/en/ later. There is no EN content in this version.
 export default defineConfig({
   site,
-  base: "/ryzhik-site",
+  base: "/",
   output: "static",
   i18n: {
     defaultLocale: "ru",
