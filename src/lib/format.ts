@@ -35,6 +35,7 @@ export function formatDate(iso: string | null): string | null {
 }
 
 export function isCurrentPath(href: string, pathname: string): boolean {
+  if (href.includes("#")) return false;
   const path = href.split("#")[0] ?? "";
   if (path === "" || path === "/") return false;
   const normalize = (value: string) => value.replace(/\/$/, "") || "/";

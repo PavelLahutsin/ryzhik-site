@@ -3,6 +3,7 @@ import { getCollection, getEntry } from "astro:content";
 import Icon from "../components/Icon.astro";
 import VideoCard from "../components/VideoCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/base";
 import { occasionIds, platform, playlists, videos } from "../lib/catalog";
 
 const page = await getEntry("pages", "watch");
@@ -32,7 +33,7 @@ const cards = videos.map((video) => ({
         {
           playlists.map((item) => (
             <div class="playlist-filter">
-              <a class="chip" href={`/watch?playlist=${item.id}`} data-filter-playlist={item.id}>
+              <a class="chip" href={withBase(`/watch?playlist=${item.id}`)} data-filter-playlist={item.id}>
                 {item.title}
               </a>
               <span class="playlist-filter-links">
@@ -56,7 +57,7 @@ const cards = videos.map((video) => ({
         occasions.map((item) => (
           <p class="filter-banner" data-occasion-banner={item.id} hidden>
             Подборка «{item.data.title}»: ролики, в названии которых есть слова этой темы.{" "}
-            <a href="/watch">Показать все</a>
+            <a href={withBase("/watch")}>Показать все</a>
           </p>
         ))
       }

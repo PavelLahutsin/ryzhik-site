@@ -40,12 +40,11 @@ npm run build
 npm run preview
 ```
 
-Перед публичным выкладом задайте адрес сайта, иначе канонические ссылки и карта сайта укажут на заглушку `https://lisenok-ryzhik.example`:
+Сайт публикуется на GitHub Pages: `https://pavellahutsin.github.io/ryzhik-site/`. Адрес и префикс заданы в `astro.config.mjs` (`site` и `base`). Внутренние ссылки собираются через `import.meta.env.BASE_URL`.
 
-```bash
-# можно положить в файл .env (образец — .env.example)
-SITE=https://example.com npm run build
-```
+Выкладка описана в `.github/workflows/deploy.yml` и запускается при push в `main` или вручную. В настройках репозитория: Settings → Pages → Build and deployment → Source: GitHub Actions.
+
+Свой домен можно подставить переменной `SITE` при сборке. Префикс `/ryzhik-site` при этом остаётся, пока его не убрать из `base`.
 
 ## Где что править
 

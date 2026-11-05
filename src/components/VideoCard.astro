@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/base";
 import Icon from "./Icon.astro";
 import { formatDate, formatDuration } from "../lib/format";
 
@@ -32,11 +33,13 @@ const {
 
 const duration = formatDuration(durationSeconds);
 const date = formatDate(uploadDate);
+const cardHref = external ? href : withBase(href);
+const thumbSrc = withBase(thumbnail);
 ---
 
 <a
   class="episode"
-  href={href}
+  href={cardHref}
   data-video-id={id}
   data-video-title={title}
   data-playlists={playlists.join(",")}
@@ -50,7 +53,7 @@ const date = formatDate(uploadDate);
 >
   <span class="ep-thumb">
     <img
-      src={thumbnail}
+      src={thumbSrc}
       alt=""
       width="480"
       height="360"
