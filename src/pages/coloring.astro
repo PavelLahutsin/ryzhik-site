@@ -1,0 +1,33 @@
+---
+import { getEntry, render } from "astro:content";
+import Icon from "../components/Icon.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "coloring");
+if (!page?.data.pdfHref || !page.data.pdfLabel) throw new Error("Нет текста раскраски");
+const { Content } = await render(page);
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+  <section class="section">
+    <div class="container">
+      <div class="coloring-wrap">
+        <div class="coloring-copy">
+          <p class="eyebrow">{page.data.eyebrow}</p>
+          <h1>{page.data.heading}</h1>
+          {page.data.lede && <p>{page.data.lede}</p>}
+          <div class="coloring-actions">
+            <a class="btn btn-orange" href={page.data.pdfHref} download>
+              <Icon name="download" />
+              Скачать «{page.data.pdfLabel}»
+            </a>
+          </div>
+          {page.data.pdfSize && <p class="prose-note" style="margin-top:14px">Размер файла: {page.data.pdfSize}</p>}
+          <div class="prose">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

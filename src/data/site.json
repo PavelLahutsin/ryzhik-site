@@ -1,0 +1,15 @@
+{
+  "name": "Лисёнок Рыжик",
+  "tagline": "мультики и песенки",
+  "footerAbout": "3D-мультики и песенки с лисёнком Рыжиком.",
+  "copyright": "© 2026 Лисёнок Рыжик",
+  "footerSign": "Сделано с любовью к малышам",
+  "youtubeChannelId": "UCpj352hhYxdxK02JheWYkRg",
+  "nav": [
+    { "href": "/watch", "label": "Смотреть" },
+    { "href": "/characters", "label": "Персонажи" },
+    { "href": "/parents", "label": "Родителям" },
+    { "href": "/coloring", "label": "Раскраски" },
+    { "href": "/#where", "label": "Где смотреть" }
+  ]
+}

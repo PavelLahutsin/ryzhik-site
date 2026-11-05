@@ -1,0 +1,32 @@
+---
+import { Picture } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"characters">;
+  Content: any;
+  heading?: "h2" | "h3";
+}
+
+const { entry, Content, heading = "h3" } = Astro.props;
+const Tag = heading;
+---
+
+<article class:list={["persona", { "is-lead": entry.id === "ryzhik" }]} id={entry.id}>
+  <div class="persona-figure">
+    <Picture
+      src={entry.data.image}
+      alt={entry.data.imageAlt}
+      widths={[240, 480]}
+      sizes="(min-width: 960px) 220px, 42vw"
+      formats={["avif", "webp"]}
+      fallbackFormat="webp"
+      loading="lazy"
+    />
+  </div>
+  <Tag>{entry.data.name}</Tag>
+  <span class="persona-role">{entry.data.role}</span>
+  <div class="persona-text">
+    <Content />
+  </div>
+</article>

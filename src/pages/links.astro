@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import ryzhik from "../assets/characters/ryzhik.webp";
+import Icon from "../components/Icon.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { platforms, site } from "../lib/catalog";
+
+const page = await getEntry("pages", "links");
+if (!page) throw new Error("Нет текста страницы ссылок");
+
+const items = platforms.filter((item) => item.linksPage);
+const iconClass: Record<string, string> = {
+  youtube: "p-yt",
+  vk: "p-vk",
+  rutube: "p-ru",
+  instagram: "p-ig",
+  tiktok: "p-tt",
+  music: "p-music",
+};
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+  <section class="section section-tight">
+    <div class="container">
+      <div class="links-page">
+        <div class="links-hero">
+          <span class="brand-mark">
+            <Image src={ryzhik} alt="" width={160} format="webp" />
+          </span>
+          <p class="eyebrow">{page.data.eyebrow}</p>
+          <h1>{page.data.heading}</h1>
+          <p class="lede">{page.data.lede ?? site.tagline}</p>
+        </div>
+
+        {
+          items.map((item, index) =>
+            item.placeholder ? (
+              <div class="link-placeholder">
+                <span class:list={["p-logo", iconClass[item.icon] ?? "p-music"]}>
+                  <Icon name={item.icon} />
+                </span>
+                <span>
+                  {item.label}
+                  <span class="p-sub">[плейсхолдер] ссылка появится позже</span>
+                </span>
+              </div>
+            ) : (
+              <a
+                class:list={["link-btn", { primary: index === 0, secondary: index === 1 }]}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class:list={["p-logo", iconClass[item.icon] ?? "p-yt"]}>
+                  <Icon name={item.icon} />
+                </span>
+                <span>
+                  {item.label}
+                  {item.handle && <span class="p-sub">{item.handle}</span>}
+                </span>
+                <span class="p-arrow">
+                  <Icon name="arrow" />
+                </span>
+              </a>
+            ),
+          )
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

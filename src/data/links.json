@@ -1,0 +1,88 @@
+{
+  "platforms": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "handle": "@RyzhikTV",
+      "href": "https://www.youtube.com/@RyzhikTV",
+      "icon": "youtube",
+      "where": true,
+      "footer": true,
+      "linksPage": true,
+      "placeholder": false,
+      "todo": ""
+    },
+    {
+      "id": "vk-video",
+      "label": "VK Видео",
+      "handle": "@lisenok_ryzhik",
+      "href": "https://vkvideo.ru/@lisenok_ryzhik",
+      "icon": "vk",
+      "where": true,
+      "footer": true,
+      "linksPage": true,
+      "placeholder": false,
+      "todo": ""
+    },
+    {
+      "id": "vk",
+      "label": "ВКонтакте",
+      "handle": "vk.ru/lisenok_ryzhik",
+      "href": "https://vk.ru/lisenok_ryzhik",
+      "icon": "vk",
+      "where": false,
+      "footer": false,
+      "linksPage": true,
+      "placeholder": false,
+      "todo": ""
+    },
+    {
+      "id": "rutube",
+      "label": "Rutube",
+      "handle": "канал 76899272",
+      "href": "https://rutube.ru/channel/76899272",
+      "icon": "rutube",
+      "where": true,
+      "footer": true,
+      "linksPage": true,
+      "placeholder": false,
+      "todo": ""
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "handle": "@ryzhiktv",
+      "href": "https://instagram.com/ryzhiktv/",
+      "icon": "instagram",
+      "where": false,
+      "footer": true,
+      "linksPage": true,
+      "placeholder": false,
+      "todo": ""
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "handle": "@ryzhik_tv",
+      "href": "https://www.tiktok.com/@ryzhik_tv",
+      "icon": "tiktok",
+      "where": false,
+      "footer": true,
+      "linksPage": true,
+      "placeholder": false,
+      "todo": ""
+    },
+    {
+      "id": "music",
+      "label": "Музыка",
+      "handle": "",
+      "href": "",
+      "icon": "music",
+      "where": false,
+      "footer": false,
+      "linksPage": true,
+      "placeholder": true,
+      "todo": "TODO: вставить настоящую ссылку на музыку (Яндекс Музыка, VK Музыка или другая площадка) и поставить placeholder в false."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "channelId": "UCpj352hhYxdxK02JheWYkRg",
+  "note": "Плейлисты вкладки канала из tab_playlists.json. Состав роликов не выдумывается: если в выгрузке нет списка id, на сайте плейлист ведёт на YouTube.",
+  "playlists": [
+    {
+      "id": "PLGsri0pN_ApQ",
+      "title": "Зарядка и танцы для малышей 🤸 Весёлые двигалки | Лисёнок Рыжик",
+      "shortTitle": "Зарядка и танцы",
+      "url": "https://www.youtube.com/playlist?list=PLGsri0pN_ApQ"
+    },
+    {
+      "id": "PLHZy2KO99hKo",
+      "title": "Потешки и сказки для малышей 🐻 Ладушки, Мишка косолапый, Колобок | Лисёнок Рыжик",
+      "shortTitle": "Потешки и сказки",
+      "url": "https://www.youtube.com/playlist?list=PLHZy2KO99hKo"
+    },
+    {
+      "id": "PLT7JYqNOFJpU",
+      "title": "Полезные привычки для малышей 🧼 Горшок, купание и режим дня | Лисёнок Рыжик",
+      "shortTitle": "Полезные привычки",
+      "url": "https://www.youtube.com/playlist?list=PLT7JYqNOFJpU"
+    },
+    {
+      "id": "PLeaW3diQ5mk8",
+      "title": "Развивающие песенки для малышей 🎨 Учим цвета, цифры и животных | Лисёнок Рыжик",
+      "shortTitle": "Развивающие песенки",
+      "url": "https://www.youtube.com/playlist?list=PLeaW3diQ5mk8"
+    },
+    {
+      "id": "PLase72z0V_-8",
+      "title": "Сборники песенок и мультиков для малышей 🦊 Лисёнок Рыжик",
+      "shortTitle": "Сборники песенок и мультиков",
+      "url": "https://www.youtube.com/playlist?list=PLase72z0V_-8"
+    },
+    {
+      "id": "PLwhPqTuE9SCQ4_FjDqC7u28rdJFkxG7oW",
+      "title": "🌙 Сонные истории — Сказки на ночь с Рыжиком",
+      "shortTitle": "Сонные истории",
+      "url": "https://www.youtube.com/playlist?list=PLwhPqTuE9SCQ4_FjDqC7u28rdJFkxG7oW"
+    },
+    {
+      "id": "PLwhPqTuE9SCSppQE3qQE6yTvEFfe55NAu",
+      "title": "🌙 Колыбельные",
+      "shortTitle": "Колыбельные",
+      "url": "https://www.youtube.com/playlist?list=PLwhPqTuE9SCSppQE3qQE6yTvEFfe55NAu"
+    },
+    {
+      "id": "PLwhPqTuE9SCT5ExtEalyneZFme9gBrpei",
+      "title": "🎵 Все песенки | Лисёнок Рыжик",
+      "shortTitle": "Все песенки",
+      "url": "https://www.youtube.com/playlist?list=PLwhPqTuE9SCT5ExtEalyneZFme9gBrpei"
+    }
+  ]
+}

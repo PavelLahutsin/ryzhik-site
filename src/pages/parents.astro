@@ -1,0 +1,64 @@
+---
+import { getEntry, render } from "astro:content";
+import Icon from "../components/Icon.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "parents");
+if (!page?.data.themes) throw new Error("Нет текста страницы для родителей");
+const { Content } = await render(page);
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{page.data.eyebrow}</p>
+      <h1>{page.data.heading}</h1>
+      {page.data.lede && <p class="lede">{page.data.lede}</p>}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="parents-grid">
+        <div>
+          <div class="teach-grid">
+            {
+              page.data.themes.map((theme) => (
+                <article class="teach">
+                  <span class="tick">
+                    <Icon name="check" />
+                  </span>
+                  <div>
+                    <h2>{theme.title}</h2>
+                    <p>{theme.text}</p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+          <div class="prose">
+            <Content />
+          </div>
+        </div>
+        <aside class="aside-card">
+          <span class="safe-ico"><Icon name="shield" /></span>
+          <h2>{page.data.asideTitle}</h2>
+          <p>{page.data.asideLede}</p>
+          <ul>
+            {
+              page.data.asidePoints?.map((point) => (
+                <li>
+                  <Icon name="star" />
+                  <span>
+                    <b>{point.title}</b>
+                    {point.text}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

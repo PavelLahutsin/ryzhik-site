@@ -1,0 +1,40 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import PersonaCard from "../components/PersonaCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "characters");
+if (!page) throw new Error("Нет текста страницы персонажей");
+
+const entries = (await getCollection("characters")).sort((a, b) => a.data.order - b.data.order);
+const cards = await Promise.all(entries.map(async (entry) => ({ entry, ...(await render(entry)) })));
+const family = cards.filter((item) => item.entry.data.group === "family");
+const friends = cards.filter((item) => item.entry.data.group === "friends");
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{page.data.eyebrow}</p>
+      <h1>{page.data.heading}</h1>
+      {page.data.lede && <p class="lede">{page.data.lede}</p>}
+    </div>
+  </section>
+
+  <section class="section heroes-band">
+    <div class="container">
+      <div class="hero-group">
+        <h2>Рыжик и семья</h2>
+        <div class="personas">
+          {family.map((item) => <PersonaCard entry={item.entry} Content={item.Content} heading="h3" />)}
+        </div>
+      </div>
+      <div class="hero-group">
+        <h2>Рыжик и друзья</h2>
+        <div class="personas">
+          {friends.map((item) => <PersonaCard entry={item.entry} Content={item.Content} heading="h3" />)}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
