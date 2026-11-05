@@ -54,6 +54,38 @@ const pages = defineCollection({
         whereEyebrow: z.string(),
         whereTitle: z.string(),
         whereLede: z.string(),
+        playlistsEyebrow: z.string(),
+        playlistsTitle: z.string(),
+        playlistsLede: z.string(),
+        musicEyebrow: z.string(),
+        musicTitle: z.string(),
+        musicLede: z.string(),
+        storyEyebrow: z.string(),
+        storyTitle: z.string(),
+      })
+      .optional(),
+    story: z.string().optional(),
+    playlistTeasers: z
+      .array(
+        z.object({
+          id: z.string(),
+          text: z.string(),
+        }),
+      )
+      .optional(),
+    playlistIntros: z
+      .array(
+        z.object({
+          id: z.string(),
+          text: z.string(),
+        }),
+      )
+      .optional(),
+    actions: z
+      .object({
+        home: z.string(),
+        watch: z.string(),
+        characters: z.string(),
       })
       .optional(),
     themes: z
@@ -76,9 +108,6 @@ const pages = defineCollection({
         }),
       )
       .optional(),
-    pdfHref: z.string().optional(),
-    pdfLabel: z.string().optional(),
-    pdfSize: z.string().optional(),
   }),
 });
 
@@ -94,4 +123,16 @@ const occasions = defineCollection({
   }),
 });
 
-export const collections = { characters, pages, occasions };
+const albums = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/albums" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      href: z.string().url(),
+      order: z.number(),
+      cover: image(),
+      blurb: z.string().optional(),
+    }),
+});
+
+export const collections = { characters, pages, occasions, albums };

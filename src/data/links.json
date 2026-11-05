@@ -37,6 +37,18 @@
       "todo": ""
     },
     {
+      "id": "boosty",
+      "label": "Получить на Boosty",
+      "handle": "",
+      "href": "",
+      "icon": "heart",
+      "where": false,
+      "footer": false,
+      "linksPage": false,
+      "placeholder": true,
+      "todo": ""
+    },
+    {
       "id": "rutube",
       "label": "Rutube",
       "handle": "канал 76899272",
@@ -75,14 +87,14 @@
     {
       "id": "music",
       "label": "Музыка",
-      "handle": "",
-      "href": "",
+      "handle": "Альбомы",
+      "href": "/music",
       "icon": "music",
       "where": false,
-      "footer": false,
+      "footer": true,
       "linksPage": true,
-      "placeholder": true,
-      "todo": "TODO: вставить настоящую ссылку на музыку (Яндекс Музыка, VK Музыка или другая площадка) и поставить placeholder в false."
+      "placeholder": false,
+      "todo": ""
     }
   ]
 }

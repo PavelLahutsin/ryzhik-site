@@ -1,30 +1,58 @@
 ---
 import { getEntry, render } from "astro:content";
+import sample1 from "../assets/coloring/sample-1.webp";
+import sample2 from "../assets/coloring/sample-2.webp";
+import sample3 from "../assets/coloring/sample-3.webp";
 import Icon from "../components/Icon.astro";
+import SampleSheet from "../components/SampleSheet.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { configuredHref } from "../lib/catalog";
 
 const page = await getEntry("pages", "coloring");
-if (!page?.data.pdfHref || !page.data.pdfLabel) throw new Error("Нет текста раскраски");
+if (!page) throw new Error("Нет текста раскраски");
 const { Content } = await render(page);
+
+const vkHref = configuredHref("vk");
+const boostyHref = configuredHref("boosty");
+
+const samples = [
+  { src: sample1, alt: "Образец листа раскраски: лисёнок на лесной тропе. Не для печати." },
+  { src: sample2, alt: "Образец листа раскраски: лисёнок и медвежонок у бревна. Не для печати." },
+  { src: sample3, alt: "Образец листа раскраски: лисёнок и медвежонок с корзинкой. Не для печати." },
+];
 ---
 
 <BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
   <section class="section">
     <div class="container">
-      <div class="coloring-wrap">
+      <div class="coloring-wrap is-solo">
         <div class="coloring-copy">
           <p class="eyebrow">{page.data.eyebrow}</p>
           <h1>{page.data.heading}</h1>
           {page.data.lede && <p>{page.data.lede}</p>}
-          <div class="coloring-actions">
-            <a class="btn btn-orange" href={page.data.pdfHref} download>
-              <Icon name="download" />
-              Скачать «{page.data.pdfLabel}»
-            </a>
-          </div>
-          {page.data.pdfSize && <p class="prose-note" style="margin-top:14px">Размер файла: {page.data.pdfSize}</p>}
           <div class="prose">
             <Content />
+          </div>
+          <div class="coloring-actions">
+            {
+              vkHref && (
+                <a class="btn btn-orange" href={vkHref} target="_blank" rel="noopener noreferrer">
+                  <Icon name="vk" />
+                  Получить в VK
+                </a>
+              )
+            }
+            {
+              boostyHref && (
+                <a class="btn btn-emerald" href={boostyHref} target="_blank" rel="noopener noreferrer">
+                  <Icon name="heart" />
+                  Получить на Boosty
+                </a>
+              )
+            }
+          </div>
+          <div class="coloring-samples">
+            {samples.map((item) => <SampleSheet src={item.src} alt={item.alt} />)}
           </div>
         </div>
       </div>

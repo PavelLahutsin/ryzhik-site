@@ -1,0 +1,49 @@
+---
+import { Picture } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "music");
+if (!page) throw new Error("Нет текста страницы музыки");
+
+const albums = (await getCollection("albums")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{page.data.eyebrow}</p>
+      <h1>{page.data.heading}</h1>
+      {page.data.lede && <p class="lede">{page.data.lede}</p>}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="albums">
+        {
+          albums.map((album) => (
+            <article class="album">
+              <Picture
+                src={album.data.cover}
+                alt=""
+                widths={[320, 640]}
+                sizes="(min-width: 900px) 340px, 92vw"
+                formats={["avif", "webp"]}
+                fallbackFormat="webp"
+                loading="lazy"
+              />
+              <div class="album-body">
+                <h2>{album.data.title}</h2>
+                {album.data.blurb && <p class="album-blurb">{album.data.blurb}</p>}
+                <a class="btn btn-orange" href={album.data.href} target="_blank" rel="noopener noreferrer">
+                  Слушать
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

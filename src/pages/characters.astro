@@ -1,5 +1,8 @@
 ---
+import { Picture } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
+import familyScene from "../assets/characters/family.webp";
+import friendsScene from "../assets/scenes/friends.webp";
 import PersonaCard from "../components/PersonaCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -24,13 +27,35 @@ const friends = cards.filter((item) => item.entry.data.group === "friends");
   <section class="section heroes-band">
     <div class="container">
       <div class="hero-group">
-        <h2>Рыжик и семья</h2>
+        <h2>С семьёй</h2>
+        <div class="scene-cutout">
+          <Picture
+            src={familyScene}
+            alt="Рыжик с папой, мамой и братиком"
+            widths={[480, 800, 1171]}
+            sizes="(min-width: 960px) 880px, 92vw"
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            loading="lazy"
+          />
+        </div>
         <div class="personas">
           {family.map((item) => <PersonaCard entry={item.entry} Content={item.Content} heading="h3" />)}
         </div>
       </div>
       <div class="hero-group">
-        <h2>Рыжик и друзья</h2>
+        <h2>С друзьями</h2>
+        <div class="scene-photo">
+          <Picture
+            src={friendsScene}
+            alt="Рыжик, белка, ёжик, зайка и медвежонок на поляне"
+            widths={[640, 1100, 1600]}
+            sizes="(min-width: 960px) 1100px, 92vw"
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            loading="lazy"
+          />
+        </div>
         <div class="personas">
           {friends.map((item) => <PersonaCard entry={item.entry} Content={item.Content} heading="h3" />)}
         </div>

@@ -4,6 +4,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const page = await getEntry("pages", "not-found");
 if (!page) throw new Error("Нет текста страницы 404");
+const actions = page.data.actions ?? {
+  home: "На главную",
+  watch: "Смотреть",
+  characters: "Персонажи",
+};
 ---
 
 <BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description} noindex>
@@ -13,9 +18,9 @@ if (!page) throw new Error("Нет текста страницы 404");
       <h1>{page.data.heading}</h1>
       {page.data.lede && <p class="lede">{page.data.lede}</p>}
       <div class="hero-cta" style="margin-top:22px">
-        <a class="btn btn-orange" href="/">На главную</a>
-        <a class="btn btn-emerald" href="/watch">Смотреть</a>
-        <a class="btn btn-ghost" href="/characters">Персонажи</a>
+        <a class="btn btn-orange" href="/">{actions.home}</a>
+        <a class="btn btn-emerald" href="/watch">{actions.watch}</a>
+        <a class="btn btn-ghost" href="/characters">{actions.characters}</a>
       </div>
     </div>
   </section>

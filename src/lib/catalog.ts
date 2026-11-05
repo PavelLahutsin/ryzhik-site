@@ -18,6 +18,11 @@ export function platform(id: string): Platform {
   return found;
 }
 
+/** Non-empty href, or an empty string when the link is not configured yet. */
+export function configuredHref(id: string): string {
+  return platforms.find((item) => item.id === id)?.href.trim() ?? "";
+}
+
 export function publicPlatforms(flag: "where" | "footer" | "linksPage"): Platform[] {
   return platforms.filter((item) => item[flag] && !item.placeholder);
 }
