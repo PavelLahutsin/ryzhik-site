@@ -31,7 +31,9 @@ const friends = characters.filter((item) => item.entry.data.group === "friends")
 const ryzhik = characters.find((item) => item.entry.id === "ryzhik");
 if (!ryzhik) throw new Error("Нет персонажа ryzhik");
 
-const latest = videos.slice(0, 6);
+const latest = [...videos]
+  .sort((a, b) => (b.uploadDate || "").localeCompare(a.uploadDate || ""))
+  .slice(0, 6);
 const themes = parents.data.themes.filter((theme) => theme.home);
 const where = publicPlatforms("where");
 const youtube = platform("youtube");

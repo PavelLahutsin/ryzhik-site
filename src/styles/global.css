@@ -1377,6 +1377,27 @@
   color: var(--color-emerald-deep);
 }
 
+.chip-pair {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.chip-ext {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+  color: var(--color-orange-deep);
+}
+
+.chip-pair .chip:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.player-actions a[hidden] {
+  display: none !important;
+}
+
 .chip-note,
 .filter-banner,
 .empty-note,

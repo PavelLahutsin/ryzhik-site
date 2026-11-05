@@ -12,6 +12,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "videos:build": "node scripts/build-videos.mjs",
+    "videos:vk": "node scripts/refresh-vk-playlists.mjs",
     "videos:rss": "node scripts/refresh-from-rss.mjs"
   },
   "dependencies": {

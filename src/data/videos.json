@@ -1,1698 +1,1201 @@
 {
   "channelId": "UCpj352hhYxdxK02JheWYkRg",
-  "note": "Файл собирает scripts/build-videos.mjs из data/youtube-audit. groups — метки «family» и «friends» только по словам в названии. vk — связь с VK Видео (confidence high или medium) из data/vk/yt_vk_map.json, data/vk/manual.json или уже записанного поля. Совпадение low не сохраняется.",
+  "vkOwnerId": -235612264,
+  "note": "Каталог серий из data/vk/episodes.json: три плейлиста VK, в их порядке. Сборников и шортсов нет. videos:build пересобирает этот файл. Новые серии подтягивает npm run videos:vk.",
   "videos": [
     {
-      "id": "KnGRH-pNcAo",
-      "title": "Делаем Зарядку! 🤸‍♂️ | Раз-Два-Три, Повтори за мной | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": null,
-      "thumbnail": "https://i.ytimg.com/vi/KnGRH-pNcAo/hqdefault.jpg",
-      "uploadDate": "2026-11-04",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=KnGRH-pNcAo",
-      "vk": null
-    },
-    {
-      "id": "3oG-6zhIhHM",
+      "id": "456239258",
       "title": "Весёлая Зарядка для малышей! ☀️ | Лисёнок Рыжик — Детские песенки и мультики",
-      "durationSeconds": null,
-      "thumbnail": "https://i.ytimg.com/vi/3oG-6zhIhHM/hqdefault.jpg",
+      "durationSeconds": 272,
+      "thumbnail": "/thumbs/456239258.webp",
       "uploadDate": "2026-10-31",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3oG-6zhIhHM",
-      "vk": null
-    },
-    {
-      "id": "3wvVoEKgkTg",
-      "title": "Ярко светит огонёк,  Ой Ку-Ку и Топают сапожки 🦊 | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": null,
-      "thumbnail": "https://i.ytimg.com/vi/3wvVoEKgkTg/hqdefault.jpg",
-      "uploadDate": "2026-10-28",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3wvVoEKgkTg",
-      "vk": null
-    },
-    {
-      "id": "aL0jCUHIfhQ",
-      "title": "Сказочные сны Рыжика 🌙 | На ночь | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": null,
-      "thumbnail": "https://i.ytimg.com/vi/aL0jCUHIfhQ/hqdefault.jpg",
-      "uploadDate": "2026-10-25",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=aL0jCUHIfhQ",
-      "vk": null
-    },
-    {
-      "id": "jzCbPLW2qkw",
-      "title": "Ослик и Свинка! 🐴 Поучительная сказка-песенка | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": null,
-      "thumbnail": "https://i.ytimg.com/vi/jzCbPLW2qkw/hqdefault.jpg",
-      "uploadDate": "2026-10-24",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=jzCbPLW2qkw",
-      "vk": null
-    },
-    {
-      "id": "5bAww0-JpTE",
-      "title": "Колыбельные для малышей 🌙 1 ЧАС сна | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 3603,
-      "thumbnail": "https://i.ytimg.com/vi/5bAww0-JpTE/hqdefault.jpg",
-      "uploadDate": "2026-10-21",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=5bAww0-JpTE",
+      "watchUrl": "https://vk.com/video-235612264_456239258",
+      "youtubeId": null,
       "vk": {
         "oid": -235612264,
-        "id": 456239246,
-        "hash": "a29a5660173e83cc04",
-        "url": "https://vk.com/video-235612264_456239246",
-        "confidence": "high"
+        "id": 456239258,
+        "hash": "15f04c04de6e96bc8f",
+        "url": "https://vk.com/video-235612264_456239258"
       }
     },
     {
-      "id": "klqd8GM_RG4",
-      "title": "Ярко светит огонёк! ✨ | Хлопаем и топаем с Рыжиком | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 202,
-      "thumbnail": "https://i.ytimg.com/vi/klqd8GM_RG4/hqdefault.jpg",
-      "uploadDate": "2026-10-17",
-      "playlists": [],
+      "id": "456239247",
+      "title": "Ослик и Свинка! 🐴 Поучительная сказка-песенка | Лисёнок Рыжик — Детские песенки для малышей",
+      "durationSeconds": 253,
+      "thumbnail": "/thumbs/456239247.webp",
+      "uploadDate": "2026-10-24",
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=klqd8GM_RG4",
+      "watchUrl": "https://vk.com/video-235612264_456239247",
+      "youtubeId": null,
+      "vk": {
+        "oid": -235612264,
+        "id": 456239247,
+        "hash": "2d19523584c20623b3",
+        "url": "https://vk.com/video-235612264_456239247"
+      }
+    },
+    {
+      "id": "456239240",
+      "title": "Ярко светит огонёк! ✨ | Хлопаем и топаем с Рыжиком | Лисёнок Рыжик — Детские песенки для малышей",
+      "durationSeconds": 201,
+      "thumbnail": "/thumbs/456239240.webp",
+      "uploadDate": "2026-10-17",
+      "playlists": [
+        "1"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239240",
+      "youtubeId": "klqd8GM_RG4",
       "vk": {
         "oid": -235612264,
         "id": 456239240,
-        "hash": "6f2c99a1710770daf3",
-        "url": "https://vk.com/video-235612264_456239240",
-        "confidence": "high"
+        "hash": "976e2fe46dc85d2aa9",
+        "url": "https://vk.com/video-235612264_456239240"
       }
     },
     {
-      "id": "y6aAIpV9DSc",
-      "title": "Почемучка! 🌍 Развивающие мультики. Сборник | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 1562,
-      "thumbnail": "https://i.ytimg.com/vi/y6aAIpV9DSc/hqdefault.jpg",
-      "uploadDate": "2026-10-14",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=y6aAIpV9DSc",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239238,
-        "hash": "fbd33a224729fc55db",
-        "url": "https://vk.com/video-235612264_456239238",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "pb2llFugf4M",
-      "title": "Спи, Мой Почемучка 🌙 | Спокойной ночи | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 188,
-      "thumbnail": "https://i.ytimg.com/vi/pb2llFugf4M/hqdefault.jpg",
-      "uploadDate": "2026-10-11",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pb2llFugf4M",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239235,
-        "hash": "0a8f7724f1077655ee",
-        "url": "https://vk.com/video-235612264_456239235",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "AdeBkMYE-gI",
+      "id": "456239231",
       "title": "Почемучка! 🌍 | Развивающая песенка для детей | Лисёнок Рыжик — мультики для детей",
-      "durationSeconds": 136,
-      "thumbnail": "https://i.ytimg.com/vi/AdeBkMYE-gI/hqdefault.jpg",
+      "durationSeconds": 135,
+      "thumbnail": "/thumbs/456239231.webp",
       "uploadDate": "2026-10-10",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=AdeBkMYE-gI",
+      "watchUrl": "https://vk.com/video-235612264_456239231",
+      "youtubeId": "AdeBkMYE-gI",
       "vk": {
         "oid": -235612264,
         "id": 456239231,
-        "hash": "0906f9e41ef4015cdf",
-        "url": "https://vk.com/video-235612264_456239231",
-        "confidence": "high"
+        "hash": "c6b0be0dbeda462203",
+        "url": "https://vk.com/video-235612264_456239231"
       }
     },
     {
-      "id": "kHD-lkK8ETM",
-      "title": "Осень Настала, в Садик Идём! 🍂 Сборник Любимых Песенок | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 1175,
-      "thumbnail": "https://i.ytimg.com/vi/kHD-lkK8ETM/hqdefault.jpg",
-      "uploadDate": "2026-10-07",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=kHD-lkK8ETM",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239227,
-        "hash": "74dcc18bdabeac9fba",
-        "url": "https://vk.com/video-235612264_456239227",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "Sd_fc0t9QZA",
+      "id": "456239223",
       "title": "Поздравление с Днём Учителя и Воспитателя! 💐 | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 272,
-      "thumbnail": "https://i.ytimg.com/vi/Sd_fc0t9QZA/hqdefault.jpg",
+      "durationSeconds": 271,
+      "thumbnail": "/thumbs/456239223.webp",
       "uploadDate": "2026-10-03",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Sd_fc0t9QZA",
+      "watchUrl": "https://vk.com/video-235612264_456239223",
+      "youtubeId": "Sd_fc0t9QZA",
       "vk": {
         "oid": -235612264,
         "id": 456239223,
-        "hash": "ca762e64bb7d98d663",
-        "url": "https://vk.com/video-235612264_456239223",
-        "confidence": "high"
+        "hash": "f8815b3e497e3d407d",
+        "url": "https://vk.com/video-235612264_456239223"
       }
     },
     {
-      "id": "YL2yxpCGouI",
-      "title": "Гуси, гуси, га-га-га! Все серии про гусят | Лисёнок Рыжик — Детские песенки и колыбельные",
-      "durationSeconds": 421,
-      "thumbnail": "https://i.ytimg.com/vi/YL2yxpCGouI/hqdefault.jpg",
-      "uploadDate": "2026-09-30",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=YL2yxpCGouI",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239222,
-        "hash": "01ecdffc35282274ce",
-        "url": "https://vk.com/video-235612264_456239222",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "5yCj5VpMQE4",
-      "title": "Гуси, гуси, спать пора! | Колыбельная перед сном | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 240,
-      "thumbnail": "https://i.ytimg.com/vi/5yCj5VpMQE4/hqdefault.jpg",
-      "uploadDate": "2026-09-27",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=5yCj5VpMQE4",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239214,
-        "hash": "b8de466ef9c044d680",
-        "url": "https://vk.com/video-235612264_456239214",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "8MgT-yLQPe4",
+      "id": "456239213",
       "title": "Гуси, Гуси! Га-Га-Га 🐥 | Потешки для малышей | Лисёнок Рыжик — Детские песенки для малышей",
       "durationSeconds": 204,
-      "thumbnail": "https://i.ytimg.com/vi/8MgT-yLQPe4/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239213.webp",
       "uploadDate": "2026-09-26",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=8MgT-yLQPe4",
+      "watchUrl": "https://vk.com/video-235612264_456239213",
+      "youtubeId": "8MgT-yLQPe4",
       "vk": {
         "oid": -235612264,
         "id": 456239213,
-        "hash": "6192dfb721cc2f5a97",
-        "url": "https://vk.com/video-235612264_456239213",
-        "confidence": "high"
+        "hash": "a9abd1ba5ae734e5b0",
+        "url": "https://vk.com/video-235612264_456239213"
       }
     },
     {
-      "id": "TAPxmYBvTUA",
-      "title": "Светит месяц золотой 🌙 | Сборник колыбельных | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 1119,
-      "thumbnail": "https://i.ytimg.com/vi/TAPxmYBvTUA/hqdefault.jpg",
-      "uploadDate": "2026-09-23",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=TAPxmYBvTUA",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239212,
-        "hash": "62f3993e03813b9b74",
-        "url": "https://vk.com/video-235612264_456239212",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "CBXyXbWeZAE",
+      "id": "456239211",
       "title": "Первый визит к стоматологу! 🦷 | Учимся не бояться | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 219,
-      "thumbnail": "https://i.ytimg.com/vi/CBXyXbWeZAE/hqdefault.jpg",
+      "durationSeconds": 218,
+      "thumbnail": "/thumbs/456239211.webp",
       "uploadDate": "2026-09-19",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=CBXyXbWeZAE",
+      "watchUrl": "https://vk.com/video-235612264_456239211",
+      "youtubeId": "CBXyXbWeZAE",
       "vk": {
         "oid": -235612264,
         "id": 456239211,
-        "hash": "824c7b94349d12f393",
-        "url": "https://vk.com/video-235612264_456239211",
-        "confidence": "high"
+        "hash": "c65922be17c0aa218a",
+        "url": "https://vk.com/video-235612264_456239211"
       }
     },
     {
-      "id": "ySegtajAtMQ",
-      "title": "Зарядка для малышей и Купание в ванной 🛁 | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 720,
-      "thumbnail": "https://i.ytimg.com/vi/ySegtajAtMQ/hqdefault.jpg",
-      "uploadDate": "2026-09-16",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ySegtajAtMQ",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239210,
-        "hash": "84ebc3ecf60bdae86c",
-        "url": "https://vk.com/video-235612264_456239210",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "fWKpLIi9X_E",
-      "title": "Куда уходят дневные тропинки 🌙 Колыбельная для малышей | Лисёнок Рыжик — Мультики перед сном",
-      "durationSeconds": 259,
-      "thumbnail": "https://i.ytimg.com/vi/fWKpLIi9X_E/hqdefault.jpg",
-      "uploadDate": "2026-09-13",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=fWKpLIi9X_E",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239208,
-        "hash": "46f0662ab6d7ca5610",
-        "url": "https://vk.com/video-235612264_456239208",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "TXbk6LtWXvg",
+      "id": "456239199",
       "title": "Ёжик Колкий! 🦔 | Добрые мультики для детей | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 207,
-      "thumbnail": "https://i.ytimg.com/vi/TXbk6LtWXvg/hqdefault.jpg",
+      "durationSeconds": 206,
+      "thumbnail": "/thumbs/456239199.webp",
       "uploadDate": "2026-09-12",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=TXbk6LtWXvg",
+      "watchUrl": "https://vk.com/video-235612264_456239199",
+      "youtubeId": "TXbk6LtWXvg",
       "vk": {
         "oid": -235612264,
         "id": 456239199,
-        "hash": "318cb539d444d0294d",
-        "url": "https://vk.com/video-235612264_456239199",
-        "confidence": "high"
+        "hash": "891402b206bef6b4f5",
+        "url": "https://vk.com/video-235612264_456239199"
       }
     },
     {
-      "id": "Mnjiu9U4KI8",
-      "title": "Учим Звуки Животных 🐶 Развивающие Мультики 🚜 | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 582,
-      "thumbnail": "https://i.ytimg.com/vi/Mnjiu9U4KI8/hqdefault.jpg",
-      "uploadDate": "2026-09-09",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Mnjiu9U4KI8",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239204,
-        "hash": "ae181483829f93383e",
-        "url": "https://vk.com/video-235612264_456239204",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "3CSSEDf4GDM",
+      "id": "456239190",
       "title": "Кто там на опушке? 🦊 | Учим звуки животных | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 261,
-      "thumbnail": "https://i.ytimg.com/vi/3CSSEDf4GDM/hqdefault.jpg",
+      "durationSeconds": 260,
+      "thumbnail": "/thumbs/456239190.webp",
       "uploadDate": "2026-09-05",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3CSSEDf4GDM",
+      "watchUrl": "https://vk.com/video-235612264_456239190",
+      "youtubeId": "3CSSEDf4GDM",
       "vk": {
         "oid": -235612264,
         "id": 456239190,
-        "hash": "bc8ead29488dd2853a",
-        "url": "https://vk.com/video-235612264_456239190",
-        "confidence": "high"
+        "hash": "5ce548e86089c86b1f",
+        "url": "https://vk.com/video-235612264_456239190"
       }
     },
     {
-      "id": "SU4G8MKHykM",
-      "title": "Потешки для Малышей! 🐻 Мишка Косолапый, Коза Рогатая, Курочка Ряба, Ладушки | Лисёнок Рыжик",
-      "durationSeconds": 686,
-      "thumbnail": "https://i.ytimg.com/vi/SU4G8MKHykM/hqdefault.jpg",
-      "uploadDate": "2026-09-02",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=SU4G8MKHykM",
-      "vk": null
-    },
-    {
-      "id": "da505CBL0QU",
-      "title": "Светит месяц золотой ✨ | Колыбельная для малышей | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 257,
-      "thumbnail": "https://i.ytimg.com/vi/da505CBL0QU/hqdefault.jpg",
-      "uploadDate": "2026-08-30",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=da505CBL0QU",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239193,
-        "hash": "5ef96b3357d2a20430",
-        "url": "https://vk.com/video-235612264_456239193",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "M3vCjJ5ZkUY",
+      "id": "456239192",
       "title": "Осень Настала, в Садик Идём! | Песенка про детский сад | Лисёнок Рыжик — Детские песенки для малышей",
       "durationSeconds": 206,
-      "thumbnail": "https://i.ytimg.com/vi/M3vCjJ5ZkUY/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239192.webp",
       "uploadDate": "2026-08-29",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=M3vCjJ5ZkUY",
+      "watchUrl": "https://vk.com/video-235612264_456239192",
+      "youtubeId": "M3vCjJ5ZkUY",
       "vk": {
         "oid": -235612264,
         "id": 456239192,
-        "hash": "9066e58512d218d803",
-        "url": "https://vk.com/video-235612264_456239192",
-        "confidence": "high"
+        "hash": "5ee2200c8b66fb0e4a",
+        "url": "https://vk.com/video-235612264_456239192"
       }
     },
     {
-      "id": "av8xm5RqiHo",
-      "title": "5 Добрых сказок на ночь для малышей 🌙 | Лисёнок Рыжик — Сказки и мультики для детей",
-      "durationSeconds": 856,
-      "thumbnail": "https://i.ytimg.com/vi/av8xm5RqiHo/hqdefault.jpg",
-      "uploadDate": "2026-08-26",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=av8xm5RqiHo",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239191,
-        "hash": "74966f55a76b4f06ef",
-        "url": "https://vk.com/video-235612264_456239191",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "2cKyEEFwmGc",
+      "id": "456239187",
       "title": "Идёт Коза Рогатая! 🐐 | Как Рыжик кушал кашу  | Лисёнок Рыжик — Детские песенки для малышей",
       "durationSeconds": 155,
-      "thumbnail": "https://i.ytimg.com/vi/2cKyEEFwmGc/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239187.webp",
       "uploadDate": "2026-08-22",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=2cKyEEFwmGc",
+      "watchUrl": "https://vk.com/video-235612264_456239187",
+      "youtubeId": "2cKyEEFwmGc",
       "vk": {
         "oid": -235612264,
         "id": 456239187,
-        "hash": "573706103c1f6e5df2",
-        "url": "https://vk.com/video-235612264_456239187",
-        "confidence": "high"
+        "hash": "e01a89631ef6d9afac",
+        "url": "https://vk.com/video-235612264_456239187"
       }
     },
     {
-      "id": "UKc-AXV3ZZM",
-      "title": "Семь Звёздочек 🌙 Спи, Мой Малыш | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 242,
-      "thumbnail": "https://i.ytimg.com/vi/UKc-AXV3ZZM/hqdefault.jpg",
-      "uploadDate": "2026-08-16",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=UKc-AXV3ZZM",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239186,
-        "hash": "598ceaa44eddbbb33a",
-        "url": "https://vk.com/video-235612264_456239186",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "AXxB-tCjdcU",
-      "title": "Мишка Косолапый по Лесу Идёт! | Добрая песенка-мультик | Лисёнок Рыжик — Детские песенки для малышей",
+      "id": "456239185",
+      "title": "Мишка Косолапый по Лесу Идёт! 🐻 | Добрая песенка-мультик | Лисёнок Рыжик — Детские песенки для малышей",
       "durationSeconds": 267,
-      "thumbnail": "https://i.ytimg.com/vi/AXxB-tCjdcU/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239185.webp",
       "uploadDate": "2026-08-15",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=AXxB-tCjdcU",
+      "watchUrl": "https://vk.com/video-235612264_456239185",
+      "youtubeId": "AXxB-tCjdcU",
       "vk": {
         "oid": -235612264,
         "id": 456239185,
-        "hash": "277503aa9b16c6a307",
-        "url": "https://vk.com/video-235612264_456239185",
-        "confidence": "high"
+        "hash": "33fe636aab4e5dae74",
+        "url": "https://vk.com/video-235612264_456239185"
       }
     },
     {
-      "id": "OyFuDy5Rpu0",
-      "title": "Говорим болезни: НЕТ! 🦸‍♂️ | Сборник ремиксов | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 718,
-      "thumbnail": "https://i.ytimg.com/vi/OyFuDy5Rpu0/hqdefault.jpg",
-      "uploadDate": "2026-08-12",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=OyFuDy5Rpu0",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239184,
-        "hash": "f36f11974f4a198ee9",
-        "url": "https://vk.com/video-235612264_456239184",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "aej_bN-NjhM",
+      "id": "456239181",
       "title": "Говорим Болезни: НЕТ! 🦸‍♂️🤧 | Рыжик прогоняет простуду | Лисёнок Рыжик — Детские песенки для малышей",
       "durationSeconds": 209,
-      "thumbnail": "https://i.ytimg.com/vi/aej_bN-NjhM/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239181.webp",
       "uploadDate": "2026-08-08",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=aej_bN-NjhM",
+      "watchUrl": "https://vk.com/video-235612264_456239181",
+      "youtubeId": "aej_bN-NjhM",
       "vk": {
         "oid": -235612264,
         "id": 456239181,
-        "hash": "7324facc162c331b9a",
-        "url": "https://vk.com/video-235612264_456239181",
-        "confidence": "high"
+        "hash": "82cb51a7f6fc0862d0",
+        "url": "https://vk.com/video-235612264_456239181"
       }
     },
     {
-      "id": "4ehTp6E_nRY",
-      "title": "Играем Весь День с Рыжиком! 🦊 Большой Сборник Песенок | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 3623,
-      "thumbnail": "https://i.ytimg.com/vi/4ehTp6E_nRY/hqdefault.jpg",
-      "uploadDate": "2026-08-05",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=4ehTp6E_nRY",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239180,
-        "hash": "af3b347a79f9d75b70",
-        "url": "https://vk.com/video-235612264_456239180",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "GHvB0Mko2Dc",
-      "title": "Гадкий Утёнок 🌙 | Сказка перед сном для малышей | Лисёнок Рыжик — Сказки и мультики для детей",
-      "durationSeconds": 181,
-      "thumbnail": "https://i.ytimg.com/vi/GHvB0Mko2Dc/hqdefault.jpg",
-      "uploadDate": "2026-08-02",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=GHvB0Mko2Dc",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239172,
-        "hash": "0cccd8722e93aafe84",
-        "url": "https://vk.com/video-235612264_456239172",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "NjdO8lB4Vq0",
+      "id": "456239171",
       "title": "Пенная Игра! 🛁 | Рыжик учит купаться | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 184,
-      "thumbnail": "https://i.ytimg.com/vi/NjdO8lB4Vq0/hqdefault.jpg",
+      "durationSeconds": 183,
+      "thumbnail": "/thumbs/456239171.webp",
       "uploadDate": "2026-08-01",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=NjdO8lB4Vq0",
+      "watchUrl": "https://vk.com/video-235612264_456239171",
+      "youtubeId": "NjdO8lB4Vq0",
       "vk": {
         "oid": -235612264,
         "id": 456239171,
-        "hash": "dd27a23539773941c2",
-        "url": "https://vk.com/video-235612264_456239171",
-        "confidence": "high"
+        "hash": "13aab6b5fe0c397ec2",
+        "url": "https://vk.com/video-235612264_456239171"
       }
     },
     {
-      "id": "ZFAOWL3Ejt0",
-      "title": "👏 Весёлые Песенки с Друзьями! 🍪 Прятки и Топотушки 🦊 | Лисёнок Рыжик — Детские песенки",
-      "durationSeconds": 582,
-      "thumbnail": "https://i.ytimg.com/vi/ZFAOWL3Ejt0/hqdefault.jpg",
-      "uploadDate": "2026-07-29",
-      "playlists": [],
-      "groups": [
-        "friends"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=ZFAOWL3Ejt0",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239170,
-        "hash": "75c628b637c79add92",
-        "url": "https://vk.com/video-235612264_456239170",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "zRPJ9zC2kX8",
+      "id": "456239167",
       "title": "Буль-Буль, Плюх-Плюх! 💦 | Учимся плавать безопасно | Лисёнок Рыжик — Детские песенки для малышей",
       "durationSeconds": 196,
-      "thumbnail": "https://i.ytimg.com/vi/zRPJ9zC2kX8/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239167.webp",
       "uploadDate": "2026-07-25",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=zRPJ9zC2kX8",
+      "watchUrl": "https://vk.com/video-235612264_456239167",
+      "youtubeId": "zRPJ9zC2kX8",
       "vk": {
         "oid": -235612264,
         "id": 456239167,
-        "hash": "36a7398b7e3aca4d15",
-        "url": "https://vk.com/video-235612264_456239167",
-        "confidence": "high"
+        "hash": "e5d24473e7fa8f5113",
+        "url": "https://vk.com/video-235612264_456239167"
       }
     },
     {
-      "id": "Z7F7OVyIJmo",
-      "title": "Кораблик Снов + Рыжик на Дереве 🌙 |  Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 483,
-      "thumbnail": "https://i.ytimg.com/vi/Z7F7OVyIJmo/hqdefault.jpg",
-      "uploadDate": "2026-07-22",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Z7F7OVyIJmo",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239166,
-        "hash": "ec53a7fcac2c562f7f",
-        "url": "https://vk.com/video-235612264_456239166",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "GGXyJaqtQ80",
-      "title": "Кораблик снов ⛵ | Нежная колыбельная перед сном | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 287,
-      "thumbnail": "https://i.ytimg.com/vi/GGXyJaqtQ80/hqdefault.jpg",
-      "uploadDate": "2026-07-19",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=GGXyJaqtQ80",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239160,
-        "hash": "37eded044b647b42b0",
-        "url": "https://vk.com/video-235612264_456239160",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "tmnLbZA2M94",
+      "id": "456239159",
       "title": "Режим Дня и Полезные Привычки | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 224,
-      "thumbnail": "https://i.ytimg.com/vi/tmnLbZA2M94/hqdefault.jpg",
+      "durationSeconds": 223,
+      "thumbnail": "/thumbs/456239159.webp",
       "uploadDate": "2026-07-18",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=tmnLbZA2M94",
+      "watchUrl": "https://vk.com/video-235612264_456239159",
+      "youtubeId": "tmnLbZA2M94",
       "vk": {
         "oid": -235612264,
         "id": 456239159,
-        "hash": "b0cf8bdfe41a8a2d52",
-        "url": "https://vk.com/video-235612264_456239159",
-        "confidence": "high"
+        "hash": "f4dd6deee075619251",
+        "url": "https://vk.com/video-235612264_456239159"
       }
     },
     {
-      "id": "v9vFUwroHKc",
-      "title": "Сладкие сны с Рыжиком 🌙 | Песенки перед сном | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 2125,
-      "thumbnail": "https://i.ytimg.com/vi/v9vFUwroHKc/hqdefault.jpg",
-      "uploadDate": "2026-07-12",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=v9vFUwroHKc",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239157,
-        "hash": null,
-        "url": "https://vk.com/video-235612264_456239157",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "YBlqAj1G-l0",
-      "title": "👨‍👩‍👧‍👦 Дружная Семья 🦊 Храбрый Рыжик + Супер-Мама + ЕЩЁ 🦊 | Лисёнок Рыжик — Детские песенки",
-      "durationSeconds": 793,
-      "thumbnail": "https://i.ytimg.com/vi/YBlqAj1G-l0/hqdefault.jpg",
-      "uploadDate": "2026-07-11",
-      "playlists": [],
-      "groups": [
-        "family"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=YBlqAj1G-l0",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239156,
-        "hash": "76e5420c9d63dfefd0",
-        "url": "https://vk.com/video-235612264_456239156",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "g-9l3QOpXcM",
-      "title": "🌙 Музыка для Сна Малышей 10 Часов | Тёмный Экран | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 36080,
-      "thumbnail": "https://i.ytimg.com/vi/g-9l3QOpXcM/hqdefault.jpg",
-      "uploadDate": "2026-07-05",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=g-9l3QOpXcM",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239155,
-        "hash": "156ea54a5ed2a70ace",
-        "url": "https://vk.com/video-235612264_456239155",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "7b4XjQqjCGo",
-      "title": "Учим Цвета, Цифры и Звуки Животных с Рыжиком! 🦊 | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 729,
-      "thumbnail": "https://i.ytimg.com/vi/7b4XjQqjCGo/hqdefault.jpg",
-      "uploadDate": "2026-07-04",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=7b4XjQqjCGo",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239154,
-        "hash": "beaff5bc5fcac17d4f",
-        "url": "https://vk.com/video-235612264_456239154",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "tNPAMx-COjI",
-      "title": "Лев и Мышка 🦁🐭 | Добрая сказка на ночь | Лисёнок Рыжик — Сказки и мультики для детей",
-      "durationSeconds": 196,
-      "thumbnail": "https://i.ytimg.com/vi/tNPAMx-COjI/hqdefault.jpg",
-      "uploadDate": "2026-06-28",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=tNPAMx-COjI",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239152,
-        "hash": "235a02060a78756dab",
-        "url": "https://vk.com/video-235612264_456239152",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "ycmS9FZB-Jg",
+      "id": "456239151",
       "title": "Смотри, как падает башня! | Весёлая песенка про кубики | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 128,
-      "thumbnail": "https://i.ytimg.com/vi/ycmS9FZB-Jg/hqdefault.jpg",
+      "durationSeconds": 127,
+      "thumbnail": "/thumbs/456239151.webp",
       "uploadDate": "2026-06-27",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ycmS9FZB-Jg",
+      "watchUrl": "https://vk.com/video-235612264_456239151",
+      "youtubeId": "ycmS9FZB-Jg",
       "vk": {
         "oid": -235612264,
         "id": 456239151,
-        "hash": "2bd35ad7f1c22056a7",
-        "url": "https://vk.com/video-235612264_456239151",
-        "confidence": "high"
+        "hash": "4c85c1f33f99ec2c44",
+        "url": "https://vk.com/video-235612264_456239151"
       }
     },
     {
-      "id": "pCx_xfPIuiY",
-      "title": "🌙 3 Сказки на Ночь | Зайкина Избушка + Заяц и Черепаха + Три Поросёнка | Лисёнок Рыжик — Мультики",
-      "durationSeconds": 520,
-      "thumbnail": "https://i.ytimg.com/vi/pCx_xfPIuiY/hqdefault.jpg",
-      "uploadDate": "2026-06-24",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pCx_xfPIuiY",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239150,
-        "hash": "d0b0f65a3dd9167cc1",
-        "url": "https://vk.com/video-235612264_456239150",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "xKTxt3A5bJ4",
-      "title": "Зайкина Избушка 🐰🏠 | Добрая Сказка для Малышей | Лисёнок Рыжик — Сказки и мультики для детей",
-      "durationSeconds": 236,
-      "thumbnail": "https://i.ytimg.com/vi/xKTxt3A5bJ4/hqdefault.jpg",
-      "uploadDate": "2026-06-21",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=xKTxt3A5bJ4",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239147,
-        "hash": "67194634496c9d5936",
-        "url": "https://vk.com/video-235612264_456239147",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "CisKVy7EjYA",
+      "id": "456239146",
       "title": "Супер-Мама, Ты Герой! 🦸‍♀️ | Песенка про маму | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 203,
-      "thumbnail": "https://i.ytimg.com/vi/CisKVy7EjYA/hqdefault.jpg",
+      "durationSeconds": 202,
+      "thumbnail": "/thumbs/456239146.webp",
       "uploadDate": "2026-06-20",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=CisKVy7EjYA",
+      "watchUrl": "https://vk.com/video-235612264_456239146",
+      "youtubeId": "CisKVy7EjYA",
       "vk": {
         "oid": -235612264,
         "id": 456239146,
-        "hash": "a92d764c76cecd0b19",
-        "url": "https://vk.com/video-235612264_456239146",
-        "confidence": "high"
+        "hash": "fca23ca208cd96b8d3",
+        "url": "https://vk.com/video-235612264_456239146"
       }
     },
     {
-      "id": "zGFl-i1M--A",
-      "title": "Храбрый Рыжик 🦸‍♂️ + Пожарная Машина 🚒 | Лисёнок Рыжик — Детские песенки",
-      "durationSeconds": 528,
-      "thumbnail": "https://i.ytimg.com/vi/zGFl-i1M--A/hqdefault.jpg",
-      "uploadDate": "2026-06-17",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=zGFl-i1M--A",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239145,
-        "hash": "19d4d2196015eeceed",
-        "url": "https://vk.com/video-235612264_456239145",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "acqDwbDWdpg",
-      "title": "Спят Игрушки, Спи и Ты 🌙 | Колыбельная для малышей | Лисёнок Рыжик",
-      "durationSeconds": 358,
-      "thumbnail": "https://i.ytimg.com/vi/acqDwbDWdpg/hqdefault.jpg",
-      "uploadDate": "2026-06-14",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=acqDwbDWdpg",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239141,
-        "hash": "d4406ce75e3c048f45",
-        "url": "https://vk.com/video-235612264_456239141",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "GI_4574DFv8",
+      "id": "456239140",
       "title": "Храбрый Рыжик 🦸‍♂️ | Песенка про супергероя | Лисёнок Рыжик — Песенки для малышей",
       "durationSeconds": 308,
-      "thumbnail": "https://i.ytimg.com/vi/GI_4574DFv8/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239140.webp",
       "uploadDate": "2026-06-13",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=GI_4574DFv8",
+      "watchUrl": "https://vk.com/video-235612264_456239140",
+      "youtubeId": "GI_4574DFv8",
       "vk": {
         "oid": -235612264,
         "id": 456239140,
-        "hash": "cc0c60b7d68ed39be7",
-        "url": "https://vk.com/video-235612264_456239140",
-        "confidence": "high"
+        "hash": "763668c92ee3823a26",
+        "url": "https://vk.com/video-235612264_456239140"
       }
     },
     {
-      "id": "x3aBPDx8rQo",
-      "title": "Колыбельные с Рыжиком 🌙 | 15 минут песенок перед сном для малышей",
-      "durationSeconds": 900,
-      "thumbnail": "https://i.ytimg.com/vi/x3aBPDx8rQo/hqdefault.jpg",
-      "uploadDate": "2026-06-10",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=x3aBPDx8rQo",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239139,
-        "hash": "deed01dd3517e08940",
-        "url": "https://vk.com/video-235612264_456239139",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "4T-4FCSbD_o",
-      "title": "⭐ Заяц и Черепаха 🐢 | Добрая Сказка на Ночь | Лисёнок Рыжик — Мультики  для детей",
-      "durationSeconds": 173,
-      "thumbnail": "https://i.ytimg.com/vi/4T-4FCSbD_o/hqdefault.jpg",
-      "uploadDate": "2026-06-07",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=4T-4FCSbD_o",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239135,
-        "hash": "70d6a5c6454e25833a",
-        "url": "https://vk.com/video-235612264_456239135",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "yNpJuT7mTA4",
+      "id": "456239134",
       "title": "Кто печенье забрал? 🍪 | Учимся делиться | Лисёнок Рыжик — Песенки для малышей",
-      "durationSeconds": 121,
-      "thumbnail": "https://i.ytimg.com/vi/yNpJuT7mTA4/hqdefault.jpg",
+      "durationSeconds": 120,
+      "thumbnail": "/thumbs/456239134.webp",
       "uploadDate": "2026-06-06",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=yNpJuT7mTA4",
+      "watchUrl": "https://vk.com/video-235612264_456239134",
+      "youtubeId": "yNpJuT7mTA4",
       "vk": {
         "oid": -235612264,
         "id": 456239134,
-        "hash": "b80871416ce01a8332",
-        "url": "https://vk.com/video-235612264_456239134",
-        "confidence": "high"
+        "hash": "ef76d44768815a3c97",
+        "url": "https://vk.com/video-235612264_456239134"
       }
     },
     {
-      "id": "U-xuGYig0eE",
-      "title": "Истории перед Сном | Лисёнок Рыжик - Мультики для детей",
-      "durationSeconds": 665,
-      "thumbnail": "https://i.ytimg.com/vi/U-xuGYig0eE/hqdefault.jpg",
-      "uploadDate": "2026-06-05",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=U-xuGYig0eE",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239136,
-        "hash": "db689b22b43e2069ac",
-        "url": "https://vk.com/video-235612264_456239136",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "q7FaBSRN5oE",
-      "title": "Песенка про Горшок 🚽 | 30 минут Мультики Для Детей | Лисёнок Рыжик — Детские песенки",
-      "durationSeconds": 1813,
-      "thumbnail": "https://i.ytimg.com/vi/q7FaBSRN5oE/hqdefault.jpg",
-      "uploadDate": "2026-06-03",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=q7FaBSRN5oE",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239133,
-        "hash": "5c4f38bc42492a942a",
-        "url": "https://vk.com/video-235612264_456239133",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "RF2VMvHMW8k",
-      "title": "Три Поросёнка 🐷🌙 | Сказка на ночь | Лисёнок Рыжик — Мультики перед сном",
-      "durationSeconds": 176,
-      "thumbnail": "https://i.ytimg.com/vi/RF2VMvHMW8k/hqdefault.jpg",
-      "uploadDate": "2026-05-31",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=RF2VMvHMW8k",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239131,
-        "hash": "c83a6adbf624d23db3",
-        "url": "https://vk.com/video-235612264_456239131",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "cwz4a-GW0t8",
+      "id": "456239130",
       "title": "Песенка про Горшок 🚽 | Учимся с братиком | Лисёнок Рыжик — Песенки для малышей",
-      "durationSeconds": 184,
-      "thumbnail": "https://i.ytimg.com/vi/cwz4a-GW0t8/hqdefault.jpg",
+      "durationSeconds": 183,
+      "thumbnail": "/thumbs/456239130.webp",
       "uploadDate": "2026-05-30",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=cwz4a-GW0t8",
+      "watchUrl": "https://vk.com/video-235612264_456239130",
+      "youtubeId": "cwz4a-GW0t8",
       "vk": {
         "oid": -235612264,
         "id": 456239130,
-        "hash": "05fca959f41a30805d",
-        "url": "https://vk.com/video-235612264_456239130",
-        "confidence": "high"
+        "hash": "a25aa10dc225d10a4b",
+        "url": "https://vk.com/video-235612264_456239130"
       }
     },
     {
-      "id": "1SPJNMwL3gk",
-      "title": "Колобок + Репка + Семья Пальчиков 🦊 | Весёлые сказки и песенки для малышей | Лисёнок Рыжик",
-      "durationSeconds": 972,
-      "thumbnail": "https://i.ytimg.com/vi/1SPJNMwL3gk/hqdefault.jpg",
-      "uploadDate": "2026-05-29",
-      "playlists": [],
-      "groups": [
-        "family"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=1SPJNMwL3gk",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239129,
-        "hash": "bc42e52e06cad56de3",
-        "url": "https://vk.com/video-235612264_456239129",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "ie8rRl7FdPE",
-      "title": "Топают Сапожки + Кап-Кап Дождик 🌧🌙 | Песенки про дождик | Лисёнок Рыжик",
-      "durationSeconds": 427,
-      "thumbnail": "https://i.ytimg.com/vi/ie8rRl7FdPE/hqdefault.jpg",
-      "uploadDate": "2026-05-27",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ie8rRl7FdPE",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239128,
-        "hash": "e662e4b18182d6fa91",
-        "url": "https://vk.com/video-235612264_456239128",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "uu5p0v_Tw0s",
-      "title": "Кап-Кап Дождик 🌧 | Колыбельная для малышей | Лисёнок Рыжик — Мультик перед сном",
-      "durationSeconds": 225,
-      "thumbnail": "https://i.ytimg.com/vi/uu5p0v_Tw0s/hqdefault.jpg",
-      "uploadDate": "2026-05-24",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=uu5p0v_Tw0s",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239125,
-        "hash": "aa62b0d206819267d9",
-        "url": "https://vk.com/video-235612264_456239125",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "kSTialKTncU",
+      "id": "456239124",
       "title": "Топают сапожки 👢 | Прыгаем по лужам под дождём | Лисёнок Рыжик — Песенки для малышей",
       "durationSeconds": 173,
-      "thumbnail": "https://i.ytimg.com/vi/kSTialKTncU/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239124.webp",
       "uploadDate": "2026-05-23",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=kSTialKTncU",
+      "watchUrl": "https://vk.com/video-235612264_456239124",
+      "youtubeId": "kSTialKTncU",
       "vk": {
         "oid": -235612264,
         "id": 456239124,
-        "hash": "15dcaa0c4593b27326",
-        "url": "https://vk.com/video-235612264_456239124",
-        "confidence": "high"
+        "hash": "78e132a7127ef76862",
+        "url": "https://vk.com/video-235612264_456239124"
       }
     },
     {
-      "id": "eTcJuR9SqCM",
-      "title": "Баю-Бай, Рыжик 🌙 | Колыбельные для малышей | Лисёнок Рыжик — Мультики перед сном",
-      "durationSeconds": 931,
-      "thumbnail": "https://i.ytimg.com/vi/eTcJuR9SqCM/hqdefault.jpg",
-      "uploadDate": "2026-05-20",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=eTcJuR9SqCM",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239123,
-        "hash": "168b3efbb451dabda1",
-        "url": "https://vk.com/video-235612264_456239123",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "Awi1K7RArsE",
-      "title": "✅ Солнышко в Сердце ☀️ | Рыжик и Бабушкина Магия |    Лисёнок Рыжик — Мультики для малышей",
-      "durationSeconds": 161,
-      "thumbnail": "https://i.ytimg.com/vi/Awi1K7RArsE/hqdefault.jpg",
-      "uploadDate": "2026-05-17",
-      "playlists": [],
-      "groups": [
-        "family"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=Awi1K7RArsE",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239115,
-        "hash": "278a4cfbb8ea4198e4",
-        "url": "https://vk.com/video-235612264_456239115",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "agsI4o_XBEo",
+      "id": "456239114",
       "title": "Пожарная Машина Би-Бип 🚒 | Рыжик спасает друзей | Лисёнок Рыжик — Песенки для малышей",
-      "durationSeconds": 120,
-      "thumbnail": "https://i.ytimg.com/vi/agsI4o_XBEo/hqdefault.jpg",
+      "durationSeconds": 119,
+      "thumbnail": "/thumbs/456239114.webp",
       "uploadDate": "2026-05-16",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=agsI4o_XBEo",
+      "watchUrl": "https://vk.com/video-235612264_456239114",
+      "youtubeId": "agsI4o_XBEo",
       "vk": {
         "oid": -235612264,
         "id": 456239114,
-        "hash": "280414789dcf3b318c",
-        "url": "https://vk.com/video-235612264_456239114",
-        "confidence": "high"
+        "hash": "ba540f4d9725c5e94a",
+        "url": "https://vk.com/video-235612264_456239114"
       }
     },
     {
-      "id": "pMh1OYbC1FA",
-      "title": "Ой Ку-Ку, Ладушки и Ферма с Рыжиком 🦊 | 15 минут песенок для малышей",
-      "durationSeconds": 907,
-      "thumbnail": "https://i.ytimg.com/vi/pMh1OYbC1FA/hqdefault.jpg",
-      "uploadDate": "2026-05-14",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pMh1OYbC1FA",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239113,
-        "hash": "8032d129aaf609bc2e",
-        "url": "https://vk.com/video-235612264_456239113",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "dWC4QT6aobQ",
-      "title": "Ладушки у Бабушки + Колыбельная 🦊 Рыжик | Песенки для малышей и мультики перед сном",
-      "durationSeconds": 270,
-      "thumbnail": "https://i.ytimg.com/vi/dWC4QT6aobQ/hqdefault.jpg",
-      "uploadDate": "2026-05-13",
-      "playlists": [],
-      "groups": [
-        "family"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=dWC4QT6aobQ",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239112,
-        "hash": "0a63a7cbdd35e9315c",
-        "url": "https://vk.com/video-235612264_456239112",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "3ObX1LWnevQ",
-      "title": "Лисёнок Рыжик засыпает 🦊 Колыбельная песня | Мультик для самых маленьких",
-      "durationSeconds": 146,
-      "thumbnail": "https://i.ytimg.com/vi/3ObX1LWnevQ/hqdefault.jpg",
-      "uploadDate": "2026-05-10",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3ObX1LWnevQ",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239111,
-        "hash": "a863251efe425b14fa",
-        "url": "https://vk.com/video-235612264_456239111",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "oq3s6YpL5gU",
+      "id": "456239106",
       "title": "Ладушки у Бабушки 🦊 Песенка для малышей | Рыжик играет в ладушки 👏",
-      "durationSeconds": 139,
-      "thumbnail": "https://i.ytimg.com/vi/oq3s6YpL5gU/hqdefault.jpg",
+      "durationSeconds": 138,
+      "thumbnail": "/thumbs/456239106.webp",
       "uploadDate": "2026-05-09",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=oq3s6YpL5gU",
+      "watchUrl": "https://vk.com/video-235612264_456239106",
+      "youtubeId": "oq3s6YpL5gU",
       "vk": {
         "oid": -235612264,
         "id": 456239106,
-        "hash": "b87b410f3e19187a50",
-        "url": "https://vk.com/video-235612264_456239106",
-        "confidence": "high"
+        "hash": "9fcf8530464d6ba52b",
+        "url": "https://vk.com/video-235612264_456239106"
       }
     },
     {
-      "id": "FUCFQKLPoho",
-      "title": "🦊 Сборник для засыпания: День Рыжика 🌙 Песенка + Сказка | Учимся считать",
-      "durationSeconds": 324,
-      "thumbnail": "https://i.ytimg.com/vi/FUCFQKLPoho/hqdefault.jpg",
-      "uploadDate": "2026-05-06",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=FUCFQKLPoho",
-      "vk": null
-    },
-    {
-      "id": "p4IQuhY1H6s",
-      "title": "Рыжик считает звёздочки перед сном 🌙⭐ Сказка на ночь для малышей | Сонные истории",
-      "durationSeconds": 158,
-      "thumbnail": "https://i.ytimg.com/vi/p4IQuhY1H6s/hqdefault.jpg",
-      "uploadDate": "2026-05-03",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=p4IQuhY1H6s",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239099,
-        "hash": "4dd122c15473f967a2",
-        "url": "https://vk.com/video-235612264_456239099",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "_V5CsbJZJ_Y",
+      "id": "456239096",
       "title": "Считаем до 5 с Рыжиком 🦊 Учим цифры | Песенка для малышей 🔢",
       "durationSeconds": 173,
-      "thumbnail": "https://i.ytimg.com/vi/_V5CsbJZJ_Y/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239096.webp",
       "uploadDate": "2026-05-02",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=_V5CsbJZJ_Y",
+      "watchUrl": "https://vk.com/video-235612264_456239096",
+      "youtubeId": "_V5CsbJZJ_Y",
       "vk": {
         "oid": -235612264,
         "id": 456239096,
-        "hash": "040fb71ac9d2ecf8cf",
-        "url": "https://vk.com/video-235612264_456239096",
-        "confidence": "high"
+        "hash": "19d10df3c0648ba9ed",
+        "url": "https://vk.com/video-235612264_456239096"
       }
     },
     {
-      "id": "MijwXHtZTL0",
-      "title": "Курочка Ряба и Колыбельная 🐔🌙 Сказка и Сон с Лисёнком Рыжиком | Мультики для малышей",
-      "durationSeconds": 358,
-      "thumbnail": "https://i.ytimg.com/vi/MijwXHtZTL0/hqdefault.jpg",
-      "uploadDate": "2026-04-29",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=MijwXHtZTL0",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239098,
-        "hash": "b55f1c3dd9f2674bd8",
-        "url": "https://vk.com/video-235612264_456239098",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "0zeW9Fs5eeI",
-      "title": "Курочка Ряба и Рыжик 🌙 Сонная колыбельная | Мультик перед сном для малышей",
-      "durationSeconds": 189,
-      "thumbnail": "https://i.ytimg.com/vi/0zeW9Fs5eeI/hqdefault.jpg",
-      "uploadDate": "2026-04-26",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=0zeW9Fs5eeI",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239093,
-        "hash": "ab7e8e8a79de190741",
-        "url": "https://vk.com/video-235612264_456239093",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "PxTvJyNgS1I",
+      "id": "456239092",
       "title": "Курочка Ряба 🐔 Весёлая песенка-сказка для малышей с Лисёнком Рыжиком 🦊",
       "durationSeconds": 175,
-      "thumbnail": "https://i.ytimg.com/vi/PxTvJyNgS1I/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239092.webp",
       "uploadDate": "2026-04-25",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=PxTvJyNgS1I",
+      "watchUrl": "https://vk.com/video-235612264_456239092",
+      "youtubeId": "PxTvJyNgS1I",
       "vk": {
         "oid": -235612264,
         "id": 456239092,
-        "hash": "948cdbc37801f56fac",
-        "url": "https://vk.com/video-235612264_456239092",
-        "confidence": "high"
+        "hash": "6aeba2233300967359",
+        "url": "https://vk.com/video-235612264_456239092"
       }
     },
     {
-      "id": "YPCLJoykJMA",
-      "title": "От зарядки до сна! 🦊 Рыжик: Весёлая двигалка и Колыбельная для малышей ☀️🌙 Мультик-сборник",
-      "durationSeconds": 372,
-      "thumbnail": "https://i.ytimg.com/vi/YPCLJoykJMA/hqdefault.jpg",
-      "uploadDate": "2026-04-22",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=YPCLJoykJMA",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239089,
-        "hash": "2e8f14f4ef101728b2",
-        "url": "https://vk.com/video-235612264_456239089",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "pxFK2lg2tfo",
-      "title": "Колыбельная для малышей 🌙 Рыжик на дереве | Мультик перед сном | Песня для засыпания",
-      "durationSeconds": 181,
-      "thumbnail": "https://i.ytimg.com/vi/pxFK2lg2tfo/hqdefault.jpg",
-      "uploadDate": "2026-04-19",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pxFK2lg2tfo",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239088,
-        "hash": "f611c300857fae5f58",
-        "url": "https://vk.com/video-235612264_456239088",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "f8RTst3esAw",
+      "id": "456239087",
       "title": "Зарядка для малышей с Рыжиком 🦊 Весёлая песенка с движениями и животными",
-      "durationSeconds": 198,
-      "thumbnail": "https://i.ytimg.com/vi/f8RTst3esAw/hqdefault.jpg",
+      "durationSeconds": 197,
+      "thumbnail": "/thumbs/456239087.webp",
       "uploadDate": "2026-04-18",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=f8RTst3esAw",
+      "watchUrl": "https://vk.com/video-235612264_456239087",
+      "youtubeId": "f8RTst3esAw",
       "vk": {
         "oid": -235612264,
         "id": 456239087,
-        "hash": "ae442b6b0e055524bd",
-        "url": "https://vk.com/video-235612264_456239087",
-        "confidence": "high"
+        "hash": "4954a63e3b420c0c18",
+        "url": "https://vk.com/video-235612264_456239087"
       }
     },
     {
-      "id": "aOwWmz0Inuo",
-      "title": "Весёлая ферма и Сладкие сны 🌙 Играем и засыпаем вместе с Лисёнком Рыжиком 🦊 Сборник",
-      "durationSeconds": 432,
-      "thumbnail": "https://i.ytimg.com/vi/aOwWmz0Inuo/hqdefault.jpg",
-      "uploadDate": "2026-04-15",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=aOwWmz0Inuo",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239086,
-        "hash": "aa12f2d203defbc9e1",
-        "url": "https://vk.com/video-235612264_456239086",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "bRUeJreTyZs",
-      "title": "Спокойной ночи, Рыжик 🌙 Сонная сказка после фермы | Колыбельная для малышей",
-      "durationSeconds": 273,
-      "thumbnail": "https://i.ytimg.com/vi/bRUeJreTyZs/hqdefault.jpg",
-      "uploadDate": "2026-04-12",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=bRUeJreTyZs",
-      "vk": null
-    },
-    {
-      "id": "ypWraUD57yI",
+      "id": "456239079",
       "title": "Кто как говорит? 🐄🐷🦆 Звуки животных на ферме | Песенки Лисёнка Рыжика",
       "durationSeconds": 165,
-      "thumbnail": "https://i.ytimg.com/vi/ypWraUD57yI/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239079.webp",
       "uploadDate": "2026-04-11",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ypWraUD57yI",
+      "watchUrl": "https://vk.com/video-235612264_456239079",
+      "youtubeId": "ypWraUD57yI",
       "vk": {
         "oid": -235612264,
         "id": 456239079,
-        "hash": null,
-        "url": "https://vk.com/video-235612264_456239079",
-        "confidence": "high"
+        "hash": "03a02b51ba1c4a3ec3",
+        "url": "https://vk.com/video-235612264_456239079"
       }
     },
     {
-      "id": "Et40DNSEI58",
-      "title": "Угадай птицу! 🐔 Потом спи под нежную колыбельную 🌙",
-      "durationSeconds": 449,
-      "thumbnail": "https://i.ytimg.com/vi/Et40DNSEI58/hqdefault.jpg",
-      "uploadDate": "2026-04-08",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Et40DNSEI58",
-      "vk": null
-    },
-    {
-      "id": "ugC7Z0GFtSY",
-      "title": "Засыпает птичий двор | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 265,
-      "thumbnail": "https://i.ytimg.com/vi/ugC7Z0GFtSY/hqdefault.jpg",
-      "uploadDate": "2026-04-05",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ugC7Z0GFtSY",
-      "vk": null
-    },
-    {
-      "id": "E0rpjUwmUm0",
-      "title": "Кто поёт на ферме? 🚜 Угадай звук животного | Песенки Лисёнка Рыжика",
+      "id": "456239074",
+      "title": "Лисёнок Рыжик и птички во дворе 🦊🐔 Песенка для детей | Мультик про животных",
       "durationSeconds": 190,
-      "thumbnail": "https://i.ytimg.com/vi/E0rpjUwmUm0/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239074.webp",
       "uploadDate": "2026-04-04",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=E0rpjUwmUm0",
-      "vk": null
-    },
-    {
-      "id": "rW6SDhapuhQ",
-      "title": "🦊 Сборник лучших шортсов | Добрые мультики для малышей | Лисёнок Рыжик",
-      "durationSeconds": 663,
-      "thumbnail": "https://i.ytimg.com/vi/rW6SDhapuhQ/hqdefault.jpg",
-      "uploadDate": "2026-04-01",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=rW6SDhapuhQ",
-      "vk": null
-    },
-    {
-      "id": "Wl4LiNQIoy0",
-      "title": "🦊 Лисёнок Рыжик готовится ко сну | Сказка на ночь для малышей | Колыбельная мультик",
-      "durationSeconds": 991,
-      "thumbnail": "https://i.ytimg.com/vi/Wl4LiNQIoy0/hqdefault.jpg",
-      "uploadDate": "2026-03-29",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Wl4LiNQIoy0",
+      "watchUrl": "https://vk.com/video-235612264_456239074",
+      "youtubeId": null,
       "vk": {
         "oid": -235612264,
-        "id": 456239072,
-        "hash": "0b5bf56dd4d5a61b60",
-        "url": "https://vk.com/video-235612264_456239072",
-        "confidence": "high"
+        "id": 456239074,
+        "hash": "1b5a9eb491a69f7708",
+        "url": "https://vk.com/video-235612264_456239074"
       }
     },
     {
-      "id": "Vr63kRjsuKY",
+      "id": "456239071",
       "title": "Сказка РЕПКА 🥕 Развивающие Песенки для Детей | Лисёнок Рыжик",
-      "durationSeconds": 114,
-      "thumbnail": "https://i.ytimg.com/vi/Vr63kRjsuKY/hqdefault.jpg",
-      "uploadDate": "2026-03-28",
-      "playlists": [],
+      "durationSeconds": 113,
+      "thumbnail": "/thumbs/456239071.webp",
+      "uploadDate": "2026-04-01",
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Vr63kRjsuKY",
-      "vk": null
+      "watchUrl": "https://vk.com/video-235612264_456239071",
+      "youtubeId": "Vr63kRjsuKY",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239071,
+        "hash": "c2080c40bee31e44be",
+        "url": "https://vk.com/video-235612264_456239071"
+      }
     },
     {
-      "id": "xIkJoW9vqGI",
-      "title": "Колобок + Колыбельная 🍞🌙 Сказка и сон | Лисёнок Рыжик",
-      "durationSeconds": 350,
-      "thumbnail": "https://i.ytimg.com/vi/xIkJoW9vqGI/hqdefault.jpg",
-      "uploadDate": "2026-03-25",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=xIkJoW9vqGI",
-      "vk": null
-    },
-    {
-      "id": "uu69ibeuIxU",
-      "title": "🌙🦊 Лунный Колобок — Колыбельная для самых маленьких 💤",
-      "durationSeconds": 146,
-      "thumbnail": "https://i.ytimg.com/vi/uu69ibeuIxU/hqdefault.jpg",
-      "uploadDate": "2026-03-22",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=uu69ibeuIxU",
-      "vk": null
-    },
-    {
-      "id": "ko6ArnwiaY0",
+      "id": "456239050",
       "title": "Сказка КОЛОБОК 🍞 Развивающие Песенки для Детей | Лисёнок Рыжик",
       "durationSeconds": 204,
-      "thumbnail": "https://i.ytimg.com/vi/ko6ArnwiaY0/hqdefault.jpg",
-      "uploadDate": "2026-03-21",
-      "playlists": [],
+      "thumbnail": "/thumbs/456239050.webp",
+      "uploadDate": "2026-03-22",
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ko6ArnwiaY0",
+      "watchUrl": "https://vk.com/video-235612264_456239050",
+      "youtubeId": "ko6ArnwiaY0",
       "vk": {
         "oid": -235612264,
         "id": 456239050,
-        "hash": "b23bae625d3604164b",
-        "url": "https://vk.com/video-235612264_456239050",
-        "confidence": "high"
+        "hash": "fa54013d890a442ceb",
+        "url": "https://vk.com/video-235612264_456239050"
       }
     },
     {
-      "id": "1teVnHfb8kA",
-      "title": "Если Весело Тебе — Хлопай! 👏 + Колыбельная «Звёздочка» 🌙 | Лисёнок Рыжик | Мультик и Засыпание",
-      "durationSeconds": 210,
-      "thumbnail": "https://i.ytimg.com/vi/1teVnHfb8kA/hqdefault.jpg",
-      "uploadDate": "2026-03-18",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=1teVnHfb8kA",
-      "vk": null
-    },
-    {
-      "id": "ylfFyk1rTrA",
-      "title": "🦊 Колыбельная \"Звёздочка\" — Рыжик и его друзья 🌙 Мультик для засыпания",
-      "durationSeconds": 125,
-      "thumbnail": "https://i.ytimg.com/vi/ylfFyk1rTrA/hqdefault.jpg",
-      "uploadDate": "2026-03-15",
-      "playlists": [],
-      "groups": [
-        "friends"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=ylfFyk1rTrA",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239055,
-        "hash": null,
-        "url": "https://vk.com/video-235612264_456239055",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "Vh7yo66ZvOw",
-      "title": "Если весело тебе — хлопай! 👏 | Танцуем с друзьями | Лисёнок Рыжик — Детские песенки для малышей",
-      "durationSeconds": 86,
-      "thumbnail": "https://i.ytimg.com/vi/Vh7yo66ZvOw/hqdefault.jpg",
-      "uploadDate": "2026-03-14",
-      "playlists": [],
-      "groups": [
-        "friends"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=Vh7yo66ZvOw",
-      "vk": null
-    },
-    {
-      "id": "NuZQfgVJFes",
-      "title": "🦊 Поиграли и Спать! Сборник песенок и колыбельных | Лисёнок Рыжик | Мультики для малышей 🌙",
-      "durationSeconds": 1090,
-      "thumbnail": "https://i.ytimg.com/vi/NuZQfgVJFes/hqdefault.jpg",
-      "uploadDate": "2026-03-11",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=NuZQfgVJFes",
-      "vk": null
-    },
-    {
-      "id": "D_8jAbwUv18",
-      "title": "🦊 РЫЖИК — Подарок для Мамы 💐 Песенка на 8 Марта | Мультик для малышей",
-      "durationSeconds": 69,
-      "thumbnail": "https://i.ytimg.com/vi/D_8jAbwUv18/hqdefault.jpg",
-      "uploadDate": "2026-03-08",
-      "playlists": [],
-      "groups": [
-        "family"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=D_8jAbwUv18",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239045,
-        "hash": null,
-        "url": "https://vk.com/video-235612264_456239045",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "Qh7PVtGXASY",
-      "title": "1 ЧАС Колыбельная для малышей ☁️ Музыка для сна детей без слов | Лисёнок Рыжик спит",
-      "durationSeconds": 3626,
-      "thumbnail": "https://i.ytimg.com/vi/Qh7PVtGXASY/hqdefault.jpg",
-      "uploadDate": "2026-03-08",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Qh7PVtGXASY",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239047,
-        "hash": "774ab27f74db43321b",
-        "url": "https://vk.com/video-235612264_456239047",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "HKNPbIf_EdA",
-      "title": "🖐️ Семья Пальчиков на русском | Finger Family | Песенки для малышей 0+ | Лисёнок Рыжик",
-      "durationSeconds": 138,
-      "thumbnail": "https://i.ytimg.com/vi/HKNPbIf_EdA/hqdefault.jpg",
-      "uploadDate": "2026-03-07",
-      "playlists": [],
-      "groups": [
-        "family"
-      ],
-      "watchUrl": "https://www.youtube.com/watch?v=HKNPbIf_EdA",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239053,
-        "hash": "81e5e6d26cc0b9c6b9",
-        "url": "https://vk.com/video-235612264_456239053",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "2FGGluGw4Gs",
-      "title": "🦊 Ой Ку-Ку + Колыбельная — Играем и Засыпаем с Лисёнком Рыжиком | Сборник Песенок 🌙",
-      "durationSeconds": 370,
-      "thumbnail": "https://i.ytimg.com/vi/2FGGluGw4Gs/hqdefault.jpg",
-      "uploadDate": "2026-03-04",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=2FGGluGw4Gs",
-      "vk": null
-    },
-    {
-      "id": "XmLlcfTHC3M",
-      "title": "🦊 Колыбельная на облачке | Лисёнок Рыжик — Колыбельные и мультики перед сном",
-      "durationSeconds": 217,
-      "thumbnail": "https://i.ytimg.com/vi/XmLlcfTHC3M/hqdefault.jpg",
-      "uploadDate": "2026-03-01",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=XmLlcfTHC3M",
-      "vk": {
-        "oid": -235612264,
-        "id": 456239044,
-        "hash": "4bc44787011cdb97fc",
-        "url": "https://vk.com/video-235612264_456239044",
-        "confidence": "medium"
-      }
-    },
-    {
-      "id": "X0CD05pjWRo",
+      "id": "456239046",
       "title": "🦊 Играем в Прятки! Ой Ку-Ку | Песенки для малышей | Лисёнок Рыжик",
       "durationSeconds": 151,
-      "thumbnail": "https://i.ytimg.com/vi/X0CD05pjWRo/hqdefault.jpg",
-      "uploadDate": "2026-02-28",
-      "playlists": [],
+      "thumbnail": "/thumbs/456239046.webp",
+      "uploadDate": "2026-03-16",
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=X0CD05pjWRo",
+      "watchUrl": "https://vk.com/video-235612264_456239046",
+      "youtubeId": "X0CD05pjWRo",
       "vk": {
         "oid": -235612264,
         "id": 456239046,
-        "hash": "fafcd50db72bfa2fb9",
-        "url": "https://vk.com/video-235612264_456239046",
-        "confidence": "high"
+        "hash": "83d3d4f3debf0afbfe",
+        "url": "https://vk.com/video-235612264_456239046"
       }
     },
     {
-      "id": "93X92FRFdHI",
-      "title": "Учим Цвета и Идём Спать 🌈💤 Лисёнок Рыжик: Развивающая Песенка и Колыбельная",
-      "durationSeconds": 311,
-      "thumbnail": "https://i.ytimg.com/vi/93X92FRFdHI/hqdefault.jpg",
-      "uploadDate": "2026-02-25",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=93X92FRFdHI",
-      "vk": null
+      "id": "456239045",
+      "title": "🦊 РЫЖИК — Подарок для Мамы 💐 Песенка на 8 Марта | Мультик для малышей",
+      "durationSeconds": 69,
+      "thumbnail": "/thumbs/456239045.webp",
+      "uploadDate": "2026-03-16",
+      "playlists": [
+        "1"
+      ],
+      "groups": [
+        "family"
+      ],
+      "watchUrl": "https://vk.com/video-235612264_456239045",
+      "youtubeId": "D_8jAbwUv18",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239045,
+        "hash": "0e2604cc45827d7729",
+        "url": "https://vk.com/video-235612264_456239045"
+      }
     },
     {
-      "id": "_QGzWLllt0Q",
-      "title": "🌙 Баю-бай, Рыжик! 🦊💤 Колыбельная про цвета | Мультик для малышей перед сном",
-      "durationSeconds": 187,
-      "thumbnail": "https://i.ytimg.com/vi/_QGzWLllt0Q/hqdefault.jpg",
-      "uploadDate": "2026-02-22",
-      "playlists": [],
-      "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=_QGzWLllt0Q",
-      "vk": null
-    },
-    {
-      "id": "My-oied7Ql0",
-      "title": "🌈 Учим Цвета с Рыжиком! 🦊 Песенка для Малышей | Красный Жёлтый Синий Зелёны",
+      "id": "456239042",
+      "title": "🌈 УЧИМ ЦВЕТА с Лисёнком Рыжиком! 🦊 Песенка для малышей | Красный Жёлтый Синий Зелёный",
       "durationSeconds": 125,
-      "thumbnail": "https://i.ytimg.com/vi/My-oied7Ql0/hqdefault.jpg",
+      "thumbnail": "/thumbs/456239042.webp",
       "uploadDate": "2026-02-21",
-      "playlists": [],
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=My-oied7Ql0",
+      "watchUrl": "https://vk.com/video-235612264_456239042",
+      "youtubeId": "My-oied7Ql0",
       "vk": {
         "oid": -235612264,
         "id": 456239042,
-        "hash": "2f515f8b0e0a453b9f",
-        "url": "https://vk.com/video-235612264_456239042",
-        "confidence": "high"
+        "hash": "d4a3de58140623fcfc",
+        "url": "https://vk.com/video-235612264_456239042"
       }
     },
     {
-      "id": "Ie2Jg_Vq1kE",
-      "title": "Рыжик по лесу идёт + Баю-бай 🦊🎵🌙 Два мультика в одном!",
-      "durationSeconds": 267,
-      "thumbnail": "https://i.ytimg.com/vi/Ie2Jg_Vq1kE/hqdefault.jpg",
-      "uploadDate": "2026-02-18",
-      "playlists": [],
+      "id": "456239036",
+      "title": "🦊 Рыжик — Топ-топ-топ! 🎵 Весёлая песенка для самых маленьких",
+      "durationSeconds": 126,
+      "thumbnail": "/thumbs/456239036.webp",
+      "uploadDate": "2026-02-15",
+      "playlists": [
+        "1"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Ie2Jg_Vq1kE",
+      "watchUrl": "https://vk.com/video-235612264_456239036",
+      "youtubeId": "o405asZnvh0",
       "vk": {
         "oid": -235612264,
-        "id": 456239038,
-        "hash": "e7a08216f40f132e8f",
-        "url": "https://vk.com/video-235612264_456239038",
-        "confidence": "high"
+        "id": 456239036,
+        "hash": "9c2917c23b5cb959be",
+        "url": "https://vk.com/video-235612264_456239036"
       }
     },
     {
-      "id": "wDTGB0xh01I",
-      "title": "🦊 Баю-Бай, Рыжик 🌙 Колыбельная для малышей | Спокойной ночи, лисёнок | Мультик для сна",
-      "durationSeconds": 141,
-      "thumbnail": "https://i.ytimg.com/vi/wDTGB0xh01I/hqdefault.jpg",
-      "uploadDate": "2026-02-15",
-      "playlists": [],
+      "id": "456239249",
+      "title": "Сказочные сны Рыжика 🌙 | На ночь | Лисёнок Рыжик — Колыбельные и мультики перед сном",
+      "durationSeconds": 337,
+      "thumbnail": "/thumbs/456239249.webp",
+      "uploadDate": "2026-10-25",
+      "playlists": [
+        "2"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=wDTGB0xh01I",
-      "vk": null
+      "watchUrl": "https://vk.com/video-235612264_456239249",
+      "youtubeId": null,
+      "vk": {
+        "oid": -235612264,
+        "id": 456239249,
+        "hash": "44e5839a185d488fca",
+        "url": "https://vk.com/video-235612264_456239249"
+      }
     },
     {
-      "id": "o405asZnvh0",
-      "title": "🦊 Рыжик — Топ-топ-топ! 🎵 Весёлая песенка для самых маленьких",
-      "durationSeconds": 127,
-      "thumbnail": "https://i.ytimg.com/vi/o405asZnvh0/hqdefault.jpg",
-      "uploadDate": "2026-02-14",
-      "playlists": [],
+      "id": "456239235",
+      "title": "Спи, Мой Почемучка 🌙 | Спокойной ночи | Лисёнок Рыжик — Колыбельные и мультики перед сном",
+      "durationSeconds": 188,
+      "thumbnail": "/thumbs/456239235.webp",
+      "uploadDate": "2026-10-11",
+      "playlists": [
+        "2"
+      ],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=o405asZnvh0",
-      "vk": null
+      "watchUrl": "https://vk.com/video-235612264_456239235",
+      "youtubeId": "pb2llFugf4M",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239235,
+        "hash": "bd7aefb12c62795f19",
+        "url": "https://vk.com/video-235612264_456239235"
+      }
+    },
+    {
+      "id": "456239214",
+      "title": "Гуси, гуси, спать пора! 🌙 | Колыбельная перед сном | Лисёнок Рыжик — Колыбельные и мультики перед сном",
+      "durationSeconds": 240,
+      "thumbnail": "/thumbs/456239214.webp",
+      "uploadDate": "2026-09-27",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239214",
+      "youtubeId": "5yCj5VpMQE4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239214,
+        "hash": "ca4f13d4012d348e8d",
+        "url": "https://vk.com/video-235612264_456239214"
+      }
+    },
+    {
+      "id": "456239208",
+      "title": "Куда уходят дневные тропинки 🌙 Колыбельная для малышей | Лисёнок Рыжик — Мультики перед сном",
+      "durationSeconds": 258,
+      "thumbnail": "/thumbs/456239208.webp",
+      "uploadDate": "2026-09-13",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239208",
+      "youtubeId": "fWKpLIi9X_E",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239208,
+        "hash": "36bde0b9c579c69be8",
+        "url": "https://vk.com/video-235612264_456239208"
+      }
+    },
+    {
+      "id": "456239193",
+      "title": "Светит месяц золотой ✨ | Колыбельная для малышей | Лисёнок Рыжик — Колыбельные и мультики перед сном",
+      "durationSeconds": 256,
+      "thumbnail": "/thumbs/456239193.webp",
+      "uploadDate": "2026-08-30",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239193",
+      "youtubeId": "da505CBL0QU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239193,
+        "hash": "f2dbd936deaf97dfd4",
+        "url": "https://vk.com/video-235612264_456239193"
+      }
+    },
+    {
+      "id": "456239186",
+      "title": "Семь Звёздочек 🌙 Спи, Мой Малыш | Лисёнок Рыжик — Колыбельные и мультики перед сном",
+      "durationSeconds": 242,
+      "thumbnail": "/thumbs/456239186.webp",
+      "uploadDate": "2026-08-16",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239186",
+      "youtubeId": "UKc-AXV3ZZM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239186,
+        "hash": "3d2275895025709aa4",
+        "url": "https://vk.com/video-235612264_456239186"
+      }
+    },
+    {
+      "id": "456239160",
+      "title": "Кораблик снов ⛵ | Нежная колыбельная перед сном | Лисёнок Рыжик — Колыбельные и мультики перед сном",
+      "durationSeconds": 286,
+      "thumbnail": "/thumbs/456239160.webp",
+      "uploadDate": "2026-07-19",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239160",
+      "youtubeId": "GGXyJaqtQ80",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239160,
+        "hash": "6d000558ff135c248b",
+        "url": "https://vk.com/video-235612264_456239160"
+      }
+    },
+    {
+      "id": "456239141",
+      "title": "Спят Игрушки, Спи и Ты 🌙 | Колыбельная для малышей | Лисёнок Рыжик",
+      "durationSeconds": 357,
+      "thumbnail": "/thumbs/456239141.webp",
+      "uploadDate": "2026-06-14",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239141",
+      "youtubeId": "acqDwbDWdpg",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239141,
+        "hash": "8425659830f164fa45",
+        "url": "https://vk.com/video-235612264_456239141"
+      }
+    },
+    {
+      "id": "456239125",
+      "title": "Кап-Кап Дождик 🌧 | Колыбельная для малышей | Лисёнок Рыжик — Мультик перед сном",
+      "durationSeconds": 224,
+      "thumbnail": "/thumbs/456239125.webp",
+      "uploadDate": "2026-05-24",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239125",
+      "youtubeId": "uu5p0v_Tw0s",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239125,
+        "hash": "08ea4870e2a3a9d9e7",
+        "url": "https://vk.com/video-235612264_456239125"
+      }
+    },
+    {
+      "id": "456239111",
+      "title": "Лисёнок Рыжик засыпает 🦊 Колыбельная песня | Мультик для самых маленьких",
+      "durationSeconds": 146,
+      "thumbnail": "/thumbs/456239111.webp",
+      "uploadDate": "2026-05-10",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239111",
+      "youtubeId": "3ObX1LWnevQ",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239111,
+        "hash": "864681c4a905c4619b",
+        "url": "https://vk.com/video-235612264_456239111"
+      }
+    },
+    {
+      "id": "456239093",
+      "title": "Курочка Ряба и Рыжик 🌙 Сонная колыбельная | Мультик перед сном для малышей",
+      "durationSeconds": 188,
+      "thumbnail": "/thumbs/456239093.webp",
+      "uploadDate": "2026-04-26",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239093",
+      "youtubeId": "0zeW9Fs5eeI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239093,
+        "hash": "2d7c44a495f170bf0c",
+        "url": "https://vk.com/video-235612264_456239093"
+      }
+    },
+    {
+      "id": "456239088",
+      "title": "Колыбельная для малышей 🌙 Рыжик на дереве | Мультик перед сном | Песня для засыпания",
+      "durationSeconds": 181,
+      "thumbnail": "/thumbs/456239088.webp",
+      "uploadDate": "2026-04-19",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239088",
+      "youtubeId": "pxFK2lg2tfo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239088,
+        "hash": "09ba378555c1c16c9a",
+        "url": "https://vk.com/video-235612264_456239088"
+      }
+    },
+    {
+      "id": "456239076",
+      "title": "Колыбельная для малышей перед сном 🦊 Спи, малыш с Рыжиком 🌙",
+      "durationSeconds": 264,
+      "thumbnail": "/thumbs/456239076.webp",
+      "uploadDate": "2026-04-05",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239076",
+      "youtubeId": null,
+      "vk": {
+        "oid": -235612264,
+        "id": 456239076,
+        "hash": "62898da359fe5f7914",
+        "url": "https://vk.com/video-235612264_456239076"
+      }
+    },
+    {
+      "id": "456239055",
+      "title": "🦊 Колыбельная \"Звёздочка\" — Рыжик и его друзья 🌙 Мультик для засыпания",
+      "durationSeconds": 124,
+      "thumbnail": "/thumbs/456239055.webp",
+      "uploadDate": "2026-03-23",
+      "playlists": [
+        "2"
+      ],
+      "groups": [
+        "friends"
+      ],
+      "watchUrl": "https://vk.com/video-235612264_456239055",
+      "youtubeId": "ylfFyk1rTrA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239055,
+        "hash": "2af46e71f13ed20db8",
+        "url": "https://vk.com/video-235612264_456239055"
+      }
+    },
+    {
+      "id": "456239051",
+      "title": "🌙🦊 Лунный Колобок — Колыбельная для самых маленьких 💤",
+      "durationSeconds": 146,
+      "thumbnail": "/thumbs/456239051.webp",
+      "uploadDate": "2026-03-22",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239051",
+      "youtubeId": "uu69ibeuIxU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239051,
+        "hash": "34f845f1d851e82cbe",
+        "url": "https://vk.com/video-235612264_456239051"
+      }
+    },
+    {
+      "id": "456239044",
+      "title": "🦊 Колыбельная Баю-бай с Рыжиком | Мультик перед сном для малышей 🌙",
+      "durationSeconds": 217,
+      "thumbnail": "/thumbs/456239044.webp",
+      "uploadDate": "2026-03-02",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239044",
+      "youtubeId": "XmLlcfTHC3M",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239044,
+        "hash": "c4def3b58c6058726a",
+        "url": "https://vk.com/video-235612264_456239044"
+      }
+    },
+    {
+      "id": "456239043",
+      "title": "🌙 Баю-бай, Рыжик! 🦊💤 Колыбельная про цвета | Мультик для малышей перед сном",
+      "durationSeconds": 187,
+      "thumbnail": "/thumbs/456239043.webp",
+      "uploadDate": "2026-02-22",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239043",
+      "youtubeId": "_QGzWLllt0Q",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239043,
+        "hash": "9093df86746bb5c59e",
+        "url": "https://vk.com/video-235612264_456239043"
+      }
+    },
+    {
+      "id": "456239037",
+      "title": "🦊 Баю-Бай, Рыжик 🌙 Колыбельная для малышей | Спокойной ночи, лисёнок | Мультик для сна",
+      "durationSeconds": 140,
+      "thumbnail": "/thumbs/456239037.webp",
+      "uploadDate": "2026-02-15",
+      "playlists": [
+        "2"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239037",
+      "youtubeId": "wDTGB0xh01I",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239037,
+        "hash": "6de8a7d979909cea25",
+        "url": "https://vk.com/video-235612264_456239037"
+      }
+    },
+    {
+      "id": "456239172",
+      "title": "Гадкий Утёнок 🌙 | Сказка перед сном для малышей | Лисёнок Рыжик — Сказки и мультики для детей",
+      "durationSeconds": 181,
+      "thumbnail": "/thumbs/456239172.webp",
+      "uploadDate": "2026-08-02",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239172",
+      "youtubeId": "GHvB0Mko2Dc",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239172,
+        "hash": "b6dbcdf8b5c4c7a6de",
+        "url": "https://vk.com/video-235612264_456239172"
+      }
+    },
+    {
+      "id": "456239152",
+      "title": "Лев и Мышка 🦁🐭 | Добрая сказка на ночь | Лисёнок Рыжик — Сказки и мультики для детей",
+      "durationSeconds": 195,
+      "thumbnail": "/thumbs/456239152.webp",
+      "uploadDate": "2026-06-28",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239152",
+      "youtubeId": "tNPAMx-COjI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239152,
+        "hash": "fb27a3b19cd41e948b",
+        "url": "https://vk.com/video-235612264_456239152"
+      }
+    },
+    {
+      "id": "456239147",
+      "title": "Зайкина Избушка 🐰🏠 | Добрая Сказка для Малышей | Лисёнок Рыжик — Сказки и мультики для детей",
+      "durationSeconds": 235,
+      "thumbnail": "/thumbs/456239147.webp",
+      "uploadDate": "2026-06-21",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239147",
+      "youtubeId": "xKTxt3A5bJ4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239147,
+        "hash": "f317720eaa56d15cc6",
+        "url": "https://vk.com/video-235612264_456239147"
+      }
+    },
+    {
+      "id": "456239135",
+      "title": "⭐ Заяц и Черепаха 🐢 | Добрая Сказка на Ночь | Лисёнок Рыжик — Мультики  для детей",
+      "durationSeconds": 172,
+      "thumbnail": "/thumbs/456239135.webp",
+      "uploadDate": "2026-06-07",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239135",
+      "youtubeId": "4T-4FCSbD_o",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239135,
+        "hash": "da27c34e9a7ceebee3",
+        "url": "https://vk.com/video-235612264_456239135"
+      }
+    },
+    {
+      "id": "456239131",
+      "title": "Три Поросёнка 🐷🌙 | Сказка на ночь | Лисёнок Рыжик — Мультики перед сном",
+      "durationSeconds": 175,
+      "thumbnail": "/thumbs/456239131.webp",
+      "uploadDate": "2026-05-31",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239131",
+      "youtubeId": "RF2VMvHMW8k",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239131,
+        "hash": "c64d428e74253e41fd",
+        "url": "https://vk.com/video-235612264_456239131"
+      }
+    },
+    {
+      "id": "456239115",
+      "title": "✅ Солнышко в Сердце ☀️ | Рыжик и Бабушкина Магия |    Лисёнок Рыжик — Мультики для малышей",
+      "durationSeconds": 160,
+      "thumbnail": "/thumbs/456239115.webp",
+      "uploadDate": "2026-05-17",
+      "playlists": [
+        "3"
+      ],
+      "groups": [
+        "family"
+      ],
+      "watchUrl": "https://vk.com/video-235612264_456239115",
+      "youtubeId": "Awi1K7RArsE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239115,
+        "hash": "e8d9b3908c3e26505e",
+        "url": "https://vk.com/video-235612264_456239115"
+      }
+    },
+    {
+      "id": "456239099",
+      "title": "Рыжик считает звёздочки перед сном 🌙⭐ Сказка на ночь для малышей | Сонные истории",
+      "durationSeconds": 157,
+      "thumbnail": "/thumbs/456239099.webp",
+      "uploadDate": "2026-05-03",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239099",
+      "youtubeId": "p4IQuhY1H6s",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239099,
+        "hash": "8fb9f9d34a063a68f6",
+        "url": "https://vk.com/video-235612264_456239099"
+      }
+    },
+    {
+      "id": "456239082",
+      "title": "Спокойной ночи, Рыжик 🌙 Сонная сказка после фермы | Колыбельная для малышей",
+      "durationSeconds": 272,
+      "thumbnail": "/thumbs/456239082.webp",
+      "uploadDate": "2026-04-12",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239082",
+      "youtubeId": "bRUeJreTyZs",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239082,
+        "hash": "eb419479d91e58b21b",
+        "url": "https://vk.com/video-235612264_456239082"
+      }
+    },
+    {
+      "id": "456239072",
+      "title": "🦊 Лисёнок Рыжик готовится ко сну | Сказка на ночь для малышей | Колыбельная мультик",
+      "durationSeconds": 990,
+      "thumbnail": "/thumbs/456239072.webp",
+      "uploadDate": "2026-04-02",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239072",
+      "youtubeId": "Wl4LiNQIoy0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239072,
+        "hash": "016a11f6b399c6ac66",
+        "url": "https://vk.com/video-235612264_456239072"
+      }
     }
   ]
 }

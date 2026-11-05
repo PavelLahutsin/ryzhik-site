@@ -13,7 +13,8 @@ interface Props {
   playlists?: string[];
   occasions?: string[];
   external?: boolean;
-  vk?: { oid: number; id: number; hash: string | null; url: string; confidence: string } | null;
+  vk?: { oid: number; id: number; hash: string | null; url: string } | null;
+  youtubeId?: string | null;
 }
 
 const {
@@ -28,6 +29,7 @@ const {
   occasions = [],
   external = false,
   vk = null,
+  youtubeId = null,
 } = Astro.props;
 
 const duration = formatDuration(durationSeconds);
@@ -45,6 +47,7 @@ const date = formatDate(uploadDate);
   data-vk-oid={vk ? String(vk.oid) : undefined}
   data-vk-id={vk ? String(vk.id) : undefined}
   data-vk-hash={vk?.hash || undefined}
+  data-youtube-id={youtubeId || undefined}
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
 >
