@@ -1526,6 +1526,7 @@
   border-bottom-right-radius: 0;
 }
 
+.player-links a[hidden],
 .player-actions a[hidden] {
   display: none !important;
 }
@@ -1662,6 +1663,7 @@
   background: transparent;
   width: min(960px, calc(100vw - 24px));
   max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
 }
 
 .player-dialog::backdrop {
@@ -1672,6 +1674,8 @@
   background: var(--color-surface);
   border-radius: var(--radius-soft-lg);
   padding: 12px;
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
 }
 
 .player-frame {
@@ -1682,15 +1686,62 @@
   background: #211912;
 }
 
-.player-actions {
+.player-toolbar,
+.player-links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 12px;
+  align-items: stretch;
 }
 
-.player-actions .btn {
-  flex: 1 1 180px;
+.player-switch {
+  display: flex;
+  flex: 1 1 240px;
+  min-height: 48px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-line);
+}
+
+.player-switch button {
+  flex: 1;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.player-switch button[aria-pressed="true"] {
+  background: var(--color-ink);
+  color: #fff;
+}
+
+.player-switch button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.player-toolbar > .btn {
+  flex: 0 0 auto;
+  min-width: 132px;
+}
+
+.player-links .btn {
+  flex: 1 1 220px;
+}
+
+@media (max-width: 640px) {
+  .player-switch,
+  .player-toolbar > .btn,
+  .player-links .btn {
+    flex-basis: 100%;
+  }
 }
 
 @media (max-width: 1180px) {

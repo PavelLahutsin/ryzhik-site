@@ -116,6 +116,19 @@ async function fetchPlaylist(playlistId) {
   return episodes;
 }
 
+function manualYoutubeIds() {
+  const manualPath = join(root, "data", "vk", "manual.json");
+  if (!existsSync(manualPath)) return new Map();
+  const rows = JSON.parse(readFileSync(manualPath, "utf8"));
+  const map = new Map();
+  for (const row of Array.isArray(rows) ? rows : []) {
+    const vkId = Number(row?.vk_id ?? row?.vkId);
+    const youtube = String(row?.youtube_id ?? row?.youtubeId ?? "").trim();
+    if (Number.isInteger(vkId) && /^[A-Za-z0-9_-]{6,}$/.test(youtube)) map.set(vkId, youtube);
+  }
+  return map;
+}
+
 const previous = existsSync(episodesPath) ? JSON.parse(readFileSync(episodesPath, "utf8")) : [];
 const previousById = new Map((Array.isArray(previous) ? previous : []).map((item) => [item.vk_id, item]));
 const merged = [];
@@ -139,6 +152,12 @@ for (const playlistId of PLAYLISTS) {
       confidence: saved.confidence ?? null,
     });
   }
+}
+
+const overrides = manualYoutubeIds();
+for (const episode of merged) {
+  const override = overrides.get(episode.vk_id);
+  if (override) episode.youtube_id = override;
 }
 
 writeFileSync(episodesPath, `${JSON.stringify(merged, null, 2)}\n`);

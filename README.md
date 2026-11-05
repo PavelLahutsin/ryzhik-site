@@ -105,6 +105,12 @@ npm run videos:vk
 
 `playlist_id`: 1 — все песенки, 2 — колыбельные, 3 — сонные истории. `date` — unix-время. `youtube_id` можно не указывать: тогда под плеером не будет ссылки на YouTube. Плеер включает VK по `vk_id` и `vk_hash`. Превью лежат в `public/thumbs/`.
 
+Чтобы только дописать ролик YouTube к серии, которая уже есть в `episodes.json`, достаточно двух полей. `npm run videos:vk` не затирает такой `youtube_id`:
+
+```json
+{ "vk_id": 456239258, "youtube_id": "3oG-6zhIhHM" }
+```
+
 ## Как добавить персонажа
 
 1. Положите картинку в `src/assets/characters/`, лучше webp с прозрачным фоном.

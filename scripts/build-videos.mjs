@@ -55,6 +55,11 @@ function asEpisode(raw) {
   };
 }
 
+function youtubeIdOf(raw) {
+  const youtube = String(raw?.youtube_id ?? raw?.youtubeId ?? "").trim();
+  return /^[A-Za-z0-9_-]{6,}$/.test(youtube) ? youtube : null;
+}
+
 function mergeEpisodes(source, manual) {
   const byId = new Map();
   const ordered = [];
@@ -66,19 +71,27 @@ function mergeEpisodes(source, manual) {
   }
   for (const row of manual) {
     const episode = asEpisode(row);
-    if (!episode) {
-      console.warn("Skipped a manual episode: need playlist_id 1–3, vk_id, title.");
+    const vkId = Number(row?.vk_id ?? row?.vkId);
+    const youtube = youtubeIdOf(row);
+    if (!episode && !(Number.isInteger(vkId) && youtube)) {
+      console.warn("Skipped a manual episode: need playlist_id 1–3, vk_id and title, or a youtube_id for an existing vk_id.");
       continue;
     }
-    const existing = byId.get(episode.vk_id);
-    if (existing) {
-      Object.assign(existing, episode);
-      continue;
+    if (episode) {
+      const existing = byId.get(episode.vk_id);
+      if (existing) Object.assign(existing, episode);
+      else {
+        byId.set(episode.vk_id, episode);
+        const lastOfPlaylist = ordered.findLastIndex((item) => item.playlist_id === episode.playlist_id);
+        if (lastOfPlaylist === -1) ordered.push(episode);
+        else ordered.splice(lastOfPlaylist + 1, 0, episode);
+      }
     }
-    byId.set(episode.vk_id, episode);
-    const lastOfPlaylist = ordered.findLastIndex((item) => item.playlist_id === episode.playlist_id);
-    if (lastOfPlaylist === -1) ordered.push(episode);
-    else ordered.splice(lastOfPlaylist + 1, 0, episode);
+    if (youtube) {
+      const existing = byId.get(episode ? episode.vk_id : vkId);
+      if (existing) existing.youtube_id = youtube;
+      else console.warn(`Manual youtube id for unknown vk_id ${vkId}.`);
+    }
   }
   return ordered;
 }

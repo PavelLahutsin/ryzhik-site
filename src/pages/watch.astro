@@ -10,6 +10,7 @@ if (!page) throw new Error("Нет текста страницы watch");
 
 const occasions = (await getCollection("occasions")).sort((a, b) => a.data.order - b.data.order);
 const vkVideo = platform("vk-video");
+const youtube = platform("youtube");
 const cards = videos.map((video) => ({
   video,
   occasions: occasionIds(video.title, occasions),
@@ -94,11 +95,22 @@ const cards = videos.map((video) => ({
     <div class="player-sheet">
       <h2 id="player-title" class="sr-only">Просмотр ролика</h2>
       <div data-player-frame></div>
-      <div class="player-actions">
-        <a class="btn btn-ghost" data-player-alt href={vkVideo.href} target="_blank" rel="noopener noreferrer">
-          Смотреть в VK
-        </a>
+      <div class="player-toolbar">
+        <div class="player-switch" role="group" aria-label="Плеер">
+          <button type="button" data-player-platform="vk" aria-pressed="true">VK</button>
+          <button type="button" data-player-platform="youtube" aria-pressed="false">YouTube</button>
+        </div>
         <button class="btn btn-ghost" type="button" data-player-close>Закрыть</button>
+      </div>
+      <div class="player-links">
+        <a class="btn btn-emerald" data-player-vk href={vkVideo.href} target="_blank" rel="noopener noreferrer">
+          <Icon name="vk" />
+          Открыть в VK
+        </a>
+        <a class="btn btn-orange" data-player-yt href={youtube.href} target="_blank" rel="noopener noreferrer">
+          <Icon name="youtube" />
+          Открыть на YouTube
+        </a>
       </div>
     </div>
   </dialog>
@@ -107,10 +119,27 @@ const cards = videos.map((video) => ({
     (function () {
       var dialog = document.getElementById("player-dialog");
       var frame = document.querySelector("[data-player-frame]");
-      var altLink = document.querySelector("[data-player-alt]");
       var closeButton = document.querySelector("[data-player-close]");
-      var vkChannel = altLink ? altLink.getAttribute("href") : "https://vkvideo.ru/@lisenok_ryzhik";
+      var vkLink = document.querySelector("[data-player-vk]");
+      var ytLink = document.querySelector("[data-player-yt]");
+      var platformButtons = document.querySelectorAll("[data-player-platform]");
+      var playerChoiceKey = "ryzhik-player";
+      var current = { vkSrc: "", ytSrc: "", vkWatch: "", ytWatch: "" };
       if (!dialog || !frame) return;
+
+      function preferredPlatform() {
+        try {
+          var saved = localStorage.getItem(playerChoiceKey);
+          if (saved === "youtube" || saved === "vk") return saved;
+        } catch (error) {}
+        return "vk";
+      }
+
+      function rememberPlatform(platform) {
+        try {
+          localStorage.setItem(playerChoiceKey, platform);
+        } catch (error) {}
+      }
 
       function params() {
         return new URLSearchParams(location.search);
@@ -164,48 +193,90 @@ const cards = videos.map((video) => ({
         return url;
       }
 
-      function openVideo(id, title, link) {
-        if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return;
+      function youtubeIdOf(link) {
+        var youtubeId = link && link.getAttribute("data-youtube-id");
+        if (youtubeId && !/^[A-Za-z0-9_-]{6,}$/.test(youtubeId)) return "";
+        return youtubeId || "";
+      }
+
+      function vkWatchUrl(link) {
+        if (!link) return "";
+        var oid = link.getAttribute("data-vk-oid");
+        var vkId = link.getAttribute("data-vk-id");
+        if (!oid || !vkId || !/^-?\d+$/.test(oid) || !/^\d+$/.test(vkId)) return "";
+        return "https://vk.com/video" + oid + "_" + vkId;
+      }
+
+      function setLink(anchor, href) {
+        if (!anchor) return;
+        if (href) {
+          anchor.hidden = false;
+          anchor.href = href;
+        } else {
+          anchor.hidden = true;
+          anchor.removeAttribute("href");
+        }
+      }
+
+      function paintPlatform(platform) {
+        var use = platform;
+        if (use === "youtube" && !current.ytSrc) use = current.vkSrc ? "vk" : "";
+        if (use === "vk" && !current.vkSrc) use = current.ytSrc ? "youtube" : "";
+        if (!use) return "";
         frame.replaceChildren();
-        var vkSrc = vkEmbed(link);
         var iframe = document.createElement("iframe");
         iframe.className = "player-frame";
-        iframe.title = title || "Ролик";
+        iframe.title = current.title || "Ролик";
         iframe.allowFullscreen = true;
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        var youtubeId = link && link.getAttribute("data-youtube-id");
-        if (youtubeId && !/^[A-Za-z0-9_-]{6,}$/.test(youtubeId)) youtubeId = "";
-        if (vkSrc) {
-          iframe.src = vkSrc;
-          iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock";
-          if (altLink) {
-            if (youtubeId) {
-              altLink.hidden = false;
-              altLink.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(youtubeId);
-              altLink.textContent = "Смотреть на YouTube";
-            } else {
-              altLink.hidden = true;
-            }
-          }
-        } else if (youtubeId) {
-          iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(youtubeId) + "?autoplay=1";
+        if (use === "youtube") {
+          iframe.src = current.ytSrc;
           iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          if (altLink) {
-            altLink.hidden = false;
-            altLink.href = vkChannel;
-            altLink.textContent = "Смотреть в VK";
-          }
         } else {
-          return;
+          iframe.src = current.vkSrc;
+          iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock";
         }
         frame.append(iframe);
+        platformButtons.forEach(function (button) {
+          var value = button.getAttribute("data-player-platform");
+          var available = value === "youtube" ? Boolean(current.ytSrc) : Boolean(current.vkSrc);
+          button.disabled = !available;
+          button.setAttribute("aria-pressed", value === use ? "true" : "false");
+        });
+        return use;
+      }
+
+      function openVideo(id, title, link) {
+        if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return;
+        var vkSrc = vkEmbed(link);
+        var youtubeId = youtubeIdOf(link);
+        current = {
+          title: title || "Ролик",
+          vkSrc: vkSrc,
+          ytSrc: youtubeId ? "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(youtubeId) + "?autoplay=1" : "",
+          vkWatch: vkWatchUrl(link),
+          ytWatch: youtubeId ? "https://www.youtube.com/watch?v=" + encodeURIComponent(youtubeId) : "",
+        };
+        if (!current.vkSrc && !current.ytSrc) return;
+        setLink(vkLink, current.vkWatch);
+        setLink(ytLink, current.ytWatch);
+        paintPlatform(preferredPlatform());
         var heading = document.getElementById("player-title");
-        if (heading) heading.textContent = title || "Ролик";
+        if (heading) heading.textContent = current.title;
         if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
         var query = params();
         query.set("v", id);
         history.replaceState(null, "", location.pathname + "?" + query.toString());
       }
+
+      platformButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var platform = button.getAttribute("data-player-platform");
+          if (button.disabled || (platform !== "vk" && platform !== "youtube")) return;
+          var shown = paintPlatform(platform);
+          if (shown === platform) rememberPlatform(platform);
+        });
+      });
 
       document.addEventListener("click", function (event) {
         var link = event.target.closest("a[data-video-id]");
