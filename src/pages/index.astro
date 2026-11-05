@@ -3,6 +3,9 @@ import { Picture } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
 import sample1 from "../assets/coloring/sample-1.webp";
 import sample2 from "../assets/coloring/sample-2.webp";
+import ryzhikWave from "../assets/characters/ryzhik-wave.webp";
+import familyScene from "../assets/characters/family.webp";
+import friendsScene from "../assets/scenes/friends.webp";
 import Icon from "../components/Icon.astro";
 import PersonaCard from "../components/PersonaCard.astro";
 import SampleSheet from "../components/SampleSheet.astro";
@@ -81,10 +84,10 @@ const jsonLd = {
       </div>
       <div class="hero-art">
         <Picture
-          src={ryzhik.entry.data.image}
-          alt={ryzhik.entry.data.imageAlt}
-          widths={[360, 640, 900]}
-          sizes="(min-width: 960px) 460px, 88vw"
+          src={ryzhikWave}
+          alt="Лисёнок Рыжик машет лапой"
+          widths={[320, 502]}
+          sizes="(min-width: 960px) 420px, 88vw"
           formats={["avif", "webp"]}
           fallbackFormat="webp"
           loading="eager"
@@ -176,13 +179,35 @@ const jsonLd = {
       </div>
 
       <div class="hero-group">
-        <h3>Рыжик и семья</h3>
+        <h3>С семьёй</h3>
+        <div class="scene-cutout">
+          <Picture
+            src={familyScene}
+            alt="Рыжик с папой, мамой и братиком"
+            widths={[480, 800, 1171]}
+            sizes="(min-width: 960px) 880px, 92vw"
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            loading="lazy"
+          />
+        </div>
         <div class="personas">
           {family.map((item) => <PersonaCard entry={item.entry} Content={item.Content} />)}
         </div>
       </div>
       <div class="hero-group">
-        <h3>Рыжик и друзья</h3>
+        <h3>С друзьями</h3>
+        <div class="scene-photo">
+          <Picture
+            src={friendsScene}
+            alt="Рыжик, белка, ёжик, зайка и медвежонок на поляне"
+            widths={[640, 1100, 1600]}
+            sizes="(min-width: 960px) 1100px, 92vw"
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            loading="lazy"
+          />
+        </div>
         <div class="personas">
           {friends.map((item) => <PersonaCard entry={item.entry} Content={item.Content} />)}
         </div>

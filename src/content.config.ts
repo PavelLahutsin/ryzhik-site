@@ -91,4 +91,15 @@ const occasions = defineCollection({
   }),
 });
 
-export const collections = { characters, pages, occasions };
+const albums = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/albums" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      href: z.string().url(),
+      order: z.number(),
+      cover: image(),
+    }),
+});
+
+export const collections = { characters, pages, occasions, albums };

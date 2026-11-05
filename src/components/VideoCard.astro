@@ -13,6 +13,7 @@ interface Props {
   playlists?: string[];
   occasions?: string[];
   external?: boolean;
+  vk?: { oid: number; id: number; hash: string | null; url: string; confidence: string } | null;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   playlists = [],
   occasions = [],
   external = false,
+  vk = null,
 } = Astro.props;
 
 const duration = formatDuration(durationSeconds);
@@ -40,6 +42,9 @@ const date = formatDate(uploadDate);
   data-groups={groups.join(",")}
   data-playlists={playlists.join(",")}
   data-occasions={occasions.join(",")}
+  data-vk-oid={vk ? String(vk.oid) : undefined}
+  data-vk-id={vk ? String(vk.id) : undefined}
+  data-vk-hash={vk?.hash || undefined}
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
 >

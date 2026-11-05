@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { groupsFromTitle } from "./lib/groups.mjs";
+import { loadVkResolver } from "./lib/vk.mjs";
 import {
   CHANNEL_ID,
   RSS_URL,
@@ -79,6 +80,7 @@ if (feedEntries.length === 0) {
 }
 
 const current = JSON.parse(readFileSync(videosPath, "utf8"));
+const resolveVk = loadVkResolver(root, current.videos || []);
 const videos = new Map((current.videos || []).map((video) => [video.id, { ...video }]));
 let added = 0;
 let datesFilled = 0;
@@ -96,6 +98,7 @@ for (const entry of feedEntries) {
       playlists: [],
       groups: groupsFromTitle(entry.title),
       watchUrl: watchUrl(entry.id),
+      vk: resolveVk(entry.id),
     });
     added++;
     continue;
@@ -113,6 +116,7 @@ for (const entry of feedEntries) {
   existing.groups = groupsFromTitle(existing.title);
   existing.thumbnail = thumbnailUrl(entry.id);
   existing.watchUrl = watchUrl(entry.id);
+  existing.vk = resolveVk(existing.id);
 }
 
 const payload = {

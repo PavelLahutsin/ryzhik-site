@@ -10,6 +10,7 @@
     { "href": "/characters", "label": "Персонажи" },
     { "href": "/parents", "label": "Родителям" },
     { "href": "/coloring", "label": "Раскраски" },
+    { "href": "/music", "label": "Музыка" },
     { "href": "/#where", "label": "Где смотреть" }
   ]
 }

@@ -84,6 +84,7 @@ const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) 
               groups={video.groups}
               playlists={video.playlists}
               occasions={tags}
+              vk={video.vk}
               external
             />
           ))
@@ -97,12 +98,8 @@ const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) 
       <h2 id="player-title" class="sr-only">Просмотр ролика</h2>
       <div data-player-frame></div>
       <div class="player-actions">
-        <a class="btn btn-emerald" data-player-vk href={vkVideo.href} target="_blank" rel="noopener noreferrer">
-          <Icon name="vk" />
+        <a class="btn btn-ghost" data-player-alt href={vkVideo.href} target="_blank" rel="noopener noreferrer">
           Смотреть в VK
-        </a>
-        <a class="btn btn-ghost" data-player-youtube href="https://www.youtube.com/watch?v=" target="_blank" rel="noopener noreferrer">
-          Открыть на YouTube
         </a>
         <button class="btn btn-ghost" type="button" data-player-close>Закрыть</button>
       </div>
@@ -113,8 +110,9 @@ const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) 
     (function () {
       var dialog = document.getElementById("player-dialog");
       var frame = document.querySelector("[data-player-frame]");
-      var youtubeLink = document.querySelector("[data-player-youtube]");
+      var altLink = document.querySelector("[data-player-alt]");
       var closeButton = document.querySelector("[data-player-close]");
+      var vkChannel = altLink ? altLink.getAttribute("href") : "https://vkvideo.ru/@lisenok_ryzhik";
       if (!dialog || !frame) return;
 
       function params() {
@@ -155,20 +153,44 @@ const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) 
         });
       }
 
-      function openVideo(id, title) {
+      function vkEmbed(link) {
+        if (!link) return "";
+        var oid = link.getAttribute("data-vk-oid");
+        var vkId = link.getAttribute("data-vk-id");
+        var hash = link.getAttribute("data-vk-hash") || "";
+        if (!oid || !vkId || !/^-?\d+$/.test(oid) || !/^\d+$/.test(vkId)) return "";
+        var url = "https://vk.com/video_ext.php?oid=" + encodeURIComponent(oid) + "&id=" + encodeURIComponent(vkId) + "&autoplay=1";
+        if (hash) url += "&hash=" + encodeURIComponent(hash);
+        return url;
+      }
+
+      function openVideo(id, title, link) {
         if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return;
         frame.replaceChildren();
+        var vkSrc = vkEmbed(link);
         var iframe = document.createElement("iframe");
         iframe.className = "player-frame";
-        iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1";
         iframe.title = title || "Ролик";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        if (vkSrc) {
+          iframe.src = vkSrc;
+          iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock";
+          if (altLink) {
+            altLink.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(id);
+            altLink.textContent = "Смотреть на YouTube";
+          }
+        } else {
+          iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          if (altLink) {
+            altLink.href = vkChannel;
+            altLink.textContent = "Смотреть в VK";
+          }
+        }
         frame.append(iframe);
         var heading = document.getElementById("player-title");
         if (heading) heading.textContent = title || "Ролик";
-        if (youtubeLink) youtubeLink.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(id);
         if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
         var query = params();
         query.set("v", id);
@@ -180,7 +202,7 @@ const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) 
         if (!link) return;
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
         event.preventDefault();
-        openVideo(link.getAttribute("data-video-id"), link.getAttribute("data-video-title") || "Ролик");
+        openVideo(link.getAttribute("data-video-id"), link.getAttribute("data-video-title") || "Ролик", link);
       });
 
       if (closeButton) {
@@ -201,7 +223,7 @@ const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) 
       var initial = params().get("v");
       if (initial) {
         var link = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
-        openVideo(initial, link ? link.getAttribute("data-video-title") : "Ролик");
+        openVideo(initial, link ? link.getAttribute("data-video-title") : "Ролик", link);
       }
     })();
   </script>

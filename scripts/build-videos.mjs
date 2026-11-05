@@ -12,6 +12,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseCsv } from "./lib/csv.mjs";
 import { groupsFromTitle } from "./lib/groups.mjs";
+import { loadVkResolver } from "./lib/vk.mjs";
 import {
   CHANNEL_ID,
   normalizeDuration,
@@ -27,6 +28,16 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const auditDir = join(root, "data", "youtube-audit");
 const videosPath = join(root, "src", "data", "videos.json");
 const playlistsPath = join(root, "src", "data", "playlists.json");
+
+let previousVideos = [];
+if (existsSync(videosPath)) {
+  try {
+    previousVideos = JSON.parse(readFileSync(videosPath, "utf8")).videos || [];
+  } catch {
+    console.warn("Existing videos.json was not readable. VK fields from it were skipped.");
+  }
+}
+const resolveVk = loadVkResolver(root, previousVideos);
 
 const csvRows = parseCsv(readFileSync(join(auditDir, "videos.csv"), "utf8"));
 const flat = JSON.parse(readFileSync(join(auditDir, "videos_flat.json"), "utf8"));
@@ -94,9 +105,13 @@ if (existsSync(videosPath)) {
   }
 }
 
+for (const video of videos.values()) {
+  video.vk = resolveVk(video.id);
+}
+
 const payload = {
   channelId: CHANNEL_ID,
-  note: "Файл собирает scripts/build-videos.mjs из data/youtube-audit. groups — метки «family» и «friends» только по очевидным словам в названии, иначе пустой список. playlists — id плейлистов, только если состав есть в выгрузке. Названия роликов не переписываются.",
+  note: "Файл собирает scripts/build-videos.mjs из data/youtube-audit. groups — метки «family» и «friends» только по словам в названии. vk — связь с VK Видео (confidence high или medium) из data/vk/yt_vk_map.json, data/vk/manual.json или уже записанного поля. Совпадение low не сохраняется.",
   videos: sortVideos([...videos.values()]),
 };
 
@@ -112,6 +127,7 @@ writeFileSync(playlistsPath, `${JSON.stringify(playlistPayload, null, 2)}\n`);
 const family = payload.videos.filter((video) => video.groups.includes("family")).length;
 const friends = payload.videos.filter((video) => video.groups.includes("friends")).length;
 const withPlaylist = payload.videos.filter((video) => video.playlists.length > 0).length;
+const withVk = payload.videos.filter((video) => video.vk).length;
 console.log(
-  `videos ${payload.videos.length}, family ${family}, friends ${friends}, with playlist membership ${withPlaylist}, playlists ${playlists.length}`,
+  `videos ${payload.videos.length}, family ${family}, friends ${friends}, with playlist membership ${withPlaylist}, playlists ${playlists.length}, with vk ${withVk}`,
 );

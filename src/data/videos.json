@@ -1,6 +1,6 @@
 {
   "channelId": "UCpj352hhYxdxK02JheWYkRg",
-  "note": "Файл собирает scripts/build-videos.mjs из data/youtube-audit. groups — метки «family» и «friends» только по очевидным словам в названии, иначе пустой список. playlists — id плейлистов, только если состав есть в выгрузке. Названия роликов не переписываются.",
+  "note": "Файл собирает scripts/build-videos.mjs из data/youtube-audit. groups — метки «family» и «friends» только по словам в названии. vk — связь с VK Видео (confidence high или medium) из data/vk/yt_vk_map.json, data/vk/manual.json или уже записанного поля. Совпадение low не сохраняется.",
   "videos": [
     {
       "id": "KnGRH-pNcAo",
@@ -10,7 +10,8 @@
       "uploadDate": "2026-11-04",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=KnGRH-pNcAo"
+      "watchUrl": "https://www.youtube.com/watch?v=KnGRH-pNcAo",
+      "vk": null
     },
     {
       "id": "3oG-6zhIhHM",
@@ -20,7 +21,8 @@
       "uploadDate": "2026-10-31",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3oG-6zhIhHM"
+      "watchUrl": "https://www.youtube.com/watch?v=3oG-6zhIhHM",
+      "vk": null
     },
     {
       "id": "3wvVoEKgkTg",
@@ -30,7 +32,8 @@
       "uploadDate": "2026-10-28",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3wvVoEKgkTg"
+      "watchUrl": "https://www.youtube.com/watch?v=3wvVoEKgkTg",
+      "vk": null
     },
     {
       "id": "aL0jCUHIfhQ",
@@ -40,7 +43,8 @@
       "uploadDate": "2026-10-25",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=aL0jCUHIfhQ"
+      "watchUrl": "https://www.youtube.com/watch?v=aL0jCUHIfhQ",
+      "vk": null
     },
     {
       "id": "jzCbPLW2qkw",
@@ -50,7 +54,8 @@
       "uploadDate": "2026-10-24",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=jzCbPLW2qkw"
+      "watchUrl": "https://www.youtube.com/watch?v=jzCbPLW2qkw",
+      "vk": null
     },
     {
       "id": "5bAww0-JpTE",
@@ -60,7 +65,14 @@
       "uploadDate": "2026-10-21",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=5bAww0-JpTE"
+      "watchUrl": "https://www.youtube.com/watch?v=5bAww0-JpTE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239246,
+        "hash": "a29a5660173e83cc04",
+        "url": "https://vk.com/video-235612264_456239246",
+        "confidence": "high"
+      }
     },
     {
       "id": "klqd8GM_RG4",
@@ -70,7 +82,14 @@
       "uploadDate": "2026-10-17",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=klqd8GM_RG4"
+      "watchUrl": "https://www.youtube.com/watch?v=klqd8GM_RG4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239240,
+        "hash": "6f2c99a1710770daf3",
+        "url": "https://vk.com/video-235612264_456239240",
+        "confidence": "high"
+      }
     },
     {
       "id": "y6aAIpV9DSc",
@@ -80,7 +99,14 @@
       "uploadDate": "2026-10-14",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=y6aAIpV9DSc"
+      "watchUrl": "https://www.youtube.com/watch?v=y6aAIpV9DSc",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239238,
+        "hash": "fbd33a224729fc55db",
+        "url": "https://vk.com/video-235612264_456239238",
+        "confidence": "high"
+      }
     },
     {
       "id": "pb2llFugf4M",
@@ -90,7 +116,14 @@
       "uploadDate": "2026-10-11",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pb2llFugf4M"
+      "watchUrl": "https://www.youtube.com/watch?v=pb2llFugf4M",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239235,
+        "hash": "0a8f7724f1077655ee",
+        "url": "https://vk.com/video-235612264_456239235",
+        "confidence": "high"
+      }
     },
     {
       "id": "AdeBkMYE-gI",
@@ -100,7 +133,14 @@
       "uploadDate": "2026-10-10",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=AdeBkMYE-gI"
+      "watchUrl": "https://www.youtube.com/watch?v=AdeBkMYE-gI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239231,
+        "hash": "0906f9e41ef4015cdf",
+        "url": "https://vk.com/video-235612264_456239231",
+        "confidence": "high"
+      }
     },
     {
       "id": "kHD-lkK8ETM",
@@ -110,7 +150,14 @@
       "uploadDate": "2026-10-07",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=kHD-lkK8ETM"
+      "watchUrl": "https://www.youtube.com/watch?v=kHD-lkK8ETM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239227,
+        "hash": "74dcc18bdabeac9fba",
+        "url": "https://vk.com/video-235612264_456239227",
+        "confidence": "high"
+      }
     },
     {
       "id": "Sd_fc0t9QZA",
@@ -120,7 +167,14 @@
       "uploadDate": "2026-10-03",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Sd_fc0t9QZA"
+      "watchUrl": "https://www.youtube.com/watch?v=Sd_fc0t9QZA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239223,
+        "hash": "ca762e64bb7d98d663",
+        "url": "https://vk.com/video-235612264_456239223",
+        "confidence": "high"
+      }
     },
     {
       "id": "YL2yxpCGouI",
@@ -130,7 +184,14 @@
       "uploadDate": "2026-09-30",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=YL2yxpCGouI"
+      "watchUrl": "https://www.youtube.com/watch?v=YL2yxpCGouI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239222,
+        "hash": "01ecdffc35282274ce",
+        "url": "https://vk.com/video-235612264_456239222",
+        "confidence": "high"
+      }
     },
     {
       "id": "5yCj5VpMQE4",
@@ -140,7 +201,14 @@
       "uploadDate": "2026-09-27",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=5yCj5VpMQE4"
+      "watchUrl": "https://www.youtube.com/watch?v=5yCj5VpMQE4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239214,
+        "hash": "b8de466ef9c044d680",
+        "url": "https://vk.com/video-235612264_456239214",
+        "confidence": "high"
+      }
     },
     {
       "id": "8MgT-yLQPe4",
@@ -150,7 +218,14 @@
       "uploadDate": "2026-09-26",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=8MgT-yLQPe4"
+      "watchUrl": "https://www.youtube.com/watch?v=8MgT-yLQPe4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239213,
+        "hash": "6192dfb721cc2f5a97",
+        "url": "https://vk.com/video-235612264_456239213",
+        "confidence": "high"
+      }
     },
     {
       "id": "TAPxmYBvTUA",
@@ -160,7 +235,14 @@
       "uploadDate": "2026-09-23",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=TAPxmYBvTUA"
+      "watchUrl": "https://www.youtube.com/watch?v=TAPxmYBvTUA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239212,
+        "hash": "62f3993e03813b9b74",
+        "url": "https://vk.com/video-235612264_456239212",
+        "confidence": "high"
+      }
     },
     {
       "id": "CBXyXbWeZAE",
@@ -170,7 +252,14 @@
       "uploadDate": "2026-09-19",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=CBXyXbWeZAE"
+      "watchUrl": "https://www.youtube.com/watch?v=CBXyXbWeZAE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239211,
+        "hash": "824c7b94349d12f393",
+        "url": "https://vk.com/video-235612264_456239211",
+        "confidence": "high"
+      }
     },
     {
       "id": "ySegtajAtMQ",
@@ -180,7 +269,14 @@
       "uploadDate": "2026-09-16",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ySegtajAtMQ"
+      "watchUrl": "https://www.youtube.com/watch?v=ySegtajAtMQ",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239210,
+        "hash": "84ebc3ecf60bdae86c",
+        "url": "https://vk.com/video-235612264_456239210",
+        "confidence": "high"
+      }
     },
     {
       "id": "fWKpLIi9X_E",
@@ -190,7 +286,14 @@
       "uploadDate": "2026-09-13",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=fWKpLIi9X_E"
+      "watchUrl": "https://www.youtube.com/watch?v=fWKpLIi9X_E",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239208,
+        "hash": "46f0662ab6d7ca5610",
+        "url": "https://vk.com/video-235612264_456239208",
+        "confidence": "high"
+      }
     },
     {
       "id": "TXbk6LtWXvg",
@@ -202,7 +305,14 @@
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=TXbk6LtWXvg"
+      "watchUrl": "https://www.youtube.com/watch?v=TXbk6LtWXvg",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239199,
+        "hash": "318cb539d444d0294d",
+        "url": "https://vk.com/video-235612264_456239199",
+        "confidence": "high"
+      }
     },
     {
       "id": "Mnjiu9U4KI8",
@@ -212,7 +322,14 @@
       "uploadDate": "2026-09-09",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Mnjiu9U4KI8"
+      "watchUrl": "https://www.youtube.com/watch?v=Mnjiu9U4KI8",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239204,
+        "hash": "ae181483829f93383e",
+        "url": "https://vk.com/video-235612264_456239204",
+        "confidence": "high"
+      }
     },
     {
       "id": "3CSSEDf4GDM",
@@ -222,7 +339,14 @@
       "uploadDate": "2026-09-05",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3CSSEDf4GDM"
+      "watchUrl": "https://www.youtube.com/watch?v=3CSSEDf4GDM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239190,
+        "hash": "bc8ead29488dd2853a",
+        "url": "https://vk.com/video-235612264_456239190",
+        "confidence": "high"
+      }
     },
     {
       "id": "SU4G8MKHykM",
@@ -232,7 +356,8 @@
       "uploadDate": "2026-09-02",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=SU4G8MKHykM"
+      "watchUrl": "https://www.youtube.com/watch?v=SU4G8MKHykM",
+      "vk": null
     },
     {
       "id": "da505CBL0QU",
@@ -242,7 +367,14 @@
       "uploadDate": "2026-08-30",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=da505CBL0QU"
+      "watchUrl": "https://www.youtube.com/watch?v=da505CBL0QU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239193,
+        "hash": "5ef96b3357d2a20430",
+        "url": "https://vk.com/video-235612264_456239193",
+        "confidence": "high"
+      }
     },
     {
       "id": "M3vCjJ5ZkUY",
@@ -252,7 +384,14 @@
       "uploadDate": "2026-08-29",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=M3vCjJ5ZkUY"
+      "watchUrl": "https://www.youtube.com/watch?v=M3vCjJ5ZkUY",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239192,
+        "hash": "9066e58512d218d803",
+        "url": "https://vk.com/video-235612264_456239192",
+        "confidence": "high"
+      }
     },
     {
       "id": "av8xm5RqiHo",
@@ -262,7 +401,14 @@
       "uploadDate": "2026-08-26",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=av8xm5RqiHo"
+      "watchUrl": "https://www.youtube.com/watch?v=av8xm5RqiHo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239191,
+        "hash": "74966f55a76b4f06ef",
+        "url": "https://vk.com/video-235612264_456239191",
+        "confidence": "high"
+      }
     },
     {
       "id": "2cKyEEFwmGc",
@@ -272,7 +418,14 @@
       "uploadDate": "2026-08-22",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=2cKyEEFwmGc"
+      "watchUrl": "https://www.youtube.com/watch?v=2cKyEEFwmGc",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239187,
+        "hash": "573706103c1f6e5df2",
+        "url": "https://vk.com/video-235612264_456239187",
+        "confidence": "high"
+      }
     },
     {
       "id": "UKc-AXV3ZZM",
@@ -282,7 +435,14 @@
       "uploadDate": "2026-08-16",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=UKc-AXV3ZZM"
+      "watchUrl": "https://www.youtube.com/watch?v=UKc-AXV3ZZM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239186,
+        "hash": "598ceaa44eddbbb33a",
+        "url": "https://vk.com/video-235612264_456239186",
+        "confidence": "high"
+      }
     },
     {
       "id": "AXxB-tCjdcU",
@@ -292,7 +452,14 @@
       "uploadDate": "2026-08-15",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=AXxB-tCjdcU"
+      "watchUrl": "https://www.youtube.com/watch?v=AXxB-tCjdcU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239185,
+        "hash": "277503aa9b16c6a307",
+        "url": "https://vk.com/video-235612264_456239185",
+        "confidence": "high"
+      }
     },
     {
       "id": "OyFuDy5Rpu0",
@@ -302,7 +469,14 @@
       "uploadDate": "2026-08-12",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=OyFuDy5Rpu0"
+      "watchUrl": "https://www.youtube.com/watch?v=OyFuDy5Rpu0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239184,
+        "hash": "f36f11974f4a198ee9",
+        "url": "https://vk.com/video-235612264_456239184",
+        "confidence": "high"
+      }
     },
     {
       "id": "aej_bN-NjhM",
@@ -312,7 +486,14 @@
       "uploadDate": "2026-08-08",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=aej_bN-NjhM"
+      "watchUrl": "https://www.youtube.com/watch?v=aej_bN-NjhM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239181,
+        "hash": "7324facc162c331b9a",
+        "url": "https://vk.com/video-235612264_456239181",
+        "confidence": "high"
+      }
     },
     {
       "id": "4ehTp6E_nRY",
@@ -322,7 +503,14 @@
       "uploadDate": "2026-08-05",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=4ehTp6E_nRY"
+      "watchUrl": "https://www.youtube.com/watch?v=4ehTp6E_nRY",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239180,
+        "hash": "af3b347a79f9d75b70",
+        "url": "https://vk.com/video-235612264_456239180",
+        "confidence": "high"
+      }
     },
     {
       "id": "GHvB0Mko2Dc",
@@ -332,7 +520,14 @@
       "uploadDate": "2026-08-02",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=GHvB0Mko2Dc"
+      "watchUrl": "https://www.youtube.com/watch?v=GHvB0Mko2Dc",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239172,
+        "hash": "0cccd8722e93aafe84",
+        "url": "https://vk.com/video-235612264_456239172",
+        "confidence": "high"
+      }
     },
     {
       "id": "NjdO8lB4Vq0",
@@ -342,7 +537,14 @@
       "uploadDate": "2026-08-01",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=NjdO8lB4Vq0"
+      "watchUrl": "https://www.youtube.com/watch?v=NjdO8lB4Vq0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239171,
+        "hash": "dd27a23539773941c2",
+        "url": "https://vk.com/video-235612264_456239171",
+        "confidence": "high"
+      }
     },
     {
       "id": "ZFAOWL3Ejt0",
@@ -354,7 +556,14 @@
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=ZFAOWL3Ejt0"
+      "watchUrl": "https://www.youtube.com/watch?v=ZFAOWL3Ejt0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239170,
+        "hash": "75c628b637c79add92",
+        "url": "https://vk.com/video-235612264_456239170",
+        "confidence": "high"
+      }
     },
     {
       "id": "zRPJ9zC2kX8",
@@ -364,7 +573,14 @@
       "uploadDate": "2026-07-25",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=zRPJ9zC2kX8"
+      "watchUrl": "https://www.youtube.com/watch?v=zRPJ9zC2kX8",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239167,
+        "hash": "36a7398b7e3aca4d15",
+        "url": "https://vk.com/video-235612264_456239167",
+        "confidence": "high"
+      }
     },
     {
       "id": "Z7F7OVyIJmo",
@@ -374,7 +590,14 @@
       "uploadDate": "2026-07-22",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Z7F7OVyIJmo"
+      "watchUrl": "https://www.youtube.com/watch?v=Z7F7OVyIJmo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239166,
+        "hash": "ec53a7fcac2c562f7f",
+        "url": "https://vk.com/video-235612264_456239166",
+        "confidence": "high"
+      }
     },
     {
       "id": "GGXyJaqtQ80",
@@ -384,7 +607,14 @@
       "uploadDate": "2026-07-19",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=GGXyJaqtQ80"
+      "watchUrl": "https://www.youtube.com/watch?v=GGXyJaqtQ80",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239160,
+        "hash": "37eded044b647b42b0",
+        "url": "https://vk.com/video-235612264_456239160",
+        "confidence": "high"
+      }
     },
     {
       "id": "tmnLbZA2M94",
@@ -394,7 +624,14 @@
       "uploadDate": "2026-07-18",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=tmnLbZA2M94"
+      "watchUrl": "https://www.youtube.com/watch?v=tmnLbZA2M94",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239159,
+        "hash": "b0cf8bdfe41a8a2d52",
+        "url": "https://vk.com/video-235612264_456239159",
+        "confidence": "high"
+      }
     },
     {
       "id": "v9vFUwroHKc",
@@ -404,7 +641,14 @@
       "uploadDate": "2026-07-12",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=v9vFUwroHKc"
+      "watchUrl": "https://www.youtube.com/watch?v=v9vFUwroHKc",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239157,
+        "hash": null,
+        "url": "https://vk.com/video-235612264_456239157",
+        "confidence": "high"
+      }
     },
     {
       "id": "YBlqAj1G-l0",
@@ -416,7 +660,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=YBlqAj1G-l0"
+      "watchUrl": "https://www.youtube.com/watch?v=YBlqAj1G-l0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239156,
+        "hash": "76e5420c9d63dfefd0",
+        "url": "https://vk.com/video-235612264_456239156",
+        "confidence": "high"
+      }
     },
     {
       "id": "g-9l3QOpXcM",
@@ -426,7 +677,14 @@
       "uploadDate": "2026-07-05",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=g-9l3QOpXcM"
+      "watchUrl": "https://www.youtube.com/watch?v=g-9l3QOpXcM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239155,
+        "hash": "156ea54a5ed2a70ace",
+        "url": "https://vk.com/video-235612264_456239155",
+        "confidence": "high"
+      }
     },
     {
       "id": "7b4XjQqjCGo",
@@ -436,7 +694,14 @@
       "uploadDate": "2026-07-04",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=7b4XjQqjCGo"
+      "watchUrl": "https://www.youtube.com/watch?v=7b4XjQqjCGo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239154,
+        "hash": "beaff5bc5fcac17d4f",
+        "url": "https://vk.com/video-235612264_456239154",
+        "confidence": "high"
+      }
     },
     {
       "id": "tNPAMx-COjI",
@@ -446,7 +711,14 @@
       "uploadDate": "2026-06-28",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=tNPAMx-COjI"
+      "watchUrl": "https://www.youtube.com/watch?v=tNPAMx-COjI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239152,
+        "hash": "235a02060a78756dab",
+        "url": "https://vk.com/video-235612264_456239152",
+        "confidence": "high"
+      }
     },
     {
       "id": "ycmS9FZB-Jg",
@@ -456,7 +728,14 @@
       "uploadDate": "2026-06-27",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ycmS9FZB-Jg"
+      "watchUrl": "https://www.youtube.com/watch?v=ycmS9FZB-Jg",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239151,
+        "hash": "2bd35ad7f1c22056a7",
+        "url": "https://vk.com/video-235612264_456239151",
+        "confidence": "high"
+      }
     },
     {
       "id": "pCx_xfPIuiY",
@@ -466,7 +745,14 @@
       "uploadDate": "2026-06-24",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pCx_xfPIuiY"
+      "watchUrl": "https://www.youtube.com/watch?v=pCx_xfPIuiY",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239150,
+        "hash": "d0b0f65a3dd9167cc1",
+        "url": "https://vk.com/video-235612264_456239150",
+        "confidence": "high"
+      }
     },
     {
       "id": "xKTxt3A5bJ4",
@@ -476,7 +762,14 @@
       "uploadDate": "2026-06-21",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=xKTxt3A5bJ4"
+      "watchUrl": "https://www.youtube.com/watch?v=xKTxt3A5bJ4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239147,
+        "hash": "67194634496c9d5936",
+        "url": "https://vk.com/video-235612264_456239147",
+        "confidence": "high"
+      }
     },
     {
       "id": "CisKVy7EjYA",
@@ -488,7 +781,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=CisKVy7EjYA"
+      "watchUrl": "https://www.youtube.com/watch?v=CisKVy7EjYA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239146,
+        "hash": "a92d764c76cecd0b19",
+        "url": "https://vk.com/video-235612264_456239146",
+        "confidence": "high"
+      }
     },
     {
       "id": "zGFl-i1M--A",
@@ -498,7 +798,14 @@
       "uploadDate": "2026-06-17",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=zGFl-i1M--A"
+      "watchUrl": "https://www.youtube.com/watch?v=zGFl-i1M--A",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239145,
+        "hash": "19d4d2196015eeceed",
+        "url": "https://vk.com/video-235612264_456239145",
+        "confidence": "high"
+      }
     },
     {
       "id": "acqDwbDWdpg",
@@ -508,7 +815,14 @@
       "uploadDate": "2026-06-14",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=acqDwbDWdpg"
+      "watchUrl": "https://www.youtube.com/watch?v=acqDwbDWdpg",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239141,
+        "hash": "d4406ce75e3c048f45",
+        "url": "https://vk.com/video-235612264_456239141",
+        "confidence": "high"
+      }
     },
     {
       "id": "GI_4574DFv8",
@@ -518,7 +832,14 @@
       "uploadDate": "2026-06-13",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=GI_4574DFv8"
+      "watchUrl": "https://www.youtube.com/watch?v=GI_4574DFv8",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239140,
+        "hash": "cc0c60b7d68ed39be7",
+        "url": "https://vk.com/video-235612264_456239140",
+        "confidence": "high"
+      }
     },
     {
       "id": "x3aBPDx8rQo",
@@ -528,7 +849,14 @@
       "uploadDate": "2026-06-10",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=x3aBPDx8rQo"
+      "watchUrl": "https://www.youtube.com/watch?v=x3aBPDx8rQo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239139,
+        "hash": "deed01dd3517e08940",
+        "url": "https://vk.com/video-235612264_456239139",
+        "confidence": "high"
+      }
     },
     {
       "id": "4T-4FCSbD_o",
@@ -538,7 +866,14 @@
       "uploadDate": "2026-06-07",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=4T-4FCSbD_o"
+      "watchUrl": "https://www.youtube.com/watch?v=4T-4FCSbD_o",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239135,
+        "hash": "70d6a5c6454e25833a",
+        "url": "https://vk.com/video-235612264_456239135",
+        "confidence": "high"
+      }
     },
     {
       "id": "yNpJuT7mTA4",
@@ -548,7 +883,14 @@
       "uploadDate": "2026-06-06",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=yNpJuT7mTA4"
+      "watchUrl": "https://www.youtube.com/watch?v=yNpJuT7mTA4",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239134,
+        "hash": "b80871416ce01a8332",
+        "url": "https://vk.com/video-235612264_456239134",
+        "confidence": "high"
+      }
     },
     {
       "id": "U-xuGYig0eE",
@@ -558,7 +900,14 @@
       "uploadDate": "2026-06-05",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=U-xuGYig0eE"
+      "watchUrl": "https://www.youtube.com/watch?v=U-xuGYig0eE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239136,
+        "hash": "db689b22b43e2069ac",
+        "url": "https://vk.com/video-235612264_456239136",
+        "confidence": "high"
+      }
     },
     {
       "id": "q7FaBSRN5oE",
@@ -568,7 +917,14 @@
       "uploadDate": "2026-06-03",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=q7FaBSRN5oE"
+      "watchUrl": "https://www.youtube.com/watch?v=q7FaBSRN5oE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239133,
+        "hash": "5c4f38bc42492a942a",
+        "url": "https://vk.com/video-235612264_456239133",
+        "confidence": "high"
+      }
     },
     {
       "id": "RF2VMvHMW8k",
@@ -578,7 +934,14 @@
       "uploadDate": "2026-05-31",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=RF2VMvHMW8k"
+      "watchUrl": "https://www.youtube.com/watch?v=RF2VMvHMW8k",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239131,
+        "hash": "c83a6adbf624d23db3",
+        "url": "https://vk.com/video-235612264_456239131",
+        "confidence": "high"
+      }
     },
     {
       "id": "cwz4a-GW0t8",
@@ -590,7 +953,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=cwz4a-GW0t8"
+      "watchUrl": "https://www.youtube.com/watch?v=cwz4a-GW0t8",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239130,
+        "hash": "05fca959f41a30805d",
+        "url": "https://vk.com/video-235612264_456239130",
+        "confidence": "high"
+      }
     },
     {
       "id": "1SPJNMwL3gk",
@@ -602,7 +972,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=1SPJNMwL3gk"
+      "watchUrl": "https://www.youtube.com/watch?v=1SPJNMwL3gk",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239129,
+        "hash": "bc42e52e06cad56de3",
+        "url": "https://vk.com/video-235612264_456239129",
+        "confidence": "high"
+      }
     },
     {
       "id": "ie8rRl7FdPE",
@@ -612,7 +989,14 @@
       "uploadDate": "2026-05-27",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ie8rRl7FdPE"
+      "watchUrl": "https://www.youtube.com/watch?v=ie8rRl7FdPE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239128,
+        "hash": "e662e4b18182d6fa91",
+        "url": "https://vk.com/video-235612264_456239128",
+        "confidence": "high"
+      }
     },
     {
       "id": "uu5p0v_Tw0s",
@@ -622,7 +1006,14 @@
       "uploadDate": "2026-05-24",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=uu5p0v_Tw0s"
+      "watchUrl": "https://www.youtube.com/watch?v=uu5p0v_Tw0s",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239125,
+        "hash": "aa62b0d206819267d9",
+        "url": "https://vk.com/video-235612264_456239125",
+        "confidence": "high"
+      }
     },
     {
       "id": "kSTialKTncU",
@@ -632,7 +1023,14 @@
       "uploadDate": "2026-05-23",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=kSTialKTncU"
+      "watchUrl": "https://www.youtube.com/watch?v=kSTialKTncU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239124,
+        "hash": "15dcaa0c4593b27326",
+        "url": "https://vk.com/video-235612264_456239124",
+        "confidence": "high"
+      }
     },
     {
       "id": "eTcJuR9SqCM",
@@ -642,7 +1040,14 @@
       "uploadDate": "2026-05-20",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=eTcJuR9SqCM"
+      "watchUrl": "https://www.youtube.com/watch?v=eTcJuR9SqCM",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239123,
+        "hash": "168b3efbb451dabda1",
+        "url": "https://vk.com/video-235612264_456239123",
+        "confidence": "high"
+      }
     },
     {
       "id": "Awi1K7RArsE",
@@ -654,7 +1059,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=Awi1K7RArsE"
+      "watchUrl": "https://www.youtube.com/watch?v=Awi1K7RArsE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239115,
+        "hash": "278a4cfbb8ea4198e4",
+        "url": "https://vk.com/video-235612264_456239115",
+        "confidence": "high"
+      }
     },
     {
       "id": "agsI4o_XBEo",
@@ -666,7 +1078,14 @@
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=agsI4o_XBEo"
+      "watchUrl": "https://www.youtube.com/watch?v=agsI4o_XBEo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239114,
+        "hash": "280414789dcf3b318c",
+        "url": "https://vk.com/video-235612264_456239114",
+        "confidence": "high"
+      }
     },
     {
       "id": "pMh1OYbC1FA",
@@ -676,7 +1095,14 @@
       "uploadDate": "2026-05-14",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pMh1OYbC1FA"
+      "watchUrl": "https://www.youtube.com/watch?v=pMh1OYbC1FA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239113,
+        "hash": "8032d129aaf609bc2e",
+        "url": "https://vk.com/video-235612264_456239113",
+        "confidence": "high"
+      }
     },
     {
       "id": "dWC4QT6aobQ",
@@ -688,7 +1114,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=dWC4QT6aobQ"
+      "watchUrl": "https://www.youtube.com/watch?v=dWC4QT6aobQ",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239112,
+        "hash": "0a63a7cbdd35e9315c",
+        "url": "https://vk.com/video-235612264_456239112",
+        "confidence": "high"
+      }
     },
     {
       "id": "3ObX1LWnevQ",
@@ -698,7 +1131,14 @@
       "uploadDate": "2026-05-10",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=3ObX1LWnevQ"
+      "watchUrl": "https://www.youtube.com/watch?v=3ObX1LWnevQ",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239111,
+        "hash": "a863251efe425b14fa",
+        "url": "https://vk.com/video-235612264_456239111",
+        "confidence": "high"
+      }
     },
     {
       "id": "oq3s6YpL5gU",
@@ -710,7 +1150,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=oq3s6YpL5gU"
+      "watchUrl": "https://www.youtube.com/watch?v=oq3s6YpL5gU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239106,
+        "hash": "b87b410f3e19187a50",
+        "url": "https://vk.com/video-235612264_456239106",
+        "confidence": "high"
+      }
     },
     {
       "id": "FUCFQKLPoho",
@@ -720,7 +1167,8 @@
       "uploadDate": "2026-05-06",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=FUCFQKLPoho"
+      "watchUrl": "https://www.youtube.com/watch?v=FUCFQKLPoho",
+      "vk": null
     },
     {
       "id": "p4IQuhY1H6s",
@@ -730,7 +1178,14 @@
       "uploadDate": "2026-05-03",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=p4IQuhY1H6s"
+      "watchUrl": "https://www.youtube.com/watch?v=p4IQuhY1H6s",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239099,
+        "hash": "4dd122c15473f967a2",
+        "url": "https://vk.com/video-235612264_456239099",
+        "confidence": "high"
+      }
     },
     {
       "id": "_V5CsbJZJ_Y",
@@ -740,7 +1195,14 @@
       "uploadDate": "2026-05-02",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=_V5CsbJZJ_Y"
+      "watchUrl": "https://www.youtube.com/watch?v=_V5CsbJZJ_Y",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239096,
+        "hash": "040fb71ac9d2ecf8cf",
+        "url": "https://vk.com/video-235612264_456239096",
+        "confidence": "high"
+      }
     },
     {
       "id": "MijwXHtZTL0",
@@ -750,7 +1212,14 @@
       "uploadDate": "2026-04-29",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=MijwXHtZTL0"
+      "watchUrl": "https://www.youtube.com/watch?v=MijwXHtZTL0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239098,
+        "hash": "b55f1c3dd9f2674bd8",
+        "url": "https://vk.com/video-235612264_456239098",
+        "confidence": "high"
+      }
     },
     {
       "id": "0zeW9Fs5eeI",
@@ -760,7 +1229,14 @@
       "uploadDate": "2026-04-26",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=0zeW9Fs5eeI"
+      "watchUrl": "https://www.youtube.com/watch?v=0zeW9Fs5eeI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239093,
+        "hash": "ab7e8e8a79de190741",
+        "url": "https://vk.com/video-235612264_456239093",
+        "confidence": "high"
+      }
     },
     {
       "id": "PxTvJyNgS1I",
@@ -770,7 +1246,14 @@
       "uploadDate": "2026-04-25",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=PxTvJyNgS1I"
+      "watchUrl": "https://www.youtube.com/watch?v=PxTvJyNgS1I",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239092,
+        "hash": "948cdbc37801f56fac",
+        "url": "https://vk.com/video-235612264_456239092",
+        "confidence": "high"
+      }
     },
     {
       "id": "YPCLJoykJMA",
@@ -780,7 +1263,14 @@
       "uploadDate": "2026-04-22",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=YPCLJoykJMA"
+      "watchUrl": "https://www.youtube.com/watch?v=YPCLJoykJMA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239089,
+        "hash": "2e8f14f4ef101728b2",
+        "url": "https://vk.com/video-235612264_456239089",
+        "confidence": "high"
+      }
     },
     {
       "id": "pxFK2lg2tfo",
@@ -790,7 +1280,14 @@
       "uploadDate": "2026-04-19",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=pxFK2lg2tfo"
+      "watchUrl": "https://www.youtube.com/watch?v=pxFK2lg2tfo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239088,
+        "hash": "f611c300857fae5f58",
+        "url": "https://vk.com/video-235612264_456239088",
+        "confidence": "high"
+      }
     },
     {
       "id": "f8RTst3esAw",
@@ -800,7 +1297,14 @@
       "uploadDate": "2026-04-18",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=f8RTst3esAw"
+      "watchUrl": "https://www.youtube.com/watch?v=f8RTst3esAw",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239087,
+        "hash": "ae442b6b0e055524bd",
+        "url": "https://vk.com/video-235612264_456239087",
+        "confidence": "high"
+      }
     },
     {
       "id": "aOwWmz0Inuo",
@@ -810,7 +1314,14 @@
       "uploadDate": "2026-04-15",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=aOwWmz0Inuo"
+      "watchUrl": "https://www.youtube.com/watch?v=aOwWmz0Inuo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239086,
+        "hash": "aa12f2d203defbc9e1",
+        "url": "https://vk.com/video-235612264_456239086",
+        "confidence": "high"
+      }
     },
     {
       "id": "bRUeJreTyZs",
@@ -820,7 +1331,8 @@
       "uploadDate": "2026-04-12",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=bRUeJreTyZs"
+      "watchUrl": "https://www.youtube.com/watch?v=bRUeJreTyZs",
+      "vk": null
     },
     {
       "id": "ypWraUD57yI",
@@ -830,7 +1342,14 @@
       "uploadDate": "2026-04-11",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ypWraUD57yI"
+      "watchUrl": "https://www.youtube.com/watch?v=ypWraUD57yI",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239079,
+        "hash": null,
+        "url": "https://vk.com/video-235612264_456239079",
+        "confidence": "high"
+      }
     },
     {
       "id": "Et40DNSEI58",
@@ -840,7 +1359,8 @@
       "uploadDate": "2026-04-08",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Et40DNSEI58"
+      "watchUrl": "https://www.youtube.com/watch?v=Et40DNSEI58",
+      "vk": null
     },
     {
       "id": "ugC7Z0GFtSY",
@@ -850,7 +1370,8 @@
       "uploadDate": "2026-04-05",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ugC7Z0GFtSY"
+      "watchUrl": "https://www.youtube.com/watch?v=ugC7Z0GFtSY",
+      "vk": null
     },
     {
       "id": "E0rpjUwmUm0",
@@ -860,7 +1381,8 @@
       "uploadDate": "2026-04-04",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=E0rpjUwmUm0"
+      "watchUrl": "https://www.youtube.com/watch?v=E0rpjUwmUm0",
+      "vk": null
     },
     {
       "id": "rW6SDhapuhQ",
@@ -870,7 +1392,8 @@
       "uploadDate": "2026-04-01",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=rW6SDhapuhQ"
+      "watchUrl": "https://www.youtube.com/watch?v=rW6SDhapuhQ",
+      "vk": null
     },
     {
       "id": "Wl4LiNQIoy0",
@@ -880,7 +1403,14 @@
       "uploadDate": "2026-03-29",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Wl4LiNQIoy0"
+      "watchUrl": "https://www.youtube.com/watch?v=Wl4LiNQIoy0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239072,
+        "hash": "0b5bf56dd4d5a61b60",
+        "url": "https://vk.com/video-235612264_456239072",
+        "confidence": "high"
+      }
     },
     {
       "id": "Vr63kRjsuKY",
@@ -890,7 +1420,8 @@
       "uploadDate": "2026-03-28",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Vr63kRjsuKY"
+      "watchUrl": "https://www.youtube.com/watch?v=Vr63kRjsuKY",
+      "vk": null
     },
     {
       "id": "xIkJoW9vqGI",
@@ -900,7 +1431,8 @@
       "uploadDate": "2026-03-25",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=xIkJoW9vqGI"
+      "watchUrl": "https://www.youtube.com/watch?v=xIkJoW9vqGI",
+      "vk": null
     },
     {
       "id": "uu69ibeuIxU",
@@ -910,7 +1442,8 @@
       "uploadDate": "2026-03-22",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=uu69ibeuIxU"
+      "watchUrl": "https://www.youtube.com/watch?v=uu69ibeuIxU",
+      "vk": null
     },
     {
       "id": "ko6ArnwiaY0",
@@ -920,7 +1453,14 @@
       "uploadDate": "2026-03-21",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=ko6ArnwiaY0"
+      "watchUrl": "https://www.youtube.com/watch?v=ko6ArnwiaY0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239050,
+        "hash": "b23bae625d3604164b",
+        "url": "https://vk.com/video-235612264_456239050",
+        "confidence": "high"
+      }
     },
     {
       "id": "1teVnHfb8kA",
@@ -930,7 +1470,8 @@
       "uploadDate": "2026-03-18",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=1teVnHfb8kA"
+      "watchUrl": "https://www.youtube.com/watch?v=1teVnHfb8kA",
+      "vk": null
     },
     {
       "id": "ylfFyk1rTrA",
@@ -942,7 +1483,14 @@
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=ylfFyk1rTrA"
+      "watchUrl": "https://www.youtube.com/watch?v=ylfFyk1rTrA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239055,
+        "hash": null,
+        "url": "https://vk.com/video-235612264_456239055",
+        "confidence": "high"
+      }
     },
     {
       "id": "Vh7yo66ZvOw",
@@ -954,7 +1502,8 @@
       "groups": [
         "friends"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=Vh7yo66ZvOw"
+      "watchUrl": "https://www.youtube.com/watch?v=Vh7yo66ZvOw",
+      "vk": null
     },
     {
       "id": "NuZQfgVJFes",
@@ -964,7 +1513,8 @@
       "uploadDate": "2026-03-11",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=NuZQfgVJFes"
+      "watchUrl": "https://www.youtube.com/watch?v=NuZQfgVJFes",
+      "vk": null
     },
     {
       "id": "D_8jAbwUv18",
@@ -976,7 +1526,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=D_8jAbwUv18"
+      "watchUrl": "https://www.youtube.com/watch?v=D_8jAbwUv18",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239045,
+        "hash": null,
+        "url": "https://vk.com/video-235612264_456239045",
+        "confidence": "high"
+      }
     },
     {
       "id": "Qh7PVtGXASY",
@@ -986,7 +1543,14 @@
       "uploadDate": "2026-03-08",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Qh7PVtGXASY"
+      "watchUrl": "https://www.youtube.com/watch?v=Qh7PVtGXASY",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239047,
+        "hash": "774ab27f74db43321b",
+        "url": "https://vk.com/video-235612264_456239047",
+        "confidence": "high"
+      }
     },
     {
       "id": "HKNPbIf_EdA",
@@ -998,7 +1562,14 @@
       "groups": [
         "family"
       ],
-      "watchUrl": "https://www.youtube.com/watch?v=HKNPbIf_EdA"
+      "watchUrl": "https://www.youtube.com/watch?v=HKNPbIf_EdA",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239053,
+        "hash": "81e5e6d26cc0b9c6b9",
+        "url": "https://vk.com/video-235612264_456239053",
+        "confidence": "high"
+      }
     },
     {
       "id": "2FGGluGw4Gs",
@@ -1008,7 +1579,8 @@
       "uploadDate": "2026-03-04",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=2FGGluGw4Gs"
+      "watchUrl": "https://www.youtube.com/watch?v=2FGGluGw4Gs",
+      "vk": null
     },
     {
       "id": "XmLlcfTHC3M",
@@ -1018,7 +1590,14 @@
       "uploadDate": "2026-03-01",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=XmLlcfTHC3M"
+      "watchUrl": "https://www.youtube.com/watch?v=XmLlcfTHC3M",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239044,
+        "hash": "4bc44787011cdb97fc",
+        "url": "https://vk.com/video-235612264_456239044",
+        "confidence": "medium"
+      }
     },
     {
       "id": "X0CD05pjWRo",
@@ -1028,7 +1607,14 @@
       "uploadDate": "2026-02-28",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=X0CD05pjWRo"
+      "watchUrl": "https://www.youtube.com/watch?v=X0CD05pjWRo",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239046,
+        "hash": "fafcd50db72bfa2fb9",
+        "url": "https://vk.com/video-235612264_456239046",
+        "confidence": "high"
+      }
     },
     {
       "id": "93X92FRFdHI",
@@ -1038,7 +1624,8 @@
       "uploadDate": "2026-02-25",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=93X92FRFdHI"
+      "watchUrl": "https://www.youtube.com/watch?v=93X92FRFdHI",
+      "vk": null
     },
     {
       "id": "_QGzWLllt0Q",
@@ -1048,7 +1635,8 @@
       "uploadDate": "2026-02-22",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=_QGzWLllt0Q"
+      "watchUrl": "https://www.youtube.com/watch?v=_QGzWLllt0Q",
+      "vk": null
     },
     {
       "id": "My-oied7Ql0",
@@ -1058,7 +1646,14 @@
       "uploadDate": "2026-02-21",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=My-oied7Ql0"
+      "watchUrl": "https://www.youtube.com/watch?v=My-oied7Ql0",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239042,
+        "hash": "2f515f8b0e0a453b9f",
+        "url": "https://vk.com/video-235612264_456239042",
+        "confidence": "high"
+      }
     },
     {
       "id": "Ie2Jg_Vq1kE",
@@ -1068,7 +1663,14 @@
       "uploadDate": "2026-02-18",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=Ie2Jg_Vq1kE"
+      "watchUrl": "https://www.youtube.com/watch?v=Ie2Jg_Vq1kE",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239038,
+        "hash": "e7a08216f40f132e8f",
+        "url": "https://vk.com/video-235612264_456239038",
+        "confidence": "high"
+      }
     },
     {
       "id": "wDTGB0xh01I",
@@ -1078,7 +1680,8 @@
       "uploadDate": "2026-02-15",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=wDTGB0xh01I"
+      "watchUrl": "https://www.youtube.com/watch?v=wDTGB0xh01I",
+      "vk": null
     },
     {
       "id": "o405asZnvh0",
@@ -1088,7 +1691,8 @@
       "uploadDate": "2026-02-14",
       "playlists": [],
       "groups": [],
-      "watchUrl": "https://www.youtube.com/watch?v=o405asZnvh0"
+      "watchUrl": "https://www.youtube.com/watch?v=o405asZnvh0",
+      "vk": null
     }
   ]
 }

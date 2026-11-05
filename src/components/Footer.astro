@@ -24,11 +24,19 @@ const vkVideo = platform("vk-video");
         <p class="footer-about">{site.footerAbout}</p>
         <div class="footer-socials">
           {
-            socials.map((item) => (
-              <a href={item.href} aria-label={item.label} target="_blank" rel="noopener noreferrer">
-                <Icon name={item.icon} />
-              </a>
-            ))
+            socials.map((item) => {
+              const external = item.href.startsWith("http");
+              return (
+                <a
+                  href={item.href}
+                  aria-label={item.label}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                >
+                  <Icon name={item.icon} />
+                </a>
+              );
+            })
           }
         </div>
       </div>
@@ -40,6 +48,7 @@ const vkVideo = platform("vk-video");
           <li><a href="/watch?occasion=sleep">Перед сном</a></li>
           <li><a href="/watch?occasion=habits">Полезные привычки</a></li>
           <li><a href="/watch?occasion=songs">Песенки</a></li>
+          <li><a href="/music">Музыка</a></li>
         </ul>
       </div>
 
