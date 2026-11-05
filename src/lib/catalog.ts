@@ -1,5 +1,5 @@
 import linkFile from "../data/links.json";
-import playlistFile from "../data/playlists.json";
+import playlistFile from "../../data/playlists.json";
 import siteFile from "../data/site.json";
 import videoFile from "../data/videos.json";
 

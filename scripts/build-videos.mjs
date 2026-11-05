@@ -1,6 +1,6 @@
 /**
- * Build src/data/videos.json and src/data/playlists.json
- * from data/vk/episodes.json. That file is the catalog.
+ * Build src/data/videos.json from data/vk/episodes.json.
+ * Playlist names and links are edited in data/playlists.json.
  *
  * data/vk/manual.json can override an episode or add one the fetch missed.
  * Thumbnails are written to public/thumbs/<vk_id>.webp when missing.
@@ -13,24 +13,25 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { groupsFromTitle } from "./lib/groups.mjs";
 
-const OID = -235612264;
-const PLAYLISTS = [
-  { id: "1", title: "Все песенки с Рыжиком", url: "https://vkvideo.ru/playlist/-235612264_1" },
-  { id: "2", title: "Колыбельные для малышей", url: "https://vkvideo.ru/playlist/-235612264_2" },
-  { id: "3", title: "Сонные истории", url: "https://vkvideo.ru/playlist/-235612264_3" },
-];
-
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const episodesPath = join(root, "data", "vk", "episodes.json");
 const manualPath = join(root, "data", "vk", "manual.json");
+const playlistsSourcePath = join(root, "data", "playlists.json");
 const videosPath = join(root, "src", "data", "videos.json");
-const playlistsPath = join(root, "src", "data", "playlists.json");
 const thumbDir = join(root, "public", "thumbs");
 
 function readJson(path, fallback) {
   if (!existsSync(path)) return fallback;
   return JSON.parse(readFileSync(path, "utf8"));
 }
+
+const playlistFile = readJson(playlistsSourcePath, { vkOwnerId: -235612264, playlists: [] });
+const OID = Number(playlistFile.vkOwnerId);
+const PLAYLISTS = (Array.isArray(playlistFile.playlists) ? playlistFile.playlists : []).map((item) => ({
+  id: String(item.id),
+  title: String(item.title || ""),
+  url: String(item.vkUrl || item.url || ""),
+}));
 
 function asEpisode(raw) {
   const vkId = Number(raw.vk_id ?? raw.vkId);
@@ -158,8 +159,4 @@ const payload = {
   videos,
 };
 writeFileSync(videosPath, `${JSON.stringify(payload, null, 2)}\n`);
-writeFileSync(
-  playlistsPath,
-  `${JSON.stringify({ vkOwnerId: OID, playlists: PLAYLISTS }, null, 2)}\n`,
-);
 console.log(`episodes ${videos.length}, with youtube ${videos.filter((item) => item.youtubeId).length}`);

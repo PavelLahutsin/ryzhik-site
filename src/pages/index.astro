@@ -154,7 +154,8 @@ const jsonLd = {
               {teasers.get(item.id) && <p>{teasers.get(item.id)}</p>}
               <div class="playlist-actions">
                 <a class="btn btn-orange" href={`/watch?playlist=${item.id}`}>Смотреть здесь</a>
-                <a class="btn btn-ghost" href={item.url} target="_blank" rel="noopener noreferrer">В VK</a>
+                <a class="btn btn-ghost" href={item.vkUrl} target="_blank" rel="noopener noreferrer">Плейлист в VK</a>
+                <a class="btn btn-ghost" href={item.youtubeUrl} target="_blank" rel="noopener noreferrer">Плейлист на YouTube</a>
               </div>
             </article>
           ))
@@ -186,7 +187,6 @@ const jsonLd = {
               durationSeconds={video.durationSeconds}
               uploadDate={video.uploadDate}
               href={`/watch?v=${video.id}`}
-              groups={video.groups}
               playlists={video.playlists}
             />
           ))

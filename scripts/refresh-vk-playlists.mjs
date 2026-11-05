@@ -12,15 +12,12 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const OID = -235612264;
-const PLAYLISTS = [1, 2, 3];
-const TITLES = {
-  1: "Все песенки с Рыжиком",
-  2: "Колыбельные для малышей",
-  3: "Сонные истории",
-};
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const episodesPath = join(root, "data", "vk", "episodes.json");
+const playlistFile = JSON.parse(readFileSync(join(root, "data", "playlists.json"), "utf8"));
+const OID = Number(playlistFile.vkOwnerId);
+const PLAYLISTS = (playlistFile.playlists || []).map((item) => Number(item.id));
+const TITLES = Object.fromEntries((playlistFile.playlists || []).map((item) => [Number(item.id), item.title]));
 
 function decodeCp1251(buffer) {
   const extra = {
