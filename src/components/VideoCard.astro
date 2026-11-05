@@ -1,0 +1,62 @@
+---
+import Icon from "./Icon.astro";
+import { formatDate, formatDuration } from "../lib/format";
+
+interface Props {
+  id: string;
+  title: string;
+  thumbnail: string;
+  durationSeconds: number | null;
+  uploadDate: string | null;
+  href: string;
+  groups?: string[];
+  playlists?: string[];
+  occasions?: string[];
+  external?: boolean;
+}
+
+const {
+  id,
+  title,
+  thumbnail,
+  durationSeconds,
+  uploadDate,
+  href,
+  groups = [],
+  playlists = [],
+  occasions = [],
+  external = false,
+} = Astro.props;
+
+const duration = formatDuration(durationSeconds);
+const date = formatDate(uploadDate);
+---
+
+<a
+  class="episode"
+  href={href}
+  data-video-id={id}
+  data-video-title={title}
+  data-groups={groups.join(",")}
+  data-playlists={playlists.join(",")}
+  data-occasions={occasions.join(",")}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <span class="ep-thumb">
+    <img
+      src={thumbnail}
+      alt=""
+      width="480"
+      height="360"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="ep-play"><Icon name="play" /></span>
+    {duration && <span class="ep-time">{duration}</span>}
+  </span>
+  <span class="ep-body">
+    <h3>{title}</h3>
+    {date && <span class="ep-meta">{date}</span>}
+  </span>
+</a>

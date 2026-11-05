@@ -1,0 +1,22 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "not-found");
+if (!page) throw new Error("Нет текста страницы 404");
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description} noindex>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">{page.data.eyebrow}</p>
+      <h1>{page.data.heading}</h1>
+      {page.data.lede && <p class="lede">{page.data.lede}</p>}
+      <div class="hero-cta" style="margin-top:22px">
+        <a class="btn btn-orange" href="/">На главную</a>
+        <a class="btn btn-emerald" href="/watch">Смотреть</a>
+        <a class="btn btn-ghost" href="/characters">Персонажи</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

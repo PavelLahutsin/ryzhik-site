@@ -1,0 +1,307 @@
+---
+import { Picture } from "astro:assets";
+import { getCollection, getEntry, render } from "astro:content";
+import Icon from "../components/Icon.astro";
+import PersonaCard from "../components/PersonaCard.astro";
+import VideoCard from "../components/VideoCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { platform, platforms, publicPlatforms, site, videos } from "../lib/catalog";
+
+const home = await getEntry("pages", "home");
+const parents = await getEntry("pages", "parents");
+const coloring = await getEntry("pages", "coloring");
+if (!home?.data.hero || !home.data.sections || !parents?.data.themes || !coloring?.data.pdfHref) {
+  throw new Error("Не хватает текстов главной, родителей или раскраски");
+}
+
+const hero = home.data.hero;
+const sections = home.data.sections;
+const occasions = (await getCollection("occasions")).sort((a, b) => a.data.order - b.data.order);
+const characterEntries = (await getCollection("characters")).sort((a, b) => a.data.order - b.data.order);
+const characters = await Promise.all(
+  characterEntries.map(async (entry) => ({ entry, ...(await render(entry)) })),
+);
+const family = characters.filter((item) => item.entry.data.group === "family");
+const friends = characters.filter((item) => item.entry.data.group === "friends");
+const ryzhik = characters.find((item) => item.entry.id === "ryzhik");
+if (!ryzhik) throw new Error("Нет персонажа ryzhik");
+
+const latest = videos.slice(0, 6);
+const themes = parents.data.themes.filter((theme) => theme.home);
+const where = publicPlatforms("where");
+const youtube = platform("youtube");
+const vkVideo = platform("vk-video");
+const iconClass: Record<string, string> = {
+  youtube: "p-yt",
+  vk: "p-vk",
+  rutube: "p-ru",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  inLanguage: "ru",
+  url: new URL("/", Astro.site).href,
+  description: home.data.description,
+  publisher: {
+    "@type": "Organization",
+    name: site.name,
+    sameAs: platforms.filter((item) => item.href && !item.placeholder).map((item) => item.href),
+  },
+};
+---
+
+<BaseLayout title={home.data.title} description={home.data.description} jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="hero-badge">
+          <b>{hero.badge}</b>
+          {hero.badgeText}
+        </p>
+        <h1>
+          {hero.titleBefore}<br />
+          <span class="accent">{hero.titleAccent}</span>{" "}
+          {hero.titleAfter}
+        </h1>
+        <p class="hero-slogan">{hero.slogan}</p>
+        <div class="hero-cta">
+          <a class="btn btn-orange btn-lg" href={youtube.href} target="_blank" rel="noopener noreferrer">
+            <Icon name="youtube" />
+            Смотреть на YouTube
+          </a>
+          <a class="btn btn-emerald btn-lg" href={vkVideo.href} target="_blank" rel="noopener noreferrer">
+            <Icon name="vk" />
+            Смотреть в VK
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <Picture
+          src={ryzhik.entry.data.image}
+          alt={ryzhik.entry.data.imageAlt}
+          widths={[360, 640, 900]}
+          sizes="(min-width: 960px) 460px, 88vw"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="collections">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.collectionsEyebrow}</p>
+          <h2 class="h2">{sections.collectionsTitle}</h2>
+          <p class="lede">{sections.collectionsLede}</p>
+        </div>
+        <a class="link-more" href="/watch">
+          Все ролики
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <div class="collections">
+        {
+          occasions.map((item) => (
+            <a class:list={["collection", `c-${item.data.tone}`]} href={`/watch?occasion=${item.id}`}>
+              <span class="c-ico">
+                <Icon name={item.data.icon} />
+              </span>
+              <span>
+                <h3>{item.data.title}</h3>
+                <p>{item.data.description}</p>
+                <span class="c-foot">
+                  Смотреть
+                  <Icon name="arrow" />
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight" id="episodes">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.episodesEyebrow}</p>
+          <h2 class="h2">{sections.episodesTitle}</h2>
+          <p class="lede">{sections.episodesLede}</p>
+        </div>
+        <a class="link-more" href="/watch">
+          Все серии
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <div class="episodes">
+        {
+          latest.map((video) => (
+            <VideoCard
+              id={video.id}
+              title={video.title}
+              thumbnail={video.thumbnail}
+              durationSeconds={video.durationSeconds}
+              uploadDate={video.uploadDate}
+              href={`/watch?v=${video.id}`}
+              groups={video.groups}
+              playlists={video.playlists}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section heroes-band" id="characters">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.charactersEyebrow}</p>
+          <h2 class="h2">{sections.charactersTitle}</h2>
+          <p class="lede">{sections.charactersLede}</p>
+        </div>
+        <a class="link-more" href="/characters">
+          Все персонажи
+          <Icon name="arrow" />
+        </a>
+      </div>
+
+      <div class="hero-group">
+        <h3>Рыжик и семья</h3>
+        <div class="personas">
+          {family.map((item) => <PersonaCard entry={item.entry} Content={item.Content} />)}
+        </div>
+      </div>
+      <div class="hero-group">
+        <h3>Рыжик и друзья</h3>
+        <div class="personas">
+          {friends.map((item) => <PersonaCard entry={item.entry} Content={item.Content} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="parents">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.parentsEyebrow}</p>
+          <h2 class="h2">{sections.parentsTitle}</h2>
+          <p class="lede">{sections.parentsLede}</p>
+        </div>
+        <a class="link-more" href="/parents">
+          Подробнее
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <div class="parents-grid">
+        <div class="teach-grid">
+          {
+            themes.map((theme) => (
+              <article class="teach">
+                <span class="tick">
+                  <Icon name="check" />
+                </span>
+                <div>
+                  <h3>{theme.title}</h3>
+                  <p>{theme.summary}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+        <aside class="aside-card">
+          <span class="safe-ico"><Icon name="shield" /></span>
+          <h3>{parents.data.asideTitle}</h3>
+          <p>{parents.data.asideLede}</p>
+          <ul>
+            {
+              parents.data.asidePoints?.map((point) => (
+                <li>
+                  <Icon name="star" />
+                  <span>
+                    <b>{point.title}</b>
+                    {point.text}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="coloring">
+    <div class="container">
+      <div class="coloring-wrap">
+        <div class="coloring-copy">
+          <p class="eyebrow">{sections.coloringEyebrow}</p>
+          <h2>{sections.coloringTitle}</h2>
+          <p>{sections.coloringLede}</p>
+          <div class="coloring-actions">
+            <a class="btn btn-orange" href={coloring.data.pdfHref} download>
+              <Icon name="download" />
+              Скачать PDF
+            </a>
+            <a class="btn btn-ghost" href="/coloring">О раскраске</a>
+          </div>
+        </div>
+        <div class="coloring-preview" aria-hidden="true">
+          {
+            [family[0], friends[3], friends[2]].filter(Boolean).map((item) => (
+              <div class="sheet">
+                <Picture
+                  src={item!.entry.data.image}
+                  alt=""
+                  widths={[240, 400]}
+                  sizes="180px"
+                  formats={["avif", "webp"]}
+                  fallbackFormat="webp"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight" id="where">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.whereEyebrow}</p>
+          <h2 class="h2">{sections.whereTitle}</h2>
+          <p class="lede">{sections.whereLede}</p>
+        </div>
+      </div>
+      <div class="where-grid">
+        {
+          where.map((item) => (
+            <a class="platform" href={item.href} target="_blank" rel="noopener noreferrer">
+              <span class:list={["p-logo", iconClass[item.icon] ?? "p-yt"]}>
+                <Icon name={item.icon} />
+              </span>
+              <span>
+                <h3>{item.label}</h3>
+                <p class="p-sub">{item.handle}</p>
+              </span>
+              <span class="p-arrow">
+                <Icon name="arrow" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

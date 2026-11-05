@@ -1,0 +1,208 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Icon from "../components/Icon.astro";
+import VideoCard from "../components/VideoCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { occasionIds, platform, playlists, videos } from "../lib/catalog";
+
+const page = await getEntry("pages", "watch");
+if (!page) throw new Error("Нет текста страницы watch");
+
+const occasions = (await getCollection("occasions")).sort((a, b) => a.data.order - b.data.order);
+const vkVideo = platform("vk-video");
+const cards = videos.map((video) => ({
+  video,
+  occasions: occasionIds(video.title, occasions),
+}));
+const playlistCounts = new Map(
+  playlists.map((item) => [item.id, videos.filter((video) => video.playlists.includes(item.id)).length]),
+);
+const orphanPlaylists = playlists.filter((item) => (playlistCounts.get(item.id) ?? 0) === 0);
+---
+
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{page.data.eyebrow}</p>
+      <h1>{page.data.heading}</h1>
+      {page.data.lede && <p class="lede">{page.data.lede}</p>}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="chips" role="navigation" aria-label="Фильтр роликов">
+        <a class="chip" href="/watch" data-filter-group="all">Все</a>
+        <a class="chip" href="/watch?group=family" data-filter-group="family">Семья</a>
+        <a class="chip" href="/watch?group=friends" data-filter-group="friends">Друзья</a>
+      </div>
+
+      <div class="chips" role="navigation" aria-label="Плейлисты канала">
+        {
+          playlists.map((item) =>
+            (playlistCounts.get(item.id) ?? 0) > 0 ? (
+              <a class="chip" href={`/watch?playlist=${item.id}`} data-filter-playlist={item.id} title={item.title}>
+                {item.shortTitle}
+              </a>
+            ) : (
+              <a class="chip" href={item.url} target="_blank" rel="noopener noreferrer" title={item.title}>
+                {item.shortTitle}
+              </a>
+            ),
+          )
+        }
+      </div>
+      {
+        orphanPlaylists.length > 0 && (
+          <p class="chip-note">
+            Эти плейлисты открываются на YouTube.
+          </p>
+        )
+      }
+
+      {
+        occasions.map((item) => (
+          <p class="filter-banner" data-occasion-banner={item.id} hidden>
+            Подборка «{item.data.title}»: ролики, в названии которых есть слова этой темы.{" "}
+            <a href="/watch">Показать все</a>
+          </p>
+        ))
+      }
+
+      <p class="empty-note" data-empty hidden>По этому фильтру роликов нет.</p>
+
+      <div class="episodes">
+        {
+          cards.map(({ video, occasions: tags }) => (
+            <VideoCard
+              id={video.id}
+              title={video.title}
+              thumbnail={video.thumbnail}
+              durationSeconds={video.durationSeconds}
+              uploadDate={video.uploadDate}
+              href={video.watchUrl}
+              groups={video.groups}
+              playlists={video.playlists}
+              occasions={tags}
+              external
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <dialog class="player-dialog" id="player-dialog" aria-labelledby="player-title">
+    <div class="player-sheet">
+      <h2 id="player-title" class="sr-only">Просмотр ролика</h2>
+      <div data-player-frame></div>
+      <div class="player-actions">
+        <a class="btn btn-emerald" data-player-vk href={vkVideo.href} target="_blank" rel="noopener noreferrer">
+          <Icon name="vk" />
+          Смотреть в VK
+        </a>
+        <a class="btn btn-ghost" data-player-youtube href="https://www.youtube.com/watch?v=" target="_blank" rel="noopener noreferrer">
+          Открыть на YouTube
+        </a>
+        <button class="btn btn-ghost" type="button" data-player-close>Закрыть</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script is:inline>
+    (function () {
+      var dialog = document.getElementById("player-dialog");
+      var frame = document.querySelector("[data-player-frame]");
+      var youtubeLink = document.querySelector("[data-player-youtube]");
+      var closeButton = document.querySelector("[data-player-close]");
+      if (!dialog || !frame) return;
+
+      function params() {
+        return new URLSearchParams(location.search);
+      }
+
+      function applyFilters() {
+        var query = params();
+        var group = query.get("group") || "";
+        var playlist = query.get("playlist") || "";
+        var occasion = query.get("occasion") || "";
+        var shown = 0;
+        document.querySelectorAll("[data-video-id]").forEach(function (card) {
+          var groups = (card.getAttribute("data-groups") || "").split(",").filter(Boolean);
+          var lists = (card.getAttribute("data-playlists") || "").split(",").filter(Boolean);
+          var occasions = (card.getAttribute("data-occasions") || "").split(",").filter(Boolean);
+          var ok =
+            (!group || groups.indexOf(group) !== -1) &&
+            (!playlist || lists.indexOf(playlist) !== -1) &&
+            (!occasion || occasions.indexOf(occasion) !== -1);
+          card.hidden = !ok;
+          if (ok) shown += 1;
+        });
+        var empty = document.querySelector("[data-empty]");
+        if (empty) empty.hidden = shown !== 0;
+        document.querySelectorAll("[data-occasion-banner]").forEach(function (banner) {
+          banner.hidden = banner.getAttribute("data-occasion-banner") !== occasion;
+        });
+        document.querySelectorAll("[data-filter-group]").forEach(function (chip) {
+          var value = chip.getAttribute("data-filter-group");
+          var active = value === "all" ? !group && !playlist && !occasion : value === group && !playlist && !occasion;
+          if (active) chip.setAttribute("aria-current", "true");
+          else chip.removeAttribute("aria-current");
+        });
+        document.querySelectorAll("[data-filter-playlist]").forEach(function (chip) {
+          if (chip.getAttribute("data-filter-playlist") === playlist) chip.setAttribute("aria-current", "true");
+          else chip.removeAttribute("aria-current");
+        });
+      }
+
+      function openVideo(id, title) {
+        if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return;
+        frame.replaceChildren();
+        var iframe = document.createElement("iframe");
+        iframe.className = "player-frame";
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1";
+        iframe.title = title || "Ролик";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        frame.append(iframe);
+        var heading = document.getElementById("player-title");
+        if (heading) heading.textContent = title || "Ролик";
+        if (youtubeLink) youtubeLink.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(id);
+        if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
+        var query = params();
+        query.set("v", id);
+        history.replaceState(null, "", location.pathname + "?" + query.toString());
+      }
+
+      document.addEventListener("click", function (event) {
+        var link = event.target.closest("a[data-video-id]");
+        if (!link) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        event.preventDefault();
+        openVideo(link.getAttribute("data-video-id"), link.getAttribute("data-video-title") || "Ролик");
+      });
+
+      if (closeButton) {
+        closeButton.addEventListener("click", function () {
+          dialog.close();
+        });
+      }
+
+      dialog.addEventListener("close", function () {
+        frame.replaceChildren();
+        var query = params();
+        query.delete("v");
+        var qs = query.toString();
+        history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
+      });
+
+      applyFilters();
+      var initial = params().get("v");
+      if (initial) {
+        var link = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
+        openVideo(initial, link ? link.getAttribute("data-video-title") : "Ролик");
+      }
+    })();
+  </script>
+</BaseLayout>

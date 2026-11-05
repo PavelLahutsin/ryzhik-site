@@ -1,0 +1,26 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "privacy");
+if (!page) throw new Error("Нет текста политики");
+const { Content } = await render(page);
+---
+
+<BaseLayout
+  title={`${page.data.title} — Лисёнок Рыжик`}
+  description={page.data.description}
+  noindex={page.data.noindex}
+>
+  <section class="section">
+    <div class="container">
+      {page.data.draft && <p class="draft-banner">Черновик. Текст нужно проверить перед публикацией.</p>}
+      <p class="eyebrow">{page.data.eyebrow}</p>
+      <h1>{page.data.heading}</h1>
+      {page.data.lede && <p class="lede">{page.data.lede}</p>}
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

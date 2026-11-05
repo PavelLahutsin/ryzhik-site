@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import ryzhik from "../assets/characters/ryzhik.webp";
+import { isCurrentPath } from "../lib/format";
+import { site } from "../lib/catalog";
+import Icon from "./Icon.astro";
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">
+        <Image src={ryzhik} alt="" width={84} format="webp" loading="eager" />
+      </span>
+      <span>
+        <span class="brand-name">{site.name}</span>
+        <span class="brand-tag">{site.tagline}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Основная навигация">
+      {
+        site.nav.map((item) => (
+          <a href={item.href} aria-current={isCurrentPath(item.href, pathname) ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-orange btn-sm header-cta" href="/watch">
+        <Icon name="play" />
+        Смотреть
+      </a>
+      <div class="menu-wrap">
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Открыть меню"
+          data-menu-button
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="mobile-menu" class="mobile-menu-panel" data-menu-panel hidden>
+          {
+            site.nav.map((item) => (
+              <a href={item.href} aria-current={isCurrentPath(item.href, pathname) ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var button = document.querySelector("[data-menu-button]");
+    var panel = document.querySelector("[data-menu-panel]");
+    if (!button || !panel) return;
+
+    function setOpen(open) {
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      panel.hidden = !open;
+    }
+
+    button.addEventListener("click", function () {
+      setOpen(button.getAttribute("aria-expanded") !== "true");
+    });
+
+    panel.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && button.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        button.focus();
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (button.getAttribute("aria-expanded") !== "true") return;
+      if (panel.contains(event.target) || button.contains(event.target)) return;
+      setOpen(false);
+    });
+  })();
+</script>
