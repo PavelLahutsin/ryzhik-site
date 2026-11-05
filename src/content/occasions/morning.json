@@ -1,5 +1,4 @@
 {
-  "_comment": "Подборка по словам в названии ролика. Меняйте title, description и keywords. Имя файла — это адрес /watch?occasion=morning.",
   "title": "Утро и зарядка",
   "description": "Потянуться, похлопать и включить утреннюю песенку.",
   "order": 1,

@@ -54,6 +54,38 @@ const pages = defineCollection({
         whereEyebrow: z.string(),
         whereTitle: z.string(),
         whereLede: z.string(),
+        playlistsEyebrow: z.string(),
+        playlistsTitle: z.string(),
+        playlistsLede: z.string(),
+        musicEyebrow: z.string(),
+        musicTitle: z.string(),
+        musicLede: z.string(),
+        storyEyebrow: z.string(),
+        storyTitle: z.string(),
+      })
+      .optional(),
+    story: z.string().optional(),
+    playlistTeasers: z
+      .array(
+        z.object({
+          id: z.string(),
+          text: z.string(),
+        }),
+      )
+      .optional(),
+    playlistIntros: z
+      .array(
+        z.object({
+          id: z.string(),
+          text: z.string(),
+        }),
+      )
+      .optional(),
+    actions: z
+      .object({
+        home: z.string(),
+        watch: z.string(),
+        characters: z.string(),
       })
       .optional(),
     themes: z
@@ -99,6 +131,7 @@ const albums = defineCollection({
       href: z.string().url(),
       order: z.number(),
       cover: image(),
+      blurb: z.string().optional(),
     }),
 });
 

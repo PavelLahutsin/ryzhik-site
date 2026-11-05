@@ -35,6 +35,7 @@ const albums = (await getCollection("albums")).sort((a, b) => a.data.order - b.d
               />
               <div class="album-body">
                 <h2>{album.data.title}</h2>
+                {album.data.blurb && <p class="album-blurb">{album.data.blurb}</p>}
                 <a class="btn btn-orange" href={album.data.href} target="_blank" rel="noopener noreferrer">
                   Слушать
                 </a>

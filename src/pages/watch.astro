@@ -49,6 +49,14 @@ const cards = videos.map((video) => ({
       </div>
 
       {
+        page.data.playlistIntros?.map((item) => (
+          <p class="filter-banner" data-playlist-banner={item.id} hidden>
+            {item.text}
+          </p>
+        ))
+      }
+
+      {
         occasions.map((item) => (
           <p class="filter-banner" data-occasion-banner={item.id} hidden>
             Подборка «{item.data.title}»: ролики, в названии которых есть слова этой темы.{" "}
@@ -129,6 +137,9 @@ const cards = videos.map((video) => ({
         if (empty) empty.hidden = shown !== 0;
         document.querySelectorAll("[data-occasion-banner]").forEach(function (banner) {
           banner.hidden = banner.getAttribute("data-occasion-banner") !== occasion;
+        });
+        document.querySelectorAll("[data-playlist-banner]").forEach(function (banner) {
+          banner.hidden = banner.getAttribute("data-playlist-banner") !== playlist;
         });
         document.querySelectorAll("[data-filter-group]").forEach(function (chip) {
           var value = chip.getAttribute("data-filter-group");

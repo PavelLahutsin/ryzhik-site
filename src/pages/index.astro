@@ -3,6 +3,7 @@ import { Picture } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
 import sample1 from "../assets/coloring/sample-1.webp";
 import sample2 from "../assets/coloring/sample-2.webp";
+import hedgehog from "../assets/characters/hedgehog.webp";
 import ryzhikWave from "../assets/characters/ryzhik-wave.webp";
 import familyScene from "../assets/characters/family.webp";
 import friendsScene from "../assets/scenes/friends.webp";
@@ -11,7 +12,7 @@ import PersonaCard from "../components/PersonaCard.astro";
 import SampleSheet from "../components/SampleSheet.astro";
 import VideoCard from "../components/VideoCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { platform, platforms, publicPlatforms, site, videos } from "../lib/catalog";
+import { platform, platforms, playlists, publicPlatforms, site, videos } from "../lib/catalog";
 
 const home = await getEntry("pages", "home");
 const parents = await getEntry("pages", "parents");
@@ -22,6 +23,8 @@ if (!home?.data.hero || !home.data.sections || !parents?.data.themes) {
 const hero = home.data.hero;
 const sections = home.data.sections;
 const occasions = (await getCollection("occasions")).sort((a, b) => a.data.order - b.data.order);
+const albums = (await getCollection("albums")).sort((a, b) => a.data.order - b.data.order);
+const teasers = new Map((home.data.playlistTeasers ?? []).map((item) => [item.id, item.text]));
 const characterEntries = (await getCollection("characters")).sort((a, b) => a.data.order - b.data.order);
 const characters = await Promise.all(
   characterEntries.map(async (entry) => ({ entry, ...(await render(entry)) })),
@@ -84,12 +87,12 @@ const jsonLd = {
           </a>
         </div>
       </div>
-      <div class="hero-art">
+      <div class="hero-figure">
         <Picture
           src={ryzhikWave}
           alt="Лисёнок Рыжик машет лапой"
-          widths={[320, 502]}
-          sizes="(min-width: 960px) 420px, 88vw"
+          widths={[280, 460]}
+          sizes="(min-width: 960px) 420px, 220px"
           formats={["avif", "webp"]}
           fallbackFormat="webp"
           loading="eager"
@@ -134,6 +137,32 @@ const jsonLd = {
     </div>
   </section>
 
+  <section class="section section-tight" id="playlists">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.playlistsEyebrow}</p>
+          <h2 class="h2">{sections.playlistsTitle}</h2>
+          <p class="lede">{sections.playlistsLede}</p>
+        </div>
+      </div>
+      <div class="playlist-cards">
+        {
+          playlists.map((item) => (
+            <article class="playlist-card">
+              <h3>{item.title}</h3>
+              {teasers.get(item.id) && <p>{teasers.get(item.id)}</p>}
+              <div class="playlist-actions">
+                <a class="btn btn-orange" href={`/watch?playlist=${item.id}`}>Смотреть здесь</a>
+                <a class="btn btn-ghost" href={item.url} target="_blank" rel="noopener noreferrer">В VK</a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="section section-tight" id="episodes">
     <div class="container">
       <div class="section-head">
@@ -168,6 +197,28 @@ const jsonLd = {
 
   <section class="section heroes-band" id="characters">
     <div class="container">
+      {
+        home.data.story && (
+          <div class="story-block">
+            <div class="story-copy">
+              <p class="eyebrow">{sections.storyEyebrow}</p>
+              <h2 class="h2">{sections.storyTitle}</h2>
+              <p class="story-text">{home.data.story}</p>
+            </div>
+            <div class="peek-friend" aria-hidden="true">
+              <Picture
+                src={hedgehog}
+                alt=""
+                widths={[180, 320]}
+                sizes="150px"
+                formats={["avif", "webp"]}
+                fallbackFormat="webp"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        )
+      }
       <div class="section-head">
         <div>
           <p class="eyebrow">{sections.charactersEyebrow}</p>
@@ -264,6 +315,35 @@ const jsonLd = {
             }
           </ul>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="music">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{sections.musicEyebrow}</p>
+          <h2 class="h2">{sections.musicTitle}</h2>
+          <p class="lede">{sections.musicLede}</p>
+        </div>
+        <a class="link-more" href="/music">
+          Все альбомы
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <div class="album-teasers">
+        {
+          albums.map((album) => (
+            <article class="album-teaser">
+              <h3>{album.data.title}</h3>
+              {album.data.blurb && <p>{album.data.blurb}</p>}
+              <a class="btn btn-orange" href={album.data.href} target="_blank" rel="noopener noreferrer">
+                Слушать
+              </a>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>

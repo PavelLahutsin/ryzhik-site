@@ -9,7 +9,7 @@ import { platforms, site } from "../lib/catalog";
 const page = await getEntry("pages", "links");
 if (!page) throw new Error("Нет текста страницы ссылок");
 
-const items = platforms.filter((item) => item.linksPage);
+const items = platforms.filter((item) => item.linksPage && !item.placeholder && item.href);
 const iconClass: Record<string, string> = {
   youtube: "p-yt",
   vk: "p-vk",
@@ -34,18 +34,7 @@ const iconClass: Record<string, string> = {
         </div>
 
         {
-          items.map((item, index) =>
-            item.placeholder ? (
-              <div class="link-placeholder">
-                <span class:list={["p-logo", iconClass[item.icon] ?? "p-music"]}>
-                  <Icon name={item.icon} />
-                </span>
-                <span>
-                  {item.label}
-                  <span class="p-sub">Ссылка появится позже</span>
-                </span>
-              </div>
-            ) : (
+          items.map((item, index) => (
               <a
                 class:list={["link-btn", { primary: index === 0, secondary: index === 1 }]}
                 href={item.href}
@@ -63,8 +52,7 @@ const iconClass: Record<string, string> = {
                   <Icon name="arrow" />
                 </span>
               </a>
-            ),
-          )
+          ))
         }
       </div>
     </div>

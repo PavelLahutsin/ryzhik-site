@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import bear from "../assets/characters/bear.webp";
+import bunny from "../assets/characters/bunny.webp";
+import hedgehog from "../assets/characters/hedgehog.webp";
 import ryzhik from "../assets/characters/ryzhik.webp";
+import ryzhikWave from "../assets/characters/ryzhik-wave.webp";
+import squirrel from "../assets/characters/squirrel.webp";
 import { platform, publicPlatforms, site } from "../lib/catalog";
 import Icon from "./Icon.astro";
 
@@ -75,6 +80,14 @@ const vkVideo = platform("vk-video");
           </li>
         </ul>
       </div>
+    </div>
+
+    <div class="footer-cast" aria-hidden="true">
+      <Image src={hedgehog} alt="" width={150} format="webp" loading="lazy" />
+      <Image src={squirrel} alt="" width={150} format="webp" loading="lazy" />
+      <Image src={ryzhikWave} alt="" width={170} format="webp" loading="lazy" />
+      <Image src={bunny} alt="" width={130} format="webp" loading="lazy" />
+      <Image src={bear} alt="" width={150} format="webp" loading="lazy" />
     </div>
 
     <div class="footer-bottom">
