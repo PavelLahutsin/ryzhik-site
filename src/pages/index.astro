@@ -1,17 +1,19 @@
 ---
 import { Picture } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
+import sample1 from "../assets/coloring/sample-1.webp";
+import sample2 from "../assets/coloring/sample-2.webp";
 import Icon from "../components/Icon.astro";
 import PersonaCard from "../components/PersonaCard.astro";
+import SampleSheet from "../components/SampleSheet.astro";
 import VideoCard from "../components/VideoCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { platform, platforms, publicPlatforms, site, videos } from "../lib/catalog";
 
 const home = await getEntry("pages", "home");
 const parents = await getEntry("pages", "parents");
-const coloring = await getEntry("pages", "coloring");
-if (!home?.data.hero || !home.data.sections || !parents?.data.themes || !coloring?.data.pdfHref) {
-  throw new Error("Не хватает текстов главной, родителей или раскраски");
+if (!home?.data.hero || !home.data.sections || !parents?.data.themes) {
+  throw new Error("Не хватает текстов главной или страницы для родителей");
 }
 
 const hero = home.data.hero;
@@ -247,29 +249,12 @@ const jsonLd = {
           <h2>{sections.coloringTitle}</h2>
           <p>{sections.coloringLede}</p>
           <div class="coloring-actions">
-            <a class="btn btn-orange" href={coloring.data.pdfHref} download>
-              <Icon name="download" />
-              Скачать PDF
-            </a>
-            <a class="btn btn-ghost" href="/coloring">О раскраске</a>
+            <a class="btn btn-orange" href="/coloring">Как получить</a>
           </div>
         </div>
-        <div class="coloring-preview" aria-hidden="true">
-          {
-            [family[0], friends[3], friends[2]].filter(Boolean).map((item) => (
-              <div class="sheet">
-                <Picture
-                  src={item!.entry.data.image}
-                  alt=""
-                  widths={[240, 400]}
-                  sizes="180px"
-                  formats={["avif", "webp"]}
-                  fallbackFormat="webp"
-                  loading="lazy"
-                />
-              </div>
-            ))
-          }
+        <div class="coloring-preview">
+          <SampleSheet src={sample1} alt="Образец листа раскраски: лисёнок на лесной тропе. Не для печати." />
+          <SampleSheet src={sample2} alt="Образец листа раскраски: лисёнок и медвежонок у бревна. Не для печати." />
         </div>
       </div>
     </div>

@@ -37,6 +37,18 @@
       "todo": ""
     },
     {
+      "id": "boosty",
+      "label": "Получить на Boosty",
+      "handle": "",
+      "href": "",
+      "icon": "heart",
+      "where": false,
+      "footer": false,
+      "linksPage": false,
+      "placeholder": true,
+      "todo": "TODO: вставить адрес Boosty. Пока href пустой, кнопка «Получить на Boosty» на странице раскрасок не показывается."
+    },
+    {
       "id": "rutube",
       "label": "Rutube",
       "handle": "канал 76899272",

@@ -76,9 +76,6 @@ const pages = defineCollection({
         }),
       )
       .optional(),
-    pdfHref: z.string().optional(),
-    pdfLabel: z.string().optional(),
-    pdfSize: z.string().optional(),
   }),
 });
 

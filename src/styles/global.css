@@ -1027,10 +1027,50 @@
   margin-top: 22px;
 }
 
+.coloring-wrap.is-solo {
+  grid-template-columns: 1fr;
+}
+
 .coloring-preview {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+
+.coloring-samples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.sample {
+  position: relative;
+  margin: 0;
+  background: #fffdf8;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(74, 50, 8, 0.12);
+}
+
+.sample picture,
+.sample img {
+  width: 100%;
+  height: auto;
+}
+
+.sample-mark {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fffdf8;
+  border: 1px solid rgba(59, 46, 37, 0.12);
+  color: #3b2e25;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .sheet {
@@ -1543,6 +1583,11 @@
   .coloring-wrap {
     border-radius: var(--radius-soft-lg);
     padding: 22px 18px;
+  }
+
+  .coloring-preview,
+  .coloring-samples {
+    grid-template-columns: 1fr;
   }
 
   .coloring-actions .btn,
