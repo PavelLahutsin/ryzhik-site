@@ -12,6 +12,7 @@ import PersonaCard from "../components/PersonaCard.astro";
 import SampleSheet from "../components/SampleSheet.astro";
 import VideoCard from "../components/VideoCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/base";
 import { platform, platforms, playlists, publicPlatforms, site, videos } from "../lib/catalog";
 
 const home = await getEntry("pages", "home");
@@ -52,7 +53,7 @@ const jsonLd = {
   "@type": "WebSite",
   name: site.name,
   inLanguage: "ru",
-  url: new URL("/", Astro.site).href,
+  url: new URL(import.meta.env.BASE_URL, Astro.site).href,
   description: home.data.description,
   publisher: {
     "@type": "Organization",
@@ -110,7 +111,7 @@ const jsonLd = {
           <h2 class="h2">{sections.collectionsTitle}</h2>
           <p class="lede">{sections.collectionsLede}</p>
         </div>
-        <a class="link-more" href="/watch">
+        <a class="link-more" href={withBase("/watch")}>
           Все ролики
           <Icon name="arrow" />
         </a>
@@ -118,7 +119,7 @@ const jsonLd = {
       <div class="collections">
         {
           occasions.map((item) => (
-            <a class:list={["collection", `c-${item.data.tone}`]} href={`/watch?occasion=${item.id}`}>
+            <a class:list={["collection", `c-${item.data.tone}`]} href={withBase(`/watch?occasion=${item.id}`)}>
               <span class="c-ico">
                 <Icon name={item.data.icon} />
               </span>
@@ -153,7 +154,7 @@ const jsonLd = {
               <h3>{item.title}</h3>
               {teasers.get(item.id) && <p>{teasers.get(item.id)}</p>}
               <div class="playlist-actions">
-                <a class="btn btn-orange" href={`/watch?playlist=${item.id}`}>Смотреть здесь</a>
+                <a class="btn btn-orange" href={withBase(`/watch?playlist=${item.id}`)}>Смотреть здесь</a>
                 <a class="btn btn-ghost" href={item.vkUrl} target="_blank" rel="noopener noreferrer">Плейлист в VK</a>
                 <a class="btn btn-ghost" href={item.youtubeUrl} target="_blank" rel="noopener noreferrer">Плейлист на YouTube</a>
               </div>
@@ -172,7 +173,7 @@ const jsonLd = {
           <h2 class="h2">{sections.episodesTitle}</h2>
           <p class="lede">{sections.episodesLede}</p>
         </div>
-        <a class="link-more" href="/watch">
+        <a class="link-more" href={withBase("/watch")}>
           Все серии
           <Icon name="arrow" />
         </a>
@@ -225,7 +226,7 @@ const jsonLd = {
           <h2 class="h2">{sections.charactersTitle}</h2>
           <p class="lede">{sections.charactersLede}</p>
         </div>
-        <a class="link-more" href="/characters">
+        <a class="link-more" href={withBase("/characters")}>
           Все персонажи
           <Icon name="arrow" />
         </a>
@@ -276,7 +277,7 @@ const jsonLd = {
           <h2 class="h2">{sections.parentsTitle}</h2>
           <p class="lede">{sections.parentsLede}</p>
         </div>
-        <a class="link-more" href="/parents">
+        <a class="link-more" href={withBase("/parents")}>
           Подробнее
           <Icon name="arrow" />
         </a>
@@ -327,7 +328,7 @@ const jsonLd = {
           <h2 class="h2">{sections.musicTitle}</h2>
           <p class="lede">{sections.musicLede}</p>
         </div>
-        <a class="link-more" href="/music">
+        <a class="link-more" href={withBase("/music")}>
           Все альбомы
           <Icon name="arrow" />
         </a>
@@ -356,7 +357,7 @@ const jsonLd = {
           <h2>{sections.coloringTitle}</h2>
           <p>{sections.coloringLede}</p>
           <div class="coloring-actions">
-            <a class="btn btn-orange" href="/coloring">Как получить</a>
+            <a class="btn btn-orange" href={withBase("/coloring")}>Как получить</a>
           </div>
         </div>
         <div class="coloring-preview">

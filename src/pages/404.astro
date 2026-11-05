@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import { withBase } from "../lib/base";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const page = await getEntry("pages", "not-found");
@@ -18,9 +19,9 @@ const actions = page.data.actions ?? {
       <h1>{page.data.heading}</h1>
       {page.data.lede && <p class="lede">{page.data.lede}</p>}
       <div class="hero-cta" style="margin-top:22px">
-        <a class="btn btn-orange" href="/">{actions.home}</a>
-        <a class="btn btn-emerald" href="/watch">{actions.watch}</a>
-        <a class="btn btn-ghost" href="/characters">{actions.characters}</a>
+        <a class="btn btn-orange" href={withBase("/")}>{actions.home}</a>
+        <a class="btn btn-emerald" href={withBase("/watch")}>{actions.watch}</a>
+        <a class="btn btn-ghost" href={withBase("/characters")}>{actions.characters}</a>
       </div>
     </div>
   </section>

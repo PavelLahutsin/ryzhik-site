@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import ryzhik from "../assets/characters/ryzhik.webp";
+import { withBase } from "../lib/base";
 import { isCurrentPath } from "../lib/format";
 import { site } from "../lib/catalog";
 import Icon from "./Icon.astro";
@@ -10,7 +11,7 @@ const pathname = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/">
+    <a class="brand" href={withBase("/")}>
       <span class="brand-mark">
         <Image src={ryzhik} alt="" width={84} format="webp" loading="eager" />
       </span>
@@ -23,7 +24,7 @@ const pathname = Astro.url.pathname;
     <nav class="nav" aria-label="Основная навигация">
       {
         site.nav.map((item) => (
-          <a href={item.href} aria-current={isCurrentPath(item.href, pathname) ? "page" : undefined}>
+          <a href={withBase(item.href)} aria-current={isCurrentPath(withBase(item.href), pathname) ? "page" : undefined}>
             {item.label}
           </a>
         ))
@@ -31,7 +32,7 @@ const pathname = Astro.url.pathname;
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-orange btn-sm header-cta" href="/watch">
+      <a class="btn btn-orange btn-sm header-cta" href={withBase("/watch")}>
         <Icon name="play" />
         Смотреть
       </a>
@@ -51,7 +52,7 @@ const pathname = Astro.url.pathname;
         <div id="mobile-menu" class="mobile-menu-panel" data-menu-panel hidden>
           {
             site.nav.map((item) => (
-              <a href={item.href} aria-current={isCurrentPath(item.href, pathname) ? "page" : undefined}>
+              <a href={withBase(item.href)} aria-current={isCurrentPath(withBase(item.href), pathname) ? "page" : undefined}>
                 {item.label}
               </a>
             ))

@@ -6,6 +6,7 @@ import hedgehog from "../assets/characters/hedgehog.webp";
 import ryzhik from "../assets/characters/ryzhik.webp";
 import ryzhikWave from "../assets/characters/ryzhik-wave.webp";
 import squirrel from "../assets/characters/squirrel.webp";
+import { withBase } from "../lib/base";
 import { platform, publicPlatforms, site } from "../lib/catalog";
 import Icon from "./Icon.astro";
 
@@ -17,7 +18,7 @@ const vkVideo = platform("vk-video");
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/">
+        <a class="brand" href={withBase("/")}>
           <span class="brand-mark">
             <Image src={ryzhik} alt="" width={84} format="webp" />
           </span>
@@ -33,7 +34,7 @@ const vkVideo = platform("vk-video");
               const external = item.href.startsWith("http");
               return (
                 <a
-                  href={item.href}
+                  href={withBase(item.href)}
                   aria-label={item.label}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
@@ -49,30 +50,30 @@ const vkVideo = platform("vk-video");
       <div class="footer-col">
         <h2>Смотреть</h2>
         <ul>
-          <li><a href="/watch?occasion=morning">Утро и зарядка</a></li>
-          <li><a href="/watch?occasion=sleep">Перед сном</a></li>
-          <li><a href="/watch?occasion=habits">Полезные привычки</a></li>
-          <li><a href="/watch?occasion=songs">Песенки</a></li>
-          <li><a href="/music">Музыка</a></li>
+          <li><a href={withBase("/watch?occasion=morning")}>Утро и зарядка</a></li>
+          <li><a href={withBase("/watch?occasion=sleep")}>Перед сном</a></li>
+          <li><a href={withBase("/watch?occasion=habits")}>Полезные привычки</a></li>
+          <li><a href={withBase("/watch?occasion=songs")}>Песенки</a></li>
+          <li><a href={withBase("/music")}>Музыка</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h2>Родителям</h2>
         <ul>
-          <li><a href="/parents">О чём серии</a></li>
-          <li><a href="/characters">Персонажи</a></li>
-          <li><a href="/coloring">Раскраски</a></li>
-          <li><a href="/privacy">Политика конфиденциальности</a></li>
+          <li><a href={withBase("/parents")}>О чём серии</a></li>
+          <li><a href={withBase("/characters")}>Персонажи</a></li>
+          <li><a href={withBase("/coloring")}>Раскраски</a></li>
+          <li><a href={withBase("/privacy")}>Политика конфиденциальности</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h2>Ещё</h2>
         <ul>
-          <li><a href="/watch">Все ролики</a></li>
-          <li><a href="/links">Все ссылки</a></li>
-          <li><a href="/#where">Где смотреть</a></li>
+          <li><a href={withBase("/watch")}>Все ролики</a></li>
+          <li><a href={withBase("/links")}>Все ссылки</a></li>
+          <li><a href={withBase("/#where")}>Где смотреть</a></li>
           <li>
             <a href={vkVideo.href} target="_blank" rel="noopener noreferrer">
               {vkVideo.label}

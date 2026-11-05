@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 import ryzhik from "../assets/characters/ryzhik.webp";
 import Icon from "../components/Icon.astro";
+import { withBase } from "../lib/base";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { platforms, site } from "../lib/catalog";
 
@@ -37,7 +38,7 @@ const iconClass: Record<string, string> = {
           items.map((item, index) => (
               <a
                 class:list={["link-btn", { primary: index === 0, secondary: index === 1 }]}
-                href={item.href}
+                href={withBase(item.href)}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
