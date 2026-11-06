@@ -40,11 +40,11 @@ npm run build
 npm run preview
 ```
 
-Сайт статический и рассчитан на Cloudflare (проект `ryzhik-site`). Временный адрес в `astro.config.mjs`: `https://ryzhik-site.pages.dev`. Сайт открывается с корня домена (`base: "/"`). Внутренние ссылки по-прежнему собираются через `import.meta.env.BASE_URL`.
+Обычная сборка (`npm run build`) — для Cloudflare Pages: сайт с корня домена, адрес по умолчанию `https://ryzhik-site.pages.dev`. Каталог `dist/` указан в `wrangler.toml`. В панели Cloudflare: команда `npm run build`, каталог результата `dist`. Свой домен задаётся переменной `SITE`.
 
-Сборка кладёт файлы в `dist/`. Для Cloudflare это описано в `wrangler.toml` (`[assets] directory = "./dist"`). Репозиторий подключается в панели Cloudflare, команда сборки — `npm run build`, каталог результата — `dist`.
+Та же сборка публикуется и на GitHub Pages, но по адресу `https://pavellahutsin.github.io/ryzhik-site/`. Это делает `.github/workflows/deploy.yml` при push в `main` (и вручную). Для этой сборки задаются `SITE=https://pavellahutsin.github.io` и `BASE_PATH=/ryzhik-site`. Внутренние ссылки и файлы из `public/` идут через `import.meta.env.BASE_URL`.
 
-Свой домен можно подставить переменной `SITE` при сборке.
+Один раз в настройках репозитория: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ## Где что править
 
