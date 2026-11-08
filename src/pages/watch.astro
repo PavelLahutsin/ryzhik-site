@@ -29,28 +29,38 @@ const cards = videos.map((video) => ({
 
   <section class="section section-tight">
     <div class="container">
-      <div class="playlist-filters" role="navigation" aria-label="Плейлисты">
-        {
-          playlists.map((item) => (
-            <div class="playlist-filter">
-              <a class="chip" href={withBase(`/watch?playlist=${item.id}`)} data-filter-playlist={item.id}>
-                {item.title}
-              </a>
-              <span class="playlist-filter-links">
-                <a href={item.vkUrl} target="_blank" rel="noopener noreferrer">Плейлист в VK</a>
-                <a href={item.youtubeUrl} target="_blank" rel="noopener noreferrer">Плейлист на YouTube</a>
-              </span>
-            </div>
-          ))
-        }
+      <!-- 1. Поиск: поле «Найти серию» -->
+      <div class="watch-search-wrap">
+        <div class="watch-search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            id="watch-search"
+            class="watch-search-input"
+            placeholder="Найти серию"
+            aria-label="Найти серию"
+            autocomplete="off"
+          />
+          <button type="button" class="search-clear-btn" aria-label="Очистить поиск" hidden data-search-clear>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <nav class="chips occasion-filters" aria-label="Подборки">
+      <!-- 2. Чипсы -->
+      <nav class="chips occasion-filters" aria-label="Подборки и плейлисты">
         <a
           class="chip"
           href={withBase("/watch")}
           data-filter-occasion=""
-          aria-current={Astro.url.searchParams.has("occasion") ? undefined : "true"}
+          data-filter-all
+          aria-current={!Astro.url.searchParams.has("occasion") && !Astro.url.searchParams.has("playlist") ? "true" : undefined}
         >
           Все
         </a>
@@ -66,15 +76,19 @@ const cards = videos.map((video) => ({
             </a>
           ))
         }
+        {
+          playlists.map((item) => (
+            <a
+              class="chip"
+              href={withBase(`/watch?playlist=${item.id}`)}
+              data-filter-playlist={item.id}
+              aria-current={Astro.url.searchParams.get("playlist") === item.id ? "true" : undefined}
+            >
+              {item.title}
+            </a>
+          ))
+        }
       </nav>
-
-      {
-        page.data.playlistIntros?.map((item) => (
-          <p class="filter-banner" data-playlist-banner={item.id} hidden>
-            {item.text}
-          </p>
-        ))
-      }
 
       {
         occasions.map((item) => (
@@ -85,8 +99,13 @@ const cards = videos.map((video) => ({
         ))
       }
 
-      <p class="empty-note" data-empty hidden>По этому фильтру роликов нет.</p>
+      <!-- Состояние «Ничего не нашлось» с кнопкой «Сбросить» -->
+      <div class="empty-state" data-empty hidden>
+        <p class="empty-title">Ничего не нашлось</p>
+        <button type="button" class="btn btn-orange" data-reset-filters>Сбросить</button>
+      </div>
 
+      <!-- 3. Сетка роликов -->
       <div class="episodes">
         {
           cards.map(({ video, occasions: tags }) => (
@@ -107,6 +126,36 @@ const cards = videos.map((video) => ({
           ))
         }
       </div>
+
+      <!-- 4. Описания плейлистов и ссылки «Плейлист в VK / на YouTube» сожты и перенесены ниже сетки -->
+      <div class="watch-playlists-summary" aria-labelledby="playlists-summary-heading">
+        <h2 id="playlists-summary-heading" class="playlists-summary-heading">Плейлисты серий</h2>
+        <div class="playlists-summary-grid">
+          {
+            playlists.map((item) => {
+              const intro = page.data.playlistIntros?.find((p) => p.id === item.id);
+              return (
+                <article class="playlist-summary-card">
+                  <div>
+                    <h3>{item.title}</h3>
+                    {intro && <p>{intro.text}</p>}
+                  </div>
+                  <div class="playlist-summary-links">
+                    <a href={item.vkUrl} target="_blank" rel="noopener noreferrer">
+                      <Icon name="vk" />
+                      Плейлист в VK
+                    </a>
+                    <a href={item.youtubeUrl} target="_blank" rel="noopener noreferrer">
+                      <Icon name="youtube" />
+                      Плейлист на YouTube
+                    </a>
+                  </div>
+                </article>
+              );
+            })
+          }
+        </div>
+      </div>
     </div>
   </section>
 
@@ -124,13 +173,44 @@ const cards = videos.map((video) => ({
         </svg>
       </button>
       <div data-player-frame></div>
+
+      <!-- Таймер сна: для роликов из плейлистов «Колыбельные» и «Сонные истории» -->
+      <div class="player-sleep-bar" data-sleep-timer-wrap hidden>
+        <span class="sleep-label">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          Выключить через:
+        </span>
+        <div class="sleep-options" role="radiogroup" aria-label="Таймер сна">
+          <button type="button" class="sleep-chip" data-sleep-val="15" role="radio" aria-checked="false">15 мин</button>
+          <button type="button" class="sleep-chip" data-sleep-val="30" role="radio" aria-checked="false">30 мин</button>
+          <button type="button" class="sleep-chip" data-sleep-val="60" role="radio" aria-checked="false">60 мин</button>
+          <button type="button" class="sleep-chip" data-sleep-val="off" role="radio" aria-checked="true">выкл</button>
+        </div>
+      </div>
+
       <div class="player-toolbar">
         <div class="player-switch" role="group" aria-label="Плеер">
           <button type="button" data-player-platform="vk" aria-pressed="true">VK</button>
           <button type="button" data-player-platform="youtube" aria-pressed="false">YouTube</button>
         </div>
+        <button class="btn btn-emerald player-next-btn" type="button" data-player-next aria-label="Следующая серия">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M5 5v14l10-7L5 5zM17 5v14h2V5h-2z"></path>
+          </svg>
+          <span>Следующая серия</span>
+        </button>
+        <button class="btn btn-ghost player-share-btn" type="button" data-player-share aria-label="Поделиться">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span data-share-label>Поделиться</span>
+        </button>
         <button class="btn btn-ghost" type="button" data-player-close>Закрыть</button>
       </div>
+
       <div class="player-links">
         <a class="btn btn-emerald" data-player-vk href={vkVideo.href} target="_blank" rel="noopener noreferrer">
           <Icon name="vk" />
@@ -150,6 +230,15 @@ const cards = videos.map((video) => ({
       var frame = document.querySelector("[data-player-frame]");
       var closeButton = document.querySelector("[data-player-close]");
       var xButton = document.querySelector("[data-player-x]");
+      var nextButton = document.querySelector("[data-player-next]");
+      var shareButton = document.querySelector("[data-player-share]");
+      var shareLabel = document.querySelector("[data-share-label]");
+      var sleepTimerWrap = document.querySelector("[data-sleep-timer-wrap]");
+      var sleepChips = document.querySelectorAll("[data-sleep-val]");
+      var searchInput = document.getElementById("watch-search");
+      var searchClearBtn = document.querySelector("[data-search-clear]");
+      var resetButtons = document.querySelectorAll("[data-reset-filters]");
+
       var lastTrigger = null;      // карточка, с которой открыли плеер
       var historyPushed = false;   // мы добавили запись истории для этого ролика
       var closedByHistory = false; // закрытие пришло от popstate
@@ -158,7 +247,12 @@ const cards = videos.map((video) => ({
       var ytLink = document.querySelector("[data-player-yt]");
       var platformButtons = document.querySelectorAll("[data-player-platform]");
       var playerChoiceKey = "ryzhik-player";
-      var current = { vkSrc: "", ytSrc: "", vkWatch: "", ytWatch: "" };
+      var sleepTimerKey = "ryzhik-sleep-timer";
+
+      var current = { id: "", title: "", vkSrc: "", ytSrc: "", vkWatch: "", ytWatch: "" };
+      var shareTimeout = null;
+      var sleepTimerId = null;
+
       if (!dialog || !frame) return;
 
       var vkTimeZones = [
@@ -236,22 +330,47 @@ const cards = videos.map((video) => ({
         return new URLSearchParams(location.search);
       }
 
+      function cleanText(str) {
+        return (str || "")
+          .toLowerCase()
+          .replace(/ё/g, "е")
+          .replace(/[\p{P}\p{S}]/gu, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
       function applyFilters() {
         var query = params();
         var playlist = query.get("playlist") || "";
         var occasion = query.get("occasion") || "";
+        var searchVal = searchInput ? searchInput.value : "";
+        var searchTerm = cleanText(searchVal);
+
+        if (searchClearBtn) {
+          searchClearBtn.hidden = !searchVal;
+        }
+
         var shown = 0;
         document.querySelectorAll("[data-video-id]").forEach(function (card) {
           var lists = (card.getAttribute("data-playlists") || "").split(",").filter(Boolean);
           var occasions = (card.getAttribute("data-occasions") || "").split(",").filter(Boolean);
-          var ok =
-            (!playlist || lists.indexOf(playlist) !== -1) &&
-            (!occasion || occasions.indexOf(occasion) !== -1);
+          var title = card.getAttribute("data-video-title") || "";
+          var displayHeading = card.querySelector("h2, h3");
+          var headingText = displayHeading ? displayHeading.textContent : "";
+          var normalizedCardTitle = cleanText(title + " " + headingText);
+
+          var matchesPlaylist = !playlist || lists.indexOf(playlist) !== -1;
+          var matchesOccasion = !occasion || occasions.indexOf(occasion) !== -1;
+          var matchesSearch = !searchTerm || normalizedCardTitle.indexOf(searchTerm) !== -1;
+
+          var ok = matchesPlaylist && matchesOccasion && matchesSearch;
           card.hidden = !ok;
           if (ok) shown += 1;
         });
+
         var empty = document.querySelector("[data-empty]");
-        if (empty) empty.hidden = shown !== 0;
+        if (empty) empty.hidden = (shown !== 0);
+
         document.querySelectorAll("[data-occasion-banner]").forEach(function (banner) {
           banner.hidden = banner.getAttribute("data-occasion-banner") !== occasion;
         });
@@ -266,6 +385,21 @@ const cards = videos.map((video) => ({
           if (chip.getAttribute("data-filter-occasion") === occasion) chip.setAttribute("aria-current", "true");
           else chip.removeAttribute("aria-current");
         });
+        document.querySelectorAll("[data-filter-all]").forEach(function (chip) {
+          if (!playlist && !occasion) chip.setAttribute("aria-current", "true");
+          else chip.removeAttribute("aria-current");
+        });
+      }
+
+      function resetFilters() {
+        if (searchInput) searchInput.value = "";
+        var query = params();
+        query.delete("playlist");
+        query.delete("occasion");
+        var qs = query.toString();
+        history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : ""));
+        applyFilters();
+        if (searchInput) searchInput.focus();
       }
 
       function vkEmbed(link) {
@@ -339,11 +473,136 @@ const cards = videos.map((video) => ({
         history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : ""));
       }
 
+      /* Sleep timer logic for lullabies and bedtime stories (playlists 2 and 3) */
+      function isSleepPlaylistVideo(link) {
+        if (!link) return false;
+        var pls = (link.getAttribute("data-playlists") || "").split(",").filter(Boolean);
+        var occs = (link.getAttribute("data-occasions") || "").split(",").filter(Boolean);
+        return pls.indexOf("2") !== -1 || pls.indexOf("3") !== -1 || occs.indexOf("sleep") !== -1;
+      }
+
+      function updateSleepUI(val) {
+        sleepChips.forEach(function (chip) {
+          var chipVal = chip.getAttribute("data-sleep-val");
+          var isCurrent = chipVal === val;
+          chip.setAttribute("aria-checked", isCurrent ? "true" : "false");
+        });
+      }
+
+      function clearSleepTimer() {
+        if (sleepTimerId) {
+          clearTimeout(sleepTimerId);
+          sleepTimerId = null;
+        }
+      }
+
+      function setSleepTimer(minutes) {
+        clearSleepTimer();
+        if (!minutes || minutes <= 0) return;
+        sleepTimerId = setTimeout(function () {
+          clearSleepTimer();
+          closePlayer();
+        }, minutes * 60 * 1000);
+      }
+
+      function configureSleepTimer(link) {
+        if (!sleepTimerWrap) return;
+        var eligible = isSleepPlaylistVideo(link);
+        sleepTimerWrap.hidden = !eligible;
+        if (!eligible) {
+          clearSleepTimer();
+          return;
+        }
+
+        var savedVal = "off";
+        try {
+          savedVal = localStorage.getItem(sleepTimerKey) || "off";
+        } catch (e) {}
+
+        updateSleepUI(savedVal);
+        if (savedVal !== "off" && !sleepTimerId) {
+          setSleepTimer(parseInt(savedVal, 10));
+        }
+      }
+
+      sleepChips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var val = chip.getAttribute("data-sleep-val") || "off";
+          try {
+            localStorage.setItem(sleepTimerKey, val);
+          } catch (e) {}
+          updateSleepUI(val);
+          if (val === "off") {
+            clearSleepTimer();
+          } else {
+            setSleepTimer(parseInt(val, 10));
+          }
+        });
+      });
+
+      /* Next episode selection: next from same playlist/occasion, else next in catalog */
+      function getNextVideoCard(currentId) {
+        var allCards = Array.from(document.querySelectorAll("[data-video-id]"));
+        if (!allCards.length) return null;
+
+        var currentCard = allCards.find(function (c) {
+          return c.getAttribute("data-video-id") === currentId;
+        });
+        if (!currentCard) return allCards[0];
+
+        var query = params();
+        var activePlaylist = query.get("playlist") || "";
+        var activeOccasion = query.get("occasion") || "";
+        var subset = [];
+
+        if (activeOccasion) {
+          subset = allCards.filter(function (c) {
+            var occs = (c.getAttribute("data-occasions") || "").split(",").filter(Boolean);
+            return occs.indexOf(activeOccasion) !== -1;
+          });
+        } else if (activePlaylist) {
+          subset = allCards.filter(function (c) {
+            var pls = (c.getAttribute("data-playlists") || "").split(",").filter(Boolean);
+            return pls.indexOf(activePlaylist) !== -1;
+          });
+        } else {
+          var pls = (currentCard.getAttribute("data-playlists") || "").split(",").filter(Boolean);
+          if (pls.length > 0) {
+            var firstPl = pls[0];
+            subset = allCards.filter(function (c) {
+              var p = (c.getAttribute("data-playlists") || "").split(",").filter(Boolean);
+              return p.indexOf(firstPl) !== -1;
+            });
+          }
+          if (!subset.length) {
+            var occs = (currentCard.getAttribute("data-occasions") || "").split(",").filter(Boolean);
+            if (occs.length > 0) {
+              var firstOcc = occs[0];
+              subset = allCards.filter(function (c) {
+                var o = (c.getAttribute("data-occasions") || "").split(",").filter(Boolean);
+                return o.indexOf(firstOcc) !== -1;
+              });
+            }
+          }
+        }
+
+        if (subset.length > 1) {
+          var idx = subset.indexOf(currentCard);
+          if (idx !== -1 && idx + 1 < subset.length) {
+            return subset[idx + 1];
+          }
+        }
+
+        var globalIdx = allCards.indexOf(currentCard);
+        return allCards[(globalIdx + 1) % allCards.length];
+      }
+
       function openVideo(id, title, link, trigger, push) {
         if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return;
         var vkSrc = vkEmbed(link);
         var youtubeId = youtubeIdOf(link);
         current = {
+          id: id,
           title: title || "Ролик",
           vkSrc: vkSrc,
           ytSrc: youtubeId ? "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(youtubeId) + "?autoplay=1" : "",
@@ -357,6 +616,9 @@ const cards = videos.map((video) => ({
         var heading = document.getElementById("player-title");
         if (heading) heading.textContent = current.title;
         if (trigger !== undefined) lastTrigger = trigger;
+
+        configureSleepTimer(link);
+
         var wasOpen = dialog.open;
         if (typeof dialog.showModal === "function" && !wasOpen) dialog.showModal();
         var query = params();
@@ -373,6 +635,72 @@ const cards = videos.map((video) => ({
 
       function closePlayer() {
         if (dialog.open) dialog.close();
+      }
+
+      /* Share button */
+      function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+        return new Promise(function (resolve, reject) {
+          try {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            var success = document.execCommand("copy");
+            document.body.removeChild(textarea);
+            if (success) resolve();
+            else reject(new Error("Copy failed"));
+          } catch (err) {
+            reject(err);
+          }
+        });
+      }
+
+      function setCopiedBadge() {
+        if (shareLabel) shareLabel.textContent = "Ссылка скопирована";
+        if (shareTimeout) clearTimeout(shareTimeout);
+        shareTimeout = setTimeout(function () {
+          if (shareLabel) shareLabel.textContent = "Поделиться";
+        }, 2500);
+      }
+
+      if (shareButton) {
+        shareButton.addEventListener("click", function () {
+          var shareUrl = window.location.href;
+          var title = current.title || document.title;
+          if (navigator.share) {
+            navigator.share({
+              title: title,
+              url: shareUrl,
+            }).catch(function () {});
+          } else {
+            copyText(shareUrl)
+              .then(setCopiedBadge)
+              .catch(function () {
+                window.prompt("Скопируйте ссылку на серию:", shareUrl);
+              });
+          }
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener("click", function () {
+          var nextCard = getNextVideoCard(current.id);
+          if (nextCard) {
+            openVideo(
+              nextCard.getAttribute("data-video-id"),
+              nextCard.getAttribute("data-video-title") || "Ролик",
+              nextCard,
+              nextCard,
+              true,
+            );
+          }
+        });
       }
 
       platformButtons.forEach(function (button) {
@@ -401,8 +729,7 @@ const cards = videos.map((video) => ({
       if (closeButton) closeButton.addEventListener("click", closePlayer);
       if (xButton) xButton.addEventListener("click", closePlayer);
 
-      // Escape ловим на window, пока диалог открыт: у нативного <dialog>
-      // cancel не срабатывает, если фокус ушёл из документа.
+      // Escape ловим на window, пока диалог открыт
       window.addEventListener("keydown", function (event) {
         if (!dialog.open) return;
         if (event.key === "Escape" || event.key === "Esc") {
@@ -411,7 +738,6 @@ const cards = videos.map((video) => ({
         }
       });
 
-      // Нативный Escape (фокус вне iframe) — закрываем тем же путём.
       dialog.addEventListener("cancel", function (event) {
         event.preventDefault();
         closePlayer();
@@ -419,13 +745,12 @@ const cards = videos.map((video) => ({
 
       dialog.addEventListener("close", function () {
         frame.replaceChildren();
+        clearSleepTimer();
         var fromHistory = closedByHistory;
         closedByHistory = false;
         if (fromHistory) {
-          // «Назад» уже переместило историю — только забываем запись ролика.
           historyPushed = false;
         } else if (historyPushed) {
-          // Закрыли кнопкой: убираем запись, добавленную при открытии.
           historyPushed = false;
           expectingOwnBack = true;
           history.back();
@@ -439,10 +764,9 @@ const cards = videos.map((video) => ({
         }
       });
 
-      // Кнопка/жест «Назад» закрывает плеер и оставляет пользователя на сайте.
+      // Кнопка/жест «Назад» закрывает плеер
       window.addEventListener("popstate", function () {
         if (expectingOwnBack) {
-          // Это наш собственный history.back() после закрытия кнопкой.
           expectingOwnBack = false;
           return;
         }
@@ -458,12 +782,31 @@ const cards = videos.map((video) => ({
         }
       });
 
+      // Поиск: живой фильтр
+      if (searchInput) {
+        searchInput.addEventListener("input", applyFilters);
+        searchInput.addEventListener("search", applyFilters);
+      }
+      if (searchClearBtn) {
+        searchClearBtn.addEventListener("click", function () {
+          if (searchInput) {
+            searchInput.value = "";
+            searchInput.focus();
+            applyFilters();
+          }
+        });
+      }
+
+      resetButtons.forEach(function (btn) {
+        btn.addEventListener("click", resetFilters);
+      });
+
       applyFilters();
+
       var initial = params().get("v");
       if (initial) {
-        var card = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
-        // Прямая ссылка: запись истории не добавляем, иначе «Назад» увел бы с сайта.
-        openVideo(initial, card ? card.getAttribute("data-video-title") : "Ролик", card, card, false);
+        var initialCard = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
+        openVideo(initial, initialCard ? initialCard.getAttribute("data-video-title") : "Ролик", initialCard, initialCard, false);
       }
     })();
   </script>

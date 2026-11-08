@@ -37,15 +37,15 @@
       "todo": ""
     },
     {
-      "id": "boosty",
-      "label": "Получить на Boosty",
+      "id": "coloring",
+      "label": "Раскрашивать онлайн",
       "handle": "",
-      "href": "",
-      "icon": "heart",
+      "href": "https://pavellahutsin.github.io/ryzhik-coloring/",
+      "icon": "paw",
       "where": false,
-      "footer": false,
-      "linksPage": false,
-      "placeholder": true,
+      "footer": true,
+      "linksPage": true,
+      "placeholder": false,
       "todo": ""
     },
     {
