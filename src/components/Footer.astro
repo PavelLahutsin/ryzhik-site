@@ -12,6 +12,7 @@ import Icon from "./Icon.astro";
 
 const socials = publicPlatforms("footer");
 const vkVideo = platform("vk-video");
+const coloring = platform("coloring");
 ---
 
 <footer class="site-footer">
@@ -64,6 +65,7 @@ const vkVideo = platform("vk-video");
           <li><a href={withBase("/parents")}>О чём серии</a></li>
           <li><a href={withBase("/characters")}>Персонажи</a></li>
           <li><a href={withBase("/coloring")}>Раскраски</a></li>
+          <li><a href={coloring.href} target="_blank" rel="noopener noreferrer">{coloring.label}</a></li>
           <li><a href={withBase("/privacy")}>Политика конфиденциальности</a></li>
         </ul>
       </div>

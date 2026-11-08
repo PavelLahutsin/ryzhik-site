@@ -13,7 +13,6 @@ if (!page) throw new Error("Нет текста раскраски");
 const { Content } = await render(page);
 
 const vkHref = configuredHref("vk");
-const boostyHref = configuredHref("boosty");
 
 const samples = [
   { src: sample1, alt: "Образец листа раскраски: лисёнок на лесной тропе. Не для печати." },
@@ -30,37 +29,38 @@ const samples = [
           <p class="eyebrow">{page.data.eyebrow}</p>
           <h1>{page.data.heading}</h1>
           {page.data.lede && <p>{page.data.lede}</p>}
+
+          <article class="coloring-featured-card">
+            <div class="coloring-featured-body">
+              <h2>Раскрашивать онлайн</h2>
+              <div class="coloring-featured-action">
+                <a
+                  class="btn btn-orange btn-lg"
+                  href="https://pavellahutsin.github.io/ryzhik-coloring/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon name="paw" />
+                  <span>Раскрашивать онлайн</span>
+                  <span class="sr-only">(откроется в новой вкладке)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
           <div class="prose">
             <Content />
           </div>
-          <div class="coloring-actions">
-            <a
-              class="btn btn-orange coloring-online"
-              href="https://pavellahutsin.github.io/ryzhik-coloring/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="paw" />
-              Раскраска с Рыжиком
-              <span class="sr-only">(откроется в новой вкладке)</span>
-            </a>
-            {
-              vkHref && (
-                <a class="btn btn-orange" href={vkHref} target="_blank" rel="noopener noreferrer">
+          {
+            vkHref && (
+              <div class="coloring-actions">
+                <a class="btn btn-emerald" href={vkHref} target="_blank" rel="noopener noreferrer">
                   <Icon name="vk" />
                   Получить в VK
                 </a>
-              )
-            }
-            {
-              boostyHref && (
-                <a class="btn btn-emerald" href={boostyHref} target="_blank" rel="noopener noreferrer">
-                  <Icon name="heart" />
-                  Получить на Boosty
-                </a>
-              )
-            }
-          </div>
+              </div>
+            )
+          }
           <div class="coloring-samples">
             {samples.map((item) => <SampleSheet src={item.src} alt={item.alt} />)}
           </div>

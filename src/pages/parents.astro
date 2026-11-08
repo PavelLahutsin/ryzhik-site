@@ -2,10 +2,12 @@
 import { getEntry, render } from "astro:content";
 import Icon from "../components/Icon.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { platform } from "../lib/catalog";
 
 const page = await getEntry("pages", "parents");
 if (!page?.data.themes) throw new Error("Нет текста страницы для родителей");
 const { Content } = await render(page);
+const vk = platform("vk");
 ---
 
 <BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
@@ -58,6 +60,67 @@ const { Content } = await render(page);
             }
           </ul>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight faq-section">
+    <div class="container">
+      <div class="faq-card">
+        <div class="faq-header">
+          <p class="eyebrow">Частые вопросы</p>
+          <h2>Вопросы и ответы</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Есть ли реклама?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                На самом сайте рекламы нет. Но внутри встроенных плееров VK Видео и YouTube площадки могут показывать собственную рекламу и рекомендации — на это сайт повлиять не может.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>С какого возраста?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>0+</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Как связаться?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Написать автору можно в сообществе ВКонтакте:{" "}
+                <a href={vk.href} target="_blank" rel="noopener noreferrer">
+                  {vk.handle}
+                </a>.
+              </p>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
   </section>

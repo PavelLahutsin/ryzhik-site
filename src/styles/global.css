@@ -2056,3 +2056,384 @@
     display: none;
   }
 }
+
+/* ==========================================================================
+   Watch search & filters
+   ========================================================================== */
+
+.watch-search-wrap {
+  margin: 0 0 16px;
+}
+
+.watch-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 540px;
+}
+
+.watch-search-box .search-icon {
+  position: absolute;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  color: var(--color-ink-soft);
+  pointer-events: none;
+}
+
+.watch-search-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 44px 10px 48px;
+  border: 2px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.watch-search-input:focus {
+  border-color: var(--color-emerald-deep);
+  box-shadow: 0 0 0 3px var(--color-emerald-tint);
+}
+
+.watch-search-input::placeholder {
+  color: var(--color-ink-soft);
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+}
+
+.search-clear-btn:hover {
+  background: var(--color-line-soft);
+  color: var(--color-ink);
+}
+
+.empty-state[hidden],
+.player-sleep-bar[hidden],
+.search-clear-btn[hidden] {
+  display: none;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 44px 20px;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-line);
+  border-radius: var(--radius-soft-lg);
+  margin: 20px 0;
+  gap: 14px;
+}
+
+.empty-state .empty-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Playlists summary (below grid on /watch)
+   ========================================================================== */
+
+.watch-playlists-summary {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-line);
+}
+
+.playlists-summary-heading {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: var(--color-ink);
+}
+
+.playlists-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.playlist-summary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-soft-md);
+  padding: 18px 20px;
+  gap: 12px;
+}
+
+.playlist-summary-card h3 {
+  font-size: 18px;
+  margin: 0 0 6px;
+  color: var(--color-ink);
+}
+
+.playlist-summary-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.playlist-summary-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-line-soft);
+}
+
+.playlist-summary-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--color-orange-deep);
+}
+
+.playlist-summary-links a svg {
+  width: 18px;
+  height: 18px;
+}
+
+.playlist-summary-links a:hover {
+  color: var(--color-orange);
+}
+
+/* ==========================================================================
+   Sleep timer inside player dialog
+   ========================================================================== */
+
+.player-sleep-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 12px;
+  padding: 8px 14px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-soft-md);
+}
+
+.sleep-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+.sleep-options {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sleep-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sleep-chip:hover {
+  background: var(--color-orange-tint);
+  border-color: var(--color-orange);
+}
+
+.sleep-chip[aria-checked="true"] {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Coloring online featured card
+   ========================================================================== */
+
+.coloring-featured-card {
+  margin: 20px 0 28px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-orange-tint);
+  border-radius: var(--radius-soft-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.coloring-featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--color-yellow-tint);
+  color: var(--color-ink);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.coloring-featured-badge svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-orange-deep);
+}
+
+.coloring-featured-card h2 {
+  font-size: 24px;
+  margin: 0 0 10px;
+  color: var(--color-ink);
+}
+
+.coloring-featured-card p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+  margin: 0 0 18px;
+}
+
+.coloring-featured-action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   FAQ accordion on /parents
+   ========================================================================== */
+
+.faq-section {
+  margin-top: 36px;
+}
+
+.faq-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-soft-lg);
+  padding: 28px 24px;
+}
+
+.faq-header {
+  margin-bottom: 20px;
+}
+
+.faq-header h2 {
+  font-size: 24px;
+  margin: 4px 0 0;
+  color: var(--color-ink);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-soft-md);
+  background: var(--color-surface-2);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.faq-item[open] {
+  border-color: #b7dccb;
+  background: var(--color-surface);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 14px 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-ink);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-orange-deep);
+  transition: transform 0.2s ease;
+  flex: none;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 18px 16px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-answer a {
+  color: var(--color-orange-deep);
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.faq-answer a:hover {
+  color: var(--color-orange);
+}
