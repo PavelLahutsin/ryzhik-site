@@ -46,10 +46,12 @@ const image = new URL(withBase("/og.png"), Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={site.name} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={site.name} />
     <link rel="icon" href={withBase("/favicon.ico")} sizes="any" />
     <link rel="icon" type="image/png" href={withBase("/favicon-32.png")} sizes="32x32" />
     <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />

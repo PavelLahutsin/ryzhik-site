@@ -78,6 +78,7 @@ const cards = videos.map((video) => ({
               occasions={tags}
               vk={video.vk}
               youtubeId={video.youtubeId}
+              heading="h2"
               external
             />
           ))
@@ -122,12 +123,69 @@ const cards = videos.map((video) => ({
       var current = { vkSrc: "", ytSrc: "", vkWatch: "", ytWatch: "" };
       if (!dialog || !frame) return;
 
+      var vkTimeZones = [
+        "Europe/Kaliningrad",
+        "Europe/Moscow",
+        "Europe/Simferopol",
+        "Europe/Kirov",
+        "Europe/Volgograd",
+        "Europe/Astrakhan",
+        "Europe/Saratov",
+        "Europe/Ulyanovsk",
+        "Europe/Samara",
+        "Europe/Minsk",
+        "Asia/Yekaterinburg",
+        "Asia/Omsk",
+        "Asia/Novosibirsk",
+        "Asia/Barnaul",
+        "Asia/Tomsk",
+        "Asia/Novokuznetsk",
+        "Asia/Krasnoyarsk",
+        "Asia/Irkutsk",
+        "Asia/Chita",
+        "Asia/Yakutsk",
+        "Asia/Khandyga",
+        "Asia/Vladivostok",
+        "Asia/Ust-Nera",
+        "Asia/Magadan",
+        "Asia/Sakhalin",
+        "Asia/Srednekolymsk",
+        "Asia/Kamchatka",
+        "Asia/Anadyr",
+        "Asia/Almaty",
+        "Asia/Aqtobe",
+        "Asia/Aqtau",
+        "Asia/Atyrau",
+        "Asia/Oral",
+        "Asia/Qostanay",
+        "Asia/Qyzylorda",
+      ];
+
       function preferredPlatform() {
         try {
           var saved = localStorage.getItem(playerChoiceKey);
           if (saved === "youtube" || saved === "vk") return saved;
         } catch (error) {}
-        return "vk";
+
+        var langs = [];
+        try {
+          if (navigator.languages && navigator.languages.length) langs = Array.from(navigator.languages);
+          else if (navigator.language) langs = [navigator.language];
+        } catch (error) {}
+
+        var regionalLanguage = langs.some(function (lang) {
+          var primary = String(lang || "").toLowerCase().split("-")[0];
+          return primary === "ru" || primary === "be" || primary === "kk";
+        });
+
+        var timeZone = "";
+        try {
+          timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+        } catch (error) {}
+
+        if (regionalLanguage || vkTimeZones.indexOf(timeZone) !== -1) return "vk";
+        if (!langs.length || !timeZone || timeZone === "UTC" || timeZone === "Etc/UTC" || timeZone === "Etc/GMT") return "vk";
+        return "youtube";
       }
 
       function rememberPlatform(platform) {

@@ -777,6 +777,7 @@
   flex: 1;
 }
 
+.ep-body h2,
 .ep-body h3 {
   margin: 0;
   font-size: 1.02rem;
@@ -1080,6 +1081,17 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 22px;
+}
+
+.coloring-online {
+  min-height: 64px;
+  padding: 16px 32px;
+  font-size: 1.15rem;
+}
+
+.coloring-online svg {
+  width: 26px;
+  height: 26px;
 }
 
 .coloring-wrap.is-solo {
@@ -1909,6 +1921,10 @@
   .coloring-actions .btn,
   .where-grid .platform {
     width: 100%;
+  }
+
+  .coloring-online {
+    white-space: normal;
   }
 
   .footer-bottom {
