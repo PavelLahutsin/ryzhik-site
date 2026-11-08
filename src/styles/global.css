@@ -545,6 +545,40 @@
   gap: 11px;
 }
 
+.hero-primary {
+  min-width: 240px;
+  min-height: 52px;
+}
+
+.hero-alt {
+  margin: 12px 0 0;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+}
+
+.hero-alt a {
+  position: relative;
+  color: var(--color-ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.hero-alt a::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: -12px;
+  bottom: -12px;
+}
+
+.hero-alt a:hover {
+  color: var(--color-orange-deep);
+}
+
 .hero-figure {
   position: relative;
   display: flex;
@@ -1823,8 +1857,7 @@
 }
 
 @media (max-width: 1180px) {
-  .nav,
-  .header-cta {
+  .nav {
     display: none;
   }
 
@@ -1871,6 +1904,38 @@
 
   .aside-card {
     position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Шапка: «Смотреть» рядом с бургером должна влезать на 360px. */
+  .header-inner {
+    gap: 10px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-tag {
+    display: none;
+  }
+
+  .header-cta {
+    min-height: 44px;
+    padding: 8px 14px;
+    gap: 6px;
+    font-size: 14.5px;
+  }
+
+  .menu-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
   }
 }
 
@@ -1984,5 +2049,10 @@
 
   .hero h1 {
     font-size: 1.7rem;
+  }
+
+  /* Иначе «Смотреть» и бургер не помещаются в шапку на 360px. */
+  .site-header .brand-name {
+    display: none;
   }
 }
