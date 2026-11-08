@@ -4,7 +4,7 @@ import Icon from "../components/Icon.astro";
 import VideoCard from "../components/VideoCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { withBase } from "../lib/base";
-import { occasionIds, platform, playlists, videos } from "../lib/catalog";
+import { getDisplayTitle, occasionIds, platform, playlists, videos } from "../lib/catalog";
 
 const page = await getEntry("pages", "watch");
 if (!page) throw new Error("Нет текста страницы watch");
@@ -12,13 +12,36 @@ if (!page) throw new Error("Нет текста страницы watch");
 const occasions = (await getCollection("occasions")).sort((a, b) => a.data.order - b.data.order);
 const vkVideo = platform("vk-video");
 const youtube = platform("youtube");
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: videos.filter((video) => video.vk).map((video, index) => {
+    const vk = video.vk!;
+    const embed = new URL("https://vk.com/video_ext.php");
+    embed.searchParams.set("oid", String(vk.oid));
+    embed.searchParams.set("id", String(vk.id));
+    if (vk.hash) embed.searchParams.set("hash", vk.hash);
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "VideoObject",
+        name: getDisplayTitle(video.title, video.displayTitle),
+        thumbnailUrl: new URL(withBase(video.thumbnail), Astro.site).href,
+        embedUrl: embed.href,
+        ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
+        ...(video.durationSeconds != null && video.durationSeconds > 0 ? { duration: `PT${video.durationSeconds}S` } : {}),
+      },
+    };
+  }),
+};
 const cards = videos.map((video) => ({
   video,
   occasions: occasionIds(video.title, occasions, video.occasions),
 }));
 ---
 
-<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
+<BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description} jsonLd={jsonLd}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">{page.data.eyebrow}</p>
@@ -51,6 +74,12 @@ const cards = videos.map((video) => ({
             </svg>
           </button>
         </div>
+      </div>
+
+      <div class="watch-actions">
+        <button type="button" class="btn btn-ghost" data-random-sleep>Уложить спать</button>
+        <label class="new-filter"><input type="checkbox" data-only-new /> Только новые</label>
+        <button type="button" class="history-clear" data-clear-history>Очистить историю</button>
       </div>
 
       <!-- 2. Чипсы -->
@@ -238,6 +267,23 @@ const cards = videos.map((video) => ({
       var searchInput = document.getElementById("watch-search");
       var searchClearBtn = document.querySelector("[data-search-clear]");
       var resetButtons = document.querySelectorAll("[data-reset-filters]");
+      var onlyNew = document.querySelector("[data-only-new]");
+      var watchedKey = "ryzhik-watched";
+      var lastSleepKey = "ryzhik-last-sleep";
+      var lastSleep = "";
+      var watched = new Set();
+      function readWatched() {
+        try {
+          var stored = JSON.parse(localStorage.getItem(watchedKey) || "[]");
+          watched = new Set(Array.isArray(stored) ? stored.filter(function (id) { return typeof id === "string"; }) : []);
+        } catch (error) { watched = new Set(); }
+      }
+      function markWatched(id) {
+        watched.add(id);
+        try { localStorage.setItem(watchedKey, JSON.stringify(Array.from(watched))); } catch (error) {}
+        applyFilters();
+      }
+      readWatched();
 
       var lastTrigger = null;      // карточка, с которой открыли плеер
       var historyPushed = false;   // мы добавили запись истории для этого ролика
@@ -363,7 +409,11 @@ const cards = videos.map((video) => ({
           var matchesOccasion = !occasion || occasions.indexOf(occasion) !== -1;
           var matchesSearch = !searchTerm || normalizedCardTitle.indexOf(searchTerm) !== -1;
 
-          var ok = matchesPlaylist && matchesOccasion && matchesSearch;
+          var seen = watched.has(card.getAttribute("data-video-id"));
+          var badge = card.querySelector("[data-watched-badge]");
+          if (badge) badge.hidden = !seen;
+          card.setAttribute("aria-label", title + (seen ? " — смотрели" : ""));
+          var ok = matchesPlaylist && matchesOccasion && matchesSearch && !(onlyNew && onlyNew.checked && seen);
           card.hidden = !ok;
           if (ok) shown += 1;
         });
@@ -393,6 +443,7 @@ const cards = videos.map((video) => ({
 
       function resetFilters() {
         if (searchInput) searchInput.value = "";
+        if (onlyNew) onlyNew.checked = false;
         var query = params();
         query.delete("playlist");
         query.delete("occasion");
@@ -618,6 +669,7 @@ const cards = videos.map((video) => ({
         if (trigger !== undefined) lastTrigger = trigger;
 
         configureSleepTimer(link);
+        markWatched(id);
 
         var wasOpen = dialog.open;
         if (typeof dialog.showModal === "function" && !wasOpen) dialog.showModal();
@@ -636,6 +688,35 @@ const cards = videos.map((video) => ({
       function closePlayer() {
         if (dialog.open) dialog.close();
       }
+
+      function openRandomSleep(trigger, push) {
+        var eligible = Array.from(document.querySelectorAll("[data-video-id]")).filter(function (card) {
+          var lists = (card.getAttribute("data-playlists") || "").split(",");
+          return (lists.indexOf("2") !== -1 || lists.indexOf("3") !== -1) && (vkEmbed(card) || youtubeIdOf(card));
+        });
+        try { lastSleep = localStorage.getItem(lastSleepKey) || lastSleep; } catch (error) {}
+        var choices = eligible.filter(function (card) { return card.getAttribute("data-video-id") !== lastSleep; });
+        if (!choices.length) choices = eligible;
+        if (!choices.length) return;
+        var card = choices[Math.floor(Math.random() * choices.length)];
+        lastSleep = card.getAttribute("data-video-id");
+        try { localStorage.setItem(lastSleepKey, lastSleep); } catch (error) {}
+        openVideo(lastSleep, card.getAttribute("data-video-title"), card, trigger, push);
+      }
+
+      var randomSleep = document.querySelector("[data-random-sleep]");
+      if (randomSleep) randomSleep.addEventListener("click", function () { openRandomSleep(randomSleep, true); });
+      if (onlyNew) onlyNew.addEventListener("change", applyFilters);
+      var clearHistory = document.querySelector("[data-clear-history]");
+      if (clearHistory) clearHistory.addEventListener("click", function () {
+        if (!window.confirm("Очистить историю просмотренных серий на этом устройстве?")) return;
+        watched.clear();
+        try { localStorage.removeItem(watchedKey); } catch (error) {}
+        applyFilters();
+      });
+      window.addEventListener("storage", function (event) {
+        if (event.key === watchedKey || event.key === null) { readWatched(); applyFilters(); }
+      });
 
       /* Share button */
       function copyText(text) {
@@ -804,7 +885,14 @@ const cards = videos.map((video) => ({
       applyFilters();
 
       var initial = params().get("v");
-      if (initial) {
+      if (params().get("sleep") === "1") {
+        var initialQuery = params();
+        initialQuery.delete("sleep");
+        initialQuery.delete("v");
+        var initialRest = initialQuery.toString();
+        history.replaceState(history.state, "", location.pathname + (initialRest ? "?" + initialRest : ""));
+        openRandomSleep(randomSleep, false);
+      } else if (initial) {
         var initialCard = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
         openVideo(initial, initialCard ? initialCard.getAttribute("data-video-title") : "Ролик", initialCard, initialCard, false);
       }

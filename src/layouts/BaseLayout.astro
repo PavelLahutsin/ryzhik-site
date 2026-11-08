@@ -7,6 +7,7 @@ import nunito800 from "@fontsource/nunito/files/nunito-cyrillic-800-normal.woff2
 import Analytics from "../components/Analytics.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import MobileNav from "../components/MobileNav.astro";
 import { withBase } from "../lib/base";
 import { site } from "../lib/catalog";
 
@@ -54,8 +55,9 @@ const image = new URL(withBase("/og.png"), Astro.site).href;
     <meta name="twitter:image:alt" content={site.name} />
     <link rel="icon" href={withBase("/favicon.ico")} sizes="any" />
     <link rel="icon" type="image/png" href={withBase("/favicon-32.png")} sizes="32x32" />
+    <link rel="manifest" href={withBase("/manifest.webmanifest")} />
     <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} />}
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -65,5 +67,6 @@ const image = new URL(withBase("/og.png"), Astro.site).href;
     </main>
     <Footer />
     <Analytics />
+    <MobileNav />
   </body>
 </html>
