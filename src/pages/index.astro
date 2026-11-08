@@ -78,15 +78,21 @@ const jsonLd = {
         </h1>
         <p class="hero-slogan">{hero.slogan}</p>
         <div class="hero-cta">
-          <a class="btn btn-orange btn-lg" href={youtube.href} target="_blank" rel="noopener noreferrer">
-            <Icon name="youtube" />
-            Смотреть на YouTube
-          </a>
-          <a class="btn btn-emerald btn-lg" href={vkVideo.href} target="_blank" rel="noopener noreferrer">
-            <Icon name="vk" />
-            Смотреть в VK
+          <a class="btn btn-orange btn-lg hero-primary" href={withBase("/watch")}>
+            <Icon name="play" />
+            Смотреть здесь
           </a>
         </div>
+        <p class="hero-alt">
+          или:{" "}
+          <a href={vkVideo.href} target="_blank" rel="noopener noreferrer">
+            {vkVideo.label}
+          </a>
+          {" · "}
+          <a href={youtube.href} target="_blank" rel="noopener noreferrer">
+            {youtube.label}
+          </a>
+        </p>
       </div>
       <div class="hero-figure">
         <Picture
