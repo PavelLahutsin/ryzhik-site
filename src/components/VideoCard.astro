@@ -15,6 +15,7 @@ interface Props {
   external?: boolean;
   vk?: { oid: number; id: number; hash: string | null; url: string } | null;
   youtubeId?: string | null;
+  heading?: "h2" | "h3";
 }
 
 const {
@@ -29,7 +30,10 @@ const {
   external = false,
   vk = null,
   youtubeId = null,
+  heading = "h3",
 } = Astro.props;
+
+const Heading = heading;
 
 const duration = formatDuration(durationSeconds);
 const date = formatDate(uploadDate);
@@ -64,7 +68,7 @@ const thumbSrc = withBase(thumbnail);
     {duration && <span class="ep-time">{duration}</span>}
   </span>
   <span class="ep-body">
-    <h3>{title}</h3>
+    <Heading>{title}</Heading>
     {date && <span class="ep-meta">{date}</span>}
   </span>
 </a>
