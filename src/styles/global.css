@@ -1705,12 +1705,14 @@
 }
 
 .player-dialog {
+  margin: auto;
   border: 0;
   padding: 0;
   background: transparent;
   width: min(960px, calc(100vw - 24px));
   max-width: calc(100vw - 24px);
   max-height: calc(100dvh - 24px);
+  height: fit-content;
 }
 
 .player-dialog::backdrop {
@@ -1718,11 +1720,40 @@
 }
 
 .player-sheet {
+  position: relative;
   background: var(--color-surface);
   border-radius: var(--radius-soft-lg);
   padding: 12px;
   max-height: calc(100dvh - 24px);
   overflow: auto;
+}
+
+.player-x {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-ink);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+
+.player-x:hover {
+  background: #fff;
+}
+
+.player-x svg {
+  width: 22px;
+  height: 22px;
 }
 
 .player-frame {

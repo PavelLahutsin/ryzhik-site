@@ -14,7 +14,6 @@ interface Props {
   href: string;
   playlists?: string[];
   occasions?: string[];
-  external?: boolean;
   vk?: { oid: number; id: number; hash: string | null; url: string } | null;
   youtubeId?: string | null;
   heading?: "h2" | "h3";
@@ -30,7 +29,6 @@ const {
   href,
   playlists = [],
   occasions = [],
-  external = false,
   vk = null,
   youtubeId = null,
   heading = "h3",
@@ -41,7 +39,7 @@ const cardTitle = getDisplayTitle(title, displayTitle);
 
 const duration = formatDuration(durationSeconds);
 const date = formatDate(uploadDate);
-const cardHref = external ? href : withBase(href);
+const cardHref = withBase(href);
 const thumbSrc = withBase(thumbnail);
 ---
 
@@ -58,8 +56,6 @@ const thumbSrc = withBase(thumbnail);
   data-vk-id={vk ? String(vk.id) : undefined}
   data-vk-hash={vk?.hash || undefined}
   data-youtube-id={youtubeId || undefined}
-  target={external ? "_blank" : undefined}
-  rel={external ? "noopener noreferrer" : undefined}
 >
   <span class="ep-thumb">
     <img
