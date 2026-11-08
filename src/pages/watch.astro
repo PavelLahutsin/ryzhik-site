@@ -97,13 +97,12 @@ const cards = videos.map((video) => ({
               thumbnail={video.thumbnail}
               durationSeconds={video.durationSeconds}
               uploadDate={video.uploadDate}
-              href={video.watchUrl}
+              href={`/watch?v=${video.id}`}
               playlists={video.playlists}
               occasions={tags}
               vk={video.vk}
               youtubeId={video.youtubeId}
               heading="h2"
-              external
             />
           ))
         }
@@ -111,9 +110,19 @@ const cards = videos.map((video) => ({
     </div>
   </section>
 
-  <dialog class="player-dialog" id="player-dialog" aria-labelledby="player-title">
+  <dialog class="player-dialog" id="player-dialog" aria-labelledby="player-title" aria-modal="true">
     <div class="player-sheet">
       <h2 id="player-title" class="sr-only">Просмотр ролика</h2>
+      <button class="player-x" type="button" aria-label="Закрыть" data-player-x>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M6 6 18 18M18 6 6 18"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            fill="none"></path>
+        </svg>
+      </button>
       <div data-player-frame></div>
       <div class="player-toolbar">
         <div class="player-switch" role="group" aria-label="Плеер">
@@ -140,6 +149,11 @@ const cards = videos.map((video) => ({
       var dialog = document.getElementById("player-dialog");
       var frame = document.querySelector("[data-player-frame]");
       var closeButton = document.querySelector("[data-player-close]");
+      var xButton = document.querySelector("[data-player-x]");
+      var lastTrigger = null;      // карточка, с которой открыли плеер
+      var historyPushed = false;   // мы добавили запись истории для этого ролика
+      var closedByHistory = false; // закрытие пришло от popstate
+      var expectingOwnBack = false; // мы сами вызвали history.back()
       var vkLink = document.querySelector("[data-player-vk]");
       var ytLink = document.querySelector("[data-player-yt]");
       var platformButtons = document.querySelectorAll("[data-player-platform]");
@@ -318,7 +332,14 @@ const cards = videos.map((video) => ({
         return use;
       }
 
-      function openVideo(id, title, link) {
+      function dropVideoParam() {
+        var query = params();
+        query.delete("v");
+        var qs = query.toString();
+        history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : ""));
+      }
+
+      function openVideo(id, title, link, trigger, push) {
         if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return;
         var vkSrc = vkEmbed(link);
         var youtubeId = youtubeIdOf(link);
@@ -335,10 +356,23 @@ const cards = videos.map((video) => ({
         paintPlatform(preferredPlatform());
         var heading = document.getElementById("player-title");
         if (heading) heading.textContent = current.title;
-        if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
+        if (trigger !== undefined) lastTrigger = trigger;
+        var wasOpen = dialog.open;
+        if (typeof dialog.showModal === "function" && !wasOpen) dialog.showModal();
         var query = params();
         query.set("v", id);
-        history.replaceState(null, "", location.pathname + "?" + query.toString());
+        var url = location.pathname + "?" + query.toString();
+        if (wasOpen || push === false) {
+          // Смена ролика в открытом плеере или прямая ссылка ?v=...: без новой записи.
+          history.replaceState(history.state, "", url);
+        } else {
+          history.pushState({ ryzhikPlayer: true }, "", url);
+          historyPushed = true;
+        }
+      }
+
+      function closePlayer() {
+        if (dialog.open) dialog.close();
       }
 
       platformButtons.forEach(function (button) {
@@ -355,28 +389,81 @@ const cards = videos.map((video) => ({
         if (!link) return;
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
         event.preventDefault();
-        openVideo(link.getAttribute("data-video-id"), link.getAttribute("data-video-title") || "Ролик", link);
+        openVideo(
+          link.getAttribute("data-video-id"),
+          link.getAttribute("data-video-title") || "Ролик",
+          link,
+          link,
+          true,
+        );
       });
 
-      if (closeButton) {
-        closeButton.addEventListener("click", function () {
-          dialog.close();
-        });
-      }
+      if (closeButton) closeButton.addEventListener("click", closePlayer);
+      if (xButton) xButton.addEventListener("click", closePlayer);
+
+      // Escape ловим на window, пока диалог открыт: у нативного <dialog>
+      // cancel не срабатывает, если фокус ушёл из документа.
+      window.addEventListener("keydown", function (event) {
+        if (!dialog.open) return;
+        if (event.key === "Escape" || event.key === "Esc") {
+          event.preventDefault();
+          closePlayer();
+        }
+      });
+
+      // Нативный Escape (фокус вне iframe) — закрываем тем же путём.
+      dialog.addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closePlayer();
+      });
 
       dialog.addEventListener("close", function () {
         frame.replaceChildren();
-        var query = params();
-        query.delete("v");
-        var qs = query.toString();
-        history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
+        var fromHistory = closedByHistory;
+        closedByHistory = false;
+        if (fromHistory) {
+          // «Назад» уже переместило историю — только забываем запись ролика.
+          historyPushed = false;
+        } else if (historyPushed) {
+          // Закрыли кнопкой: убираем запись, добавленную при открытии.
+          historyPushed = false;
+          expectingOwnBack = true;
+          history.back();
+        } else {
+          dropVideoParam();
+        }
+        var target = lastTrigger;
+        lastTrigger = null;
+        if (target && typeof target.focus === "function" && target.isConnected) {
+          target.focus({ preventScroll: true });
+        }
+      });
+
+      // Кнопка/жест «Назад» закрывает плеер и оставляет пользователя на сайте.
+      window.addEventListener("popstate", function () {
+        if (expectingOwnBack) {
+          // Это наш собственный history.back() после закрытия кнопкой.
+          expectingOwnBack = false;
+          return;
+        }
+        if (dialog.open) {
+          closedByHistory = true;
+          closePlayer();
+          return;
+        }
+        var v = params().get("v");
+        if (v) {
+          var card = document.querySelector('[data-video-id="' + CSS.escape(v) + '"]');
+          openVideo(v, card ? card.getAttribute("data-video-title") : "Ролик", card, card, false);
+        }
       });
 
       applyFilters();
       var initial = params().get("v");
       if (initial) {
-        var link = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
-        openVideo(initial, link ? link.getAttribute("data-video-title") : "Ролик", link);
+        var card = document.querySelector('[data-video-id="' + CSS.escape(initial) + '"]');
+        // Прямая ссылка: запись истории не добавляем, иначе «Назад» увел бы с сайта.
+        openVideo(initial, card ? card.getAttribute("data-video-title") : "Ролик", card, card, false);
       }
     })();
   </script>
