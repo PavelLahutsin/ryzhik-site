@@ -14,7 +14,7 @@ const vkVideo = platform("vk-video");
 const youtube = platform("youtube");
 const cards = videos.map((video) => ({
   video,
-  occasions: occasionIds(video.title, occasions),
+  occasions: occasionIds(video.title, occasions, video.occasions),
 }));
 ---
 
@@ -45,6 +45,29 @@ const cards = videos.map((video) => ({
         }
       </div>
 
+      <nav class="chips occasion-filters" aria-label="Подборки">
+        <a
+          class="chip"
+          href={withBase("/watch")}
+          data-filter-occasion=""
+          aria-current={Astro.url.searchParams.has("occasion") ? undefined : "true"}
+        >
+          Все
+        </a>
+        {
+          occasions.map((item) => (
+            <a
+              class="chip"
+              href={withBase(`/watch?occasion=${encodeURIComponent(item.id)}`)}
+              data-filter-occasion={item.id}
+              aria-current={Astro.url.searchParams.get("occasion") === item.id ? "true" : undefined}
+            >
+              {item.data.title}
+            </a>
+          ))
+        }
+      </nav>
+
       {
         page.data.playlistIntros?.map((item) => (
           <p class="filter-banner" data-playlist-banner={item.id} hidden>
@@ -56,7 +79,7 @@ const cards = videos.map((video) => ({
       {
         occasions.map((item) => (
           <p class="filter-banner" data-occasion-banner={item.id} hidden>
-            Подборка «{item.data.title}»: ролики, в названии которых есть слова этой темы.{" "}
+            Подборка: {item.data.title}{" "}
             <a href={withBase("/watch")}>Показать все</a>
           </p>
         ))
@@ -70,6 +93,7 @@ const cards = videos.map((video) => ({
             <VideoCard
               id={video.id}
               title={video.title}
+              displayTitle={video.displayTitle}
               thumbnail={video.thumbnail}
               durationSeconds={video.durationSeconds}
               uploadDate={video.uploadDate}
@@ -222,6 +246,10 @@ const cards = videos.map((video) => ({
         });
         document.querySelectorAll("[data-filter-playlist]").forEach(function (chip) {
           if (chip.getAttribute("data-filter-playlist") === playlist) chip.setAttribute("aria-current", "true");
+          else chip.removeAttribute("aria-current");
+        });
+        document.querySelectorAll("[data-filter-occasion]").forEach(function (chip) {
+          if (chip.getAttribute("data-filter-occasion") === occasion) chip.setAttribute("aria-current", "true");
           else chip.removeAttribute("aria-current");
         });
       }

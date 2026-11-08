@@ -2,10 +2,12 @@
 import { withBase } from "../lib/base";
 import Icon from "./Icon.astro";
 import { formatDate, formatDuration } from "../lib/format";
+import { getDisplayTitle } from "../lib/catalog";
 
 interface Props {
   id: string;
   title: string;
+  displayTitle?: string;
   thumbnail: string;
   durationSeconds: number | null;
   uploadDate: string | null;
@@ -21,6 +23,7 @@ interface Props {
 const {
   id,
   title,
+  displayTitle,
   thumbnail,
   durationSeconds,
   uploadDate,
@@ -34,6 +37,7 @@ const {
 } = Astro.props;
 
 const Heading = heading;
+const cardTitle = getDisplayTitle(title, displayTitle);
 
 const duration = formatDuration(durationSeconds);
 const date = formatDate(uploadDate);
@@ -44,6 +48,8 @@ const thumbSrc = withBase(thumbnail);
 <a
   class="episode"
   href={cardHref}
+  title={title}
+  aria-label={title}
   data-video-id={id}
   data-video-title={title}
   data-playlists={playlists.join(",")}
@@ -68,7 +74,7 @@ const thumbSrc = withBase(thumbnail);
     {duration && <span class="ep-time">{duration}</span>}
   </span>
   <span class="ep-body">
-    <Heading>{title}</Heading>
+    <Heading>{cardTitle}</Heading>
     {date && <span class="ep-meta">{date}</span>}
   </span>
 </a>
