@@ -130,10 +130,14 @@ if (!Array.isArray(source) || source.length === 0) {
   process.exit(1);
 }
 const episodes = mergeEpisodes(source, Array.isArray(manual) ? manual : []);
+const existingVideoFile = readJson(videosPath, { videos: [] });
+const existingById = new Map(
+  (Array.isArray(existingVideoFile.videos) ? existingVideoFile.videos : []).map((video) => [String(video.id), video]),
+);
 const videos = [];
 for (const episode of episodes) {
   const thumbnail = await ensureThumb(episode);
-  videos.push({
+  const video = {
     id: String(episode.vk_id),
     title: episode.title,
     durationSeconds: episode.duration,
@@ -149,7 +153,11 @@ for (const episode of episodes) {
       hash: episode.vk_hash || null,
       url: `https://vk.com/video${OID}_${episode.vk_id}`,
     },
-  });
+  };
+  const existing = existingById.get(video.id);
+  if (typeof existing?.displayTitle === "string") video.displayTitle = existing.displayTitle;
+  if (Array.isArray(existing?.occasions)) video.occasions = existing.occasions;
+  videos.push(video);
 }
 
 const payload = {
