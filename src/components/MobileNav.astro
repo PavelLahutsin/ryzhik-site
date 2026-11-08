@@ -1,0 +1,20 @@
+---
+import { withBase } from "../lib/base";
+const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const items = [
+  { href: "/", label: "Главная", icon: "M3 10.5 12 3l9 7.5M5.5 9.5V21h13V9.5M9.5 21v-7h5v7" },
+  { href: "/watch", label: "Смотреть", icon: "M4 5h16v14H4z M10 9l5 3-5 3z" },
+  { href: "/music", label: "Музыка", icon: "M9 18V6l10-2v11M9 18a3 2.5 0 1 1-3-2.5A3 2.5 0 0 1 9 18Zm10-3a3 2.5 0 1 1-3-2.5A3 2.5 0 0 1 19 15Z" },
+  { href: "/coloring", label: "Раскраски", icon: "M4 20l1-4L17 4a2.1 2.1 0 0 1 3 3L8 19l-4 1ZM14.5 6.5l3 3" },
+];
+---
+<nav class="mobile-nav" aria-label="Основные разделы">
+  {items.map((item) => {
+    const href = withBase(item.href);
+    const active = pathname === (href.replace(/\/+$/, "") || "/");
+    return <a href={href} aria-current={active ? "page" : undefined}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={item.icon} /></svg>
+      <span>{item.label}</span>
+    </a>;
+  })}
+</nav>
