@@ -2,13 +2,25 @@
   {
     "playlist_id": 1,
     "playlist_title": "Все песенки с Рыжиком",
+    "vk_id": 456239268,
+    "vk_hash": "53142318abe1110bea",
+    "title": "Волшебные слова! ✨ | Учим вежливые слова и жесты | Лисёнок Рыжик — Песенки и мультики для малышей",
+    "duration": 199,
+    "thumb": "https://sun9-2.userapi.com/impg/J23uJruczq7awlubtmHKTYwAvPJHy0_zHro0Bw/LcWlSVJGeyU.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=77aa19989c518f4f445af0380063f8aa&type=video_thumb",
+    "date": 1794031200,
+    "youtube_id": "U4QRZTHnlJU",
+    "confidence": "high"
+  },
+  {
+    "playlist_id": 1,
+    "playlist_title": "Все песенки с Рыжиком",
     "vk_id": 456239258,
     "vk_hash": "15f04c04de6e96bc8f",
     "title": "Весёлая Зарядка для малышей! ☀️ | Лисёнок Рыжик — Детские песенки и мультики",
     "duration": 272,
     "thumb": "https://sun9-54.userapi.com/impg/EV-w4Nlsam-zNq_weZ3-C0B9qtL6yutbBFJ8ww/CNyHzWcwDRg.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=3208a2587061ee01d340d7287f8ccdce&type=video_thumb",
     "date": 1793426400,
-    "youtube_id": null,
+    "youtube_id": "3oG-6zhIhHM",
     "confidence": null
   },
   {
@@ -20,7 +32,7 @@
     "duration": 253,
     "thumb": "https://sun9-80.userapi.com/impg/QxP-aXwmYS4a4jkNCxNgNTHMwIlU7i1nKg_dBg/OvTA99T7930.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=677a0fadc0ea4bfddce77a3a4cb0505d&type=video_thumb",
     "date": 1792821600,
-    "youtube_id": null,
+    "youtube_id": "jzCbPLW2qkw",
     "confidence": null
   },
   {
@@ -344,7 +356,7 @@
     "duration": 190,
     "thumb": "https://sun9-54.userapi.com/impg/lH62SKXBs98wk6gQ2ylIuCBrIn8gtICJHUrrGw/h8TGNfxA5yM.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=abe827fbac4120ccf46115772a89ac5a&type=video_thumb",
     "date": 1775286060,
-    "youtube_id": null,
+    "youtube_id": "E0rpjUwmUm0",
     "confidence": null
   },
   {
@@ -428,7 +440,7 @@
     "duration": 337,
     "thumb": "https://sun9-16.userapi.com/impg/CxQWx_5FE3mMqo3E5nW1HymfZ97Ufvisfl60DA/gS0FURhuM-8.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=bf2144a59a9a4cff1009c622c9ab3d05&type=video_thumb",
     "date": 1792938600,
-    "youtube_id": null,
+    "youtube_id": "aL0jCUHIfhQ",
     "confidence": null
   },
   {
@@ -572,7 +584,7 @@
     "duration": 264,
     "thumb": "https://sun9-48.userapi.com/impg/dTSndsjHkGg8fJXiYVL81Nsudc5T6HZ-tqmdow/udwGd3VZZAk.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=05bf5ce848fe2b4b2d1c32f8b185865c&type=video_thumb",
     "date": 1775403000,
-    "youtube_id": null,
+    "youtube_id": "ugC7Z0GFtSY",
     "confidence": null
   },
   {
@@ -633,6 +645,18 @@
     "thumb": "https://sun9-52.userapi.com/impg/1RGKmMs-w3T-ZLnBamAiSHY6F0sPa59CtagqUQ/A4RUGykTX2o.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=292bebc53f967252feb417d6400a37c7&type=video_thumb",
     "date": 1771178015,
     "youtube_id": "wDTGB0xh01I",
+    "confidence": "high"
+  },
+  {
+    "playlist_id": 3,
+    "playlist_title": "Сонные истории",
+    "vk_id": 456239269,
+    "vk_hash": "c3bf2ae7e7bb62e4aa",
+    "title": "Волк и семеро козлят 🐺🐐 | Добрая сказка на ночь | Лисёнок Рыжик — Сказки и мультики для детей",
+    "duration": 318,
+    "thumb": "https://sun9-62.userapi.com/impg/j-vBuk4DxWvA0CoS_UqLkZ9Ylhit5O3UhqnNrg/OKOLhU2H8_4.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=ee17ab2d6a48460d66cd88d83e52c4b0&type=video_thumb",
+    "date": 1793990100,
+    "youtube_id": "mSSK32OFs64",
     "confidence": "high"
   },
   {
