@@ -4,6 +4,25 @@
   "note": "Каталог серий из data/vk/episodes.json: три плейлиста VK, в их порядке. Сборников и шортсов нет. videos:build пересобирает этот файл. Новые серии подтягивает npm run videos:vk.",
   "videos": [
     {
+      "id": "456239268",
+      "title": "Волшебные слова! ✨ | Учим вежливые слова и жесты | Лисёнок Рыжик — Песенки и мультики для малышей",
+      "durationSeconds": 199,
+      "thumbnail": "/thumbs/456239268.webp",
+      "uploadDate": "2026-11-07",
+      "playlists": [
+        "1"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239268",
+      "youtubeId": "U4QRZTHnlJU",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239268,
+        "hash": "53142318abe1110bea",
+        "url": "https://vk.com/video-235612264_456239268"
+      }
+    },
+    {
       "id": "456239258",
       "title": "Весёлая Зарядка для малышей! ☀️ | Лисёнок Рыжик — Детские песенки и мультики",
       "durationSeconds": 272,
@@ -1022,6 +1041,25 @@
         "id": 456239037,
         "hash": "6de8a7d979909cea25",
         "url": "https://vk.com/video-235612264_456239037"
+      }
+    },
+    {
+      "id": "456239269",
+      "title": "Волк и семеро козлят 🐺🐐 | Добрая сказка на ночь | Лисёнок Рыжик — Сказки и мультики для детей",
+      "durationSeconds": 318,
+      "thumbnail": "/thumbs/456239269.webp",
+      "uploadDate": "2026-11-06",
+      "playlists": [
+        "3"
+      ],
+      "groups": [],
+      "watchUrl": "https://vk.com/video-235612264_456239269",
+      "youtubeId": "mSSK32OFs64",
+      "vk": {
+        "oid": -235612264,
+        "id": 456239269,
+        "hash": "c3bf2ae7e7bb62e4aa",
+        "url": "https://vk.com/video-235612264_456239269"
       }
     },
     {

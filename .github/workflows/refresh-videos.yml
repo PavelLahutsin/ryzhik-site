@@ -1,0 +1,93 @@
+# Refresh the episode catalog and publish it.
+# A push made with GITHUB_TOKEN does not start deploy.yml, so this workflow
+# builds the site and deploys GitHub Pages itself after the commit.
+
+name: Refresh videos
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.stage.outputs.changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Refresh VK playlists and YouTube pairings
+        run: |
+          npm run videos:vk
+          npm run videos:rss
+          npm run videos:build
+
+      - name: Stage catalog changes
+        id: stage
+        run: |
+          git add -- data/vk/episodes.json src/data/videos.json public/thumbs
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No catalog changes."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure GitHub Pages
+        if: steps.stage.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        if: steps.stage.outputs.changed == 'true'
+        run: npm run build
+        env:
+          SITE: https://pavellahutsin.github.io
+          BASE_PATH: /ryzhik-site
+
+      - name: Commit new episodes
+        if: steps.stage.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Add newly published episodes."
+          git push origin HEAD:main
+
+      - name: Upload Pages artifact
+        if: steps.stage.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

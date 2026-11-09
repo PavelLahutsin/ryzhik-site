@@ -1,9 +1,10 @@
 /**
  * Refresh data/vk/episodes.json from the three public VK playlists.
  * Anonymous request: al_video.php act=load_videos_silent section=playlist_N oid=-235612264.
- * Episodes already in the file keep title and youtube_id.
+ * Episodes already in the file keep their saved record (title, ids, playlist).
  * New videos are inserted in the order VK returns.
- * Then scripts/build-videos.mjs rebuilds the site catalog.
+ * A failed or empty playlist keeps the saved episodes for that playlist.
+ * The list is never shrunk. Then scripts/build-videos.mjs rebuilds the catalog.
  *
  * Usage: npm run videos:vk
  */
@@ -97,7 +98,16 @@ async function fetchPlaylist(playlistId) {
   let offset = 0;
   let total = Infinity;
   while (offset < total && episodes.length < 500) {
-    const block = await fetchPage(playlistId, offset);
+    let block;
+    try {
+      block = await fetchPage(playlistId, offset);
+    } catch (error) {
+      if (episodes.length === 0) throw error;
+      console.warn(
+        `Playlist ${playlistId} stopped early (${error.message}). Using the ${episodes.length} videos already read.`,
+      );
+      break;
+    }
     total = Number(block.total) || total;
     if (!block.list.length) break;
     for (const row of block.list) {
@@ -127,28 +137,85 @@ function manualYoutubeIds() {
 }
 
 const previous = existsSync(episodesPath) ? JSON.parse(readFileSync(episodesPath, "utf8")) : [];
-const previousById = new Map((Array.isArray(previous) ? previous : []).map((item) => [item.vk_id, item]));
+const previousList = Array.isArray(previous) ? previous : [];
+const previousById = new Map(previousList.map((item) => [item.vk_id, item]));
 const merged = [];
-for (const playlistId of PLAYLISTS) {
-  const fetched = await fetchPlaylist(playlistId);
-  console.log(`playlist ${playlistId}: ${fetched.length}`);
-  if (fetched.length === 0) {
-    console.error(`Playlist ${playlistId} came back empty. episodes.json was not changed.`);
-    process.exit(1);
+const placed = new Set();
+
+function keepPlaylist(playlistId) {
+  for (const saved of previousList) {
+    if (Number(saved.playlist_id) !== playlistId || placed.has(saved.vk_id)) continue;
+    placed.add(saved.vk_id);
+    merged.push(saved);
   }
-  for (const episode of fetched) {
-    const saved = previousById.get(episode.vk_id);
-    if (!saved) {
+}
+
+for (const playlistId of PLAYLISTS) {
+  let fetched = null;
+  try {
+    fetched = await fetchPlaylist(playlistId);
+  } catch (error) {
+    console.warn(`Playlist ${playlistId} failed (${error.message}). Keeping the saved episodes.`);
+  }
+  if (!fetched || fetched.length === 0) {
+    if (fetched) console.warn(`Playlist ${playlistId} came back empty. Keeping the saved episodes.`);
+    keepPlaylist(playlistId);
+    continue;
+  }
+  console.log(`playlist ${playlistId}: ${fetched.length}`);
+  const savedCount = previousList.filter((item) => Number(item.playlist_id) === playlistId).length;
+  if (fetched.length < savedCount) {
+    const fresh = fetched.filter((episode) => !previousById.has(episode.vk_id) && !placed.has(episode.vk_id));
+    console.warn(
+      `Playlist ${playlistId} returned ${fetched.length} videos and ${savedCount} are already saved. Keeping the saved episodes and adding ${fresh.length} new.`,
+    );
+    for (const episode of fresh) {
+      placed.add(episode.vk_id);
       merged.push(episode);
+      console.log(`added ${episode.vk_id} ${episode.title}`);
+    }
+    keepPlaylist(playlistId);
+    continue;
+  }
+  const fetchedIds = new Set(fetched.map((episode) => episode.vk_id));
+  for (const episode of fetched) {
+    if (placed.has(episode.vk_id)) continue;
+    const saved = previousById.get(episode.vk_id);
+    if (saved) {
+      if (Number(saved.playlist_id) !== playlistId) continue;
+      placed.add(saved.vk_id);
+      merged.push(saved);
       continue;
     }
-    merged.push({
-      ...episode,
-      title: saved.title || episode.title,
-      youtube_id: saved.youtube_id ?? null,
-      confidence: saved.confidence ?? null,
-    });
+    placed.add(episode.vk_id);
+    merged.push(episode);
+    console.log(`added ${episode.vk_id} ${episode.title}`);
   }
+  for (const saved of previousList) {
+    if (Number(saved.playlist_id) !== playlistId || placed.has(saved.vk_id)) continue;
+    if (!fetchedIds.has(saved.vk_id)) {
+      console.warn(`Playlist ${playlistId} omitted saved episode ${saved.vk_id}. Keeping it.`);
+    }
+    placed.add(saved.vk_id);
+    merged.push(saved);
+  }
+}
+
+for (const saved of previousList) {
+  if (placed.has(saved.vk_id)) continue;
+  placed.add(saved.vk_id);
+  merged.push(saved);
+}
+
+if (merged.length < previousList.length) {
+  console.warn(
+    `Refusing to shrink the episode list (${previousList.length} -> ${merged.length}). episodes.json was not changed.`,
+  );
+  process.exit(0);
+}
+if (merged.length === 0) {
+  console.warn("No episodes to write. episodes.json was not changed.");
+  process.exit(0);
 }
 
 const overrides = manualYoutubeIds();
