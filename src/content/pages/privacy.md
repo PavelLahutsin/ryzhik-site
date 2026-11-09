@@ -34,4 +34,4 @@ noindex: true
 
 ## Контакты
 
-Вопросы по этому тексту можно написать в сообществе ВКонтакте: [vk.ru/lisenok_ryzhik](https://vk.ru/lisenok_ryzhik). Отдельной почты на сайте нет.
+Вопросы по этому тексту можно написать в сообществе ВКонтакте: [vk.ru/lisenok_ryzhik](https://vk.ru/lisenok_ryzhik) или [Написать на почту](mailto:fox.rusty.stories@gmail.com).

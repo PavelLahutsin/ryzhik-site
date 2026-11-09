@@ -8,6 +8,7 @@ const page = await getEntry("pages", "parents");
 if (!page?.data.themes) throw new Error("Нет текста страницы для родителей");
 const { Content } = await render(page);
 const vk = platform("vk");
+const mailHref = "mailto:fox.rusty.stories@gmail.com";
 ---
 
 <BaseLayout title={`${page.data.title} — Лисёнок Рыжик`} description={page.data.description}>
@@ -33,6 +34,17 @@ const vk = platform("vk");
                   <div>
                     <h2>{theme.title}</h2>
                     <p>{theme.text}</p>
+                    {
+                      theme.title === "Написать нам" && (
+                        <p>
+                          <a href={vk.href} target="_blank" rel="noopener noreferrer">
+                            {vk.handle}
+                          </a>
+                          {" · "}
+                          <a href={mailHref}>Написать на почту</a>
+                        </p>
+                      )
+                    }
                   </div>
                 </article>
               ))
@@ -116,7 +128,9 @@ const vk = platform("vk");
                 Написать автору можно в сообществе ВКонтакте:{" "}
                 <a href={vk.href} target="_blank" rel="noopener noreferrer">
                   {vk.handle}
-                </a>.
+                </a>
+                {" или "}
+                <a href={mailHref}>Написать на почту</a>.
               </p>
             </div>
           </details>
