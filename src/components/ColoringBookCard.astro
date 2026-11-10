@@ -1,0 +1,37 @@
+---
+import { Picture } from "astro:assets";
+import cover from "../assets/coloring/bul-bul-plyukh-plyukh.webp";
+import { withBase } from "../lib/base";
+import { configuredHref } from "../lib/catalog";
+import Icon from "./Icon.astro";
+
+const vkHref = configuredHref("vk");
+const pdfHref = withBase("/bul-bul-plyukh-plyukh.pdf");
+---
+
+<article class="coloring-book">
+  <Picture
+    src={cover}
+    alt="Обложка раскраски «Буль-Буль, Плюх-Плюх!»: лисёнок с кругом у реки"
+    widths={[480, 800]}
+    sizes="(min-width: 700px) 480px, 92vw"
+    formats={["avif", "webp"]}
+    fallbackFormat="webp"
+  />
+  <div class="coloring-book-body">
+    <a class="btn btn-orange" href={pdfHref} download="bul-bul-plyukh-plyukh.pdf">
+      <Icon name="download" />
+      <span>Скачать раскраску <span class="nobr">«Буль-Буль, Плюх-Плюх!»</span> — бесплатно</span>
+    </a>
+    <p class="coloring-book-meta">PDF, 12 страниц, 2,7 МБ</p>
+  </div>
+</article>
+{
+  vkHref && (
+    <p class="coloring-more">
+      <a href={vkHref} target="_blank" rel="noopener noreferrer">
+        Больше раскрасок — в нашем сообществе ВКонтакте для донов
+      </a>
+    </p>
+  )
+}

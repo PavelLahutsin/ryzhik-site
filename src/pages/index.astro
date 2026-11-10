@@ -7,6 +7,7 @@ import hedgehog from "../assets/characters/hedgehog.webp";
 import ryzhikWave from "../assets/characters/ryzhik-wave.webp";
 import familyScene from "../assets/characters/family.webp";
 import friendsScene from "../assets/scenes/friends.webp";
+import ColoringBookCard from "../components/ColoringBookCard.astro";
 import Icon from "../components/Icon.astro";
 import PersonaCard from "../components/PersonaCard.astro";
 import SampleSheet from "../components/SampleSheet.astro";
@@ -364,13 +365,11 @@ const jsonLd = {
           <p class="eyebrow">{sections.coloringEyebrow}</p>
           <h2>{sections.coloringTitle}</h2>
           <p>{sections.coloringLede}</p>
-          <div class="coloring-actions">
-            <a class="btn btn-orange" href={withBase("/coloring")}>Как получить</a>
-          </div>
+          <ColoringBookCard />
         </div>
         <div class="coloring-preview">
-          <SampleSheet src={sample1} alt="Образец листа раскраски: лисёнок на лесной тропе. Не для печати." />
-          <SampleSheet src={sample2} alt="Образец листа раскраски: лисёнок и медвежонок у бревна. Не для печати." />
+          <SampleSheet src={sample1} alt="Лист раскраски: лисёнок на лесной тропе" />
+          <SampleSheet src={sample2} alt="Лист раскраски: лисёнок и медвежонок у бревна" />
         </div>
       </div>
     </div>
