@@ -1160,18 +1160,60 @@
   height: auto;
 }
 
-.sample-mark {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  padding: 6px 12px;
-  border-radius: 999px;
+.coloring-book {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 100%;
+  margin-top: 18px;
+  padding: 12px;
   background: #fffdf8;
-  border: 1px solid rgba(59, 46, 37, 0.12);
-  color: #3b2e25;
+  border: 1px solid rgba(74, 50, 8, 0.12);
+  border-radius: 22px;
+}
+
+.coloring-book picture,
+.coloring-book img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.coloring-book-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.coloring-book .btn {
+  width: 100%;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.coloring-book .nobr {
+  white-space: nowrap;
+}
+
+.coloring-book-meta {
+  margin: 0;
   font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  color: #6d4700;
+}
+
+.coloring-copy .coloring-more {
+  margin: 14px 0 0;
+  max-width: 46ch;
+}
+
+.coloring-more a {
+  color: #4a3208;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .scene-cutout,

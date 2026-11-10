@@ -3,6 +3,7 @@ import { getEntry, render } from "astro:content";
 import sample1 from "../assets/coloring/sample-1.webp";
 import sample2 from "../assets/coloring/sample-2.webp";
 import sample3 from "../assets/coloring/sample-3.webp";
+import ColoringBookCard from "../components/ColoringBookCard.astro";
 import Icon from "../components/Icon.astro";
 import SampleSheet from "../components/SampleSheet.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -12,12 +13,12 @@ const page = await getEntry("pages", "coloring");
 if (!page) throw new Error("Нет текста раскраски");
 const { Content } = await render(page);
 
-const vkHref = configuredHref("vk");
+const coloringHref = configuredHref("coloring");
 
 const samples = [
-  { src: sample1, alt: "Образец листа раскраски: лисёнок на лесной тропе. Не для печати." },
-  { src: sample2, alt: "Образец листа раскраски: лисёнок и медвежонок у бревна. Не для печати." },
-  { src: sample3, alt: "Образец листа раскраски: лисёнок и медвежонок с корзинкой. Не для печати." },
+  { src: sample1, alt: "Лист раскраски: лисёнок на лесной тропе" },
+  { src: sample2, alt: "Лист раскраски: лисёнок и медвежонок у бревна" },
+  { src: sample3, alt: "Лист раскраски: лисёнок и медвежонок с корзинкой" },
 ];
 ---
 
@@ -30,37 +31,28 @@ const samples = [
           <h1>{page.data.heading}</h1>
           {page.data.lede && <p>{page.data.lede}</p>}
 
-          <article class="coloring-featured-card">
-            <div class="coloring-featured-body">
-              <h2>Раскрашивать онлайн</h2>
-              <div class="coloring-featured-action">
-                <a
-                  class="btn btn-orange btn-lg"
-                  href="https://pavellahutsin.github.io/ryzhik-coloring/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon name="paw" />
-                  <span>Раскрашивать онлайн</span>
-                  <span class="sr-only">(откроется в новой вкладке)</span>
-                </a>
-              </div>
-            </div>
-          </article>
+          <ColoringBookCard />
+
+          {
+            coloringHref && (
+              <article class="coloring-featured-card">
+                <div class="coloring-featured-body">
+                  <h2>Раскрашивать онлайн</h2>
+                  <div class="coloring-featured-action">
+                    <a class="btn btn-orange btn-lg" href={coloringHref} target="_blank" rel="noopener noreferrer">
+                      <Icon name="paw" />
+                      <span>Раскрашивать онлайн</span>
+                      <span class="sr-only">(откроется в новой вкладке)</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            )
+          }
 
           <div class="prose">
             <Content />
           </div>
-          {
-            vkHref && (
-              <div class="coloring-actions">
-                <a class="btn btn-emerald" href={vkHref} target="_blank" rel="noopener noreferrer">
-                  <Icon name="vk" />
-                  Получить в VK
-                </a>
-              </div>
-            )
-          }
           <div class="coloring-samples">
             {samples.map((item) => <SampleSheet src={item.src} alt={item.alt} />)}
           </div>

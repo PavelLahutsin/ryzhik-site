@@ -14,11 +14,10 @@ const { src, alt } = Astro.props;
   <Picture
     src={src}
     alt={alt}
-    widths={[320, 464]}
+    widths={[320, 640]}
     sizes="(min-width: 900px) 320px, 92vw"
     formats={["avif", "webp"]}
     fallbackFormat="webp"
     loading="lazy"
   />
-  <span class="sample-mark">образец</span>
 </figure>
